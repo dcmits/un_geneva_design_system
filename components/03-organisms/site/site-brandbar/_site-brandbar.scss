@@ -1,0 +1,144 @@
+.brandbar {
+  line-height: 2;
+  background-color: #f2f2f2;
+  border-bottom: 5px solid $un-blue;
+  
+  .container > .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  #un-global-link-area {
+    flex-grow: 1; // Push everything else out of the way
+    line-height: 1;
+    position: relative;
+    padding-left: 30px;
+
+    @media (max-width:370px) {
+      max-width:150px;
+    }
+  }
+
+  #un-global-link-area a {
+    font-size: $font-size-small;
+    text-decoration: none;
+    color: #333;
+  }
+
+  #un-global-link-area a::before {
+    content: "\f015";
+    font: normal normal normal 20px/1 'Fontawesome', serif;
+    padding-right: 5px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  // Theme the dropdown based language switcher
+  #block-un-geneva-pl-languagedropdownswitcher-2,
+  #block-languagedropdownswitchercontent,
+  #block-languagedropdownswitcher-2,
+  .block.languagedropdownswitcher {
+    display: none;  // Hide or show the appropriate language switcher.
+
+    .form-item {
+      margin: 0;
+    }
+
+    .form-item__dropdown,
+    .form-item__dropdown:hover {
+      border: none;
+      display: inherit;
+    }
+
+    .form-item__dropdown {
+      width: auto;
+      float: right;
+
+      select {
+        border: none;
+        width: 100px !important;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        color: #333;
+        font-weight: 500;
+        padding: 0 15px 0 20px;
+        background: url('../images/lang_bar_globe.svg') no-repeat;
+        background-size: 16px 16px;
+        background-position: center left;
+        text-align: left;
+        appearance: none;
+
+        @include breakpoint(0 $small-max) {
+          width: 90px !important;
+        }
+      }
+
+      &::after {
+        padding-right: 0;
+        color: #333;
+
+        @include breakpoint(0 $small-max) {
+          right:0;
+        }
+      }
+    }
+  }
+
+  // Theme the link based language switcher
+  #language-switcher-area ul {
+    list-style-type: none;
+    margin: 0;
+
+    @include clearfix;
+
+    li {
+      float: left;
+      text-decoration: none;
+      color: $black;
+      font-size: $font-size-small;
+      margin: 0 0 0 16px;
+      padding: 0;
+
+      a {
+        color: $black;
+        text-decoration: none;
+
+        &:not([hreflang="ar"]):not([hreflang="zh-hans"]) {
+          font-family: 'Roboto', 'Open Sans', 'Arial', sans-serif;
+        }
+      }
+
+      a.is-active {
+        font-weight: bolder;
+      }
+    }
+  }
+
+  // Hide or show the appropriate language switcher.
+  .language-switcher-language-url {
+    display: block;
+  }
+
+  @media (max-width: 767px) {
+    #block-un-geneva-pl-languagedropdownswitcher-2,
+    #block-languagedropdownswitchercontent,
+    #block-languagedropdownswitcher-2,
+    .block.languagedropdownswitcher {
+      display: block;
+    }
+
+    .language-switcher-language-url {
+      display: none;
+    }
+  }
+}

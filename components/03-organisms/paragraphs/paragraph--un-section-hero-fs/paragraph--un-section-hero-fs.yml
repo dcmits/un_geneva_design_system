@@ -1,0 +1,25 @@
+content:
+  <div class="super-hero-banner-media">
+    <img src="https://www.ungeneva.org/sites/default/files/styles/un_section_hero_fs/public/2019-10/human-rights-room-hero-image.jpg?itok=D89QBZhj" width="1920" height="883" alt="Hero Full Screen" loading="lazy" typeof="foaf:Image">
+  </div>
+  <div class="container">
+    <div class="row">
+        <div class="super-hero-banner-content">
+            <div class="super-hero-banner-innercontent">
+              <div class="un-rich-text">
+                <div class="text-long">
+                  <h2>Un Geneva</h2>
+                  <h3>Working for Peace, Rights and Well-being</h3>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+paragraph:
+  field_hero_content_orientation:
+    value: "bottom center"
+  field_hero_vignette_style:
+    value: ""
+  field_hero_content_style:
+    value: "silk-screen"

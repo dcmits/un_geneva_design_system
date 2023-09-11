@@ -1,0 +1,19 @@
+.content-title span {
+  margin: 10px 0 25px 0;
+  padding-bottom: 5px;
+  border-bottom: 2px solid $blue;
+  display: inline-block;
+}
+
+h2.content-title {
+  margin: 40px 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 300;  // Roboto Light
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h2.content-title span {
+  margin: 0;
+}

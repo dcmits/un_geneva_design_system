@@ -1,0 +1,21 @@
+name: 'UN Geneva starterkit theme'
+type: theme
+base theme: un_geneva_design_system
+core_version_requirement: ^10
+libraries:
+  - un_geneva_starterkit/global
+ckeditor_stylesheets:
+  - dist/style.css
+regions:
+  brandbar: Brandbar
+  header: Header
+  content: Content
+  sidebar: Sidebar
+  footer_left: 'Footer Left'
+  footer_middle: 'Footer Middle'
+  footer_right: 'Footer Right'
+  footer_bottom: 'Footer Bottom'
+  block_reference_region: 'Block Reference Region (Hidden)'
+logo: images/logo.png
+starterkit: true
+version: 1.0.0

@@ -1,0 +1,75 @@
+// Breadcrumbs
+$breadcrumb-bg: transparent;
+$breadcrumb-color: $white;
+$breadcrumb-active-color: $white;
+$breadcrumb-separator: "→";
+$breadcrumb-separator-rtl: "←";
+
+.node-breadcrumbs {
+  font-family: Roboto, sans-serif;
+  padding-bottom: 1em;
+
+  .breadcrumb {
+    @include list-reset;
+
+    > li {
+      display: inline-block;
+      color: #fff;
+      font-size: $font-size-larger;
+      text-shadow: $dark-gray 0 0 4px;
+
+      a {
+        color: $white;
+
+        &:hover,
+        &:focus {
+          color: $white;
+          text-decoration: underline;
+        }
+      }
+
+      + li::before,
+      &:last-of-type::after {
+        // Removing default Bootstrap styles, we use them on ::after instead, otherwise the page title doesn't look good
+        display: none;
+      }
+
+      &::after {
+        // plain copy-paste of Bootstrap default style on li + li::before
+        $nbsp: "\00a0";
+
+        content: "#{$breadcrumb-separator}#{$nbsp}";
+        padding: 0 5px;
+        color: $breadcrumb-color;
+      }
+    }
+
+    li.page-title {
+      display: block;
+    }
+
+    @include breakpoint(0 $large-max) {
+      > li {
+        font-size: 18px;
+
+        &.page-title h1 {
+          margin-top: 15px;
+          margin-bottom:0;
+          font-size:36px;
+        
+          @include breakpoint(0 $small-max) {
+            font-size:30px;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+// Override for Right-to-Left content.
+[dir="rtl"] .node-breadcrumbs .breadcrumb > li::after {
+  $nbsp: "\00a0";
+
+  content: "#{$nbsp}#{$breadcrumb-separator-rtl}";
+}

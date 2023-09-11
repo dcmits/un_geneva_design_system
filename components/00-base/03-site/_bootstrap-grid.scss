@@ -1,0 +1,73 @@
+@mixin bootstrap-col($cols) {
+    width: calc($cols * 100% / 12);
+    padding-left: 15px;
+    padding-right: 15px;
+    float: left;
+}
+
+@for $i from 1 through 12 {
+    .col-xs-#{$i} {
+        @include bootstrap-col($i);
+    }
+
+    .col-sm-#{$i} {
+        @include bootstrap-col(12);
+    }
+    .col-md-#{$i} {
+        @include bootstrap-col(12);
+    }
+    .col-lg-#{$i} {
+        @include bootstrap-col(12);
+    }
+}
+
+.container .row.with-cols {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+
+    @include sm {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    @include large {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    @include xl {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    @for $i from 1 through 12 {
+        .col-xs-#{$i} {
+            @include bootstrap-col($i);
+        }
+    
+        .col-sm-#{$i} {
+            @media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+                @include bootstrap-col($i);
+            }
+        }
+        .col-md-#{$i} {
+            @media (min-width: $screen-md-min) {
+                @include bootstrap-col($i);
+            }
+        }
+        .col-lg-#{$i} {
+            @include xl {
+                @include bootstrap-col($i);
+            }
+        }
+    } 
+}

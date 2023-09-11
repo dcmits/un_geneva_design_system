@@ -1,0 +1,68 @@
+.hero-section {
+  position: relative; // to enable absolute positioning of children
+  min-height: 356px;  // height of the image in the image style config, if no image it will still look OK
+  background-color: $un-blue;  // if no image.
+
+  img {
+    // Note: "object-fit" does not work in IE11, will need another solution for it
+    display: block;
+    min-height: 356px;  // always cover the full height of the container
+    width: 100%;  // cover the container horizontally in all cases, even on wide screens
+    object-fit: cover;  // will show the center part of the image if it's too wide to fit in viewport
+  }
+
+  @include breakpoint($large-min $screen-hd-max) {
+    min-height:28vw;
+
+    img {
+      min-height:28vw;
+    }
+  }
+
+  @include breakpoint(0 $large-max) {
+    background-color: $aria-compliant-blue;
+    min-height:auto;
+
+    &::before {
+      display: none;
+    }
+
+    img {
+      min-height:auto;
+    }
+  }
+
+  > .container {
+    // will usually be breadcrumbs, but any container would be positioned in the same spot
+    position: absolute;
+    bottom: 0;
+
+    /*
+      Using "transform" here since the browser support is slightly better
+      than calc() and we avoid using any fixed value.
+      could also be "left: calc(50% - (<width of container in px> / 2))"
+    */
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include breakpoint(0 $screen-xs-max) {
+      width: 100%;  // Fix positioning when the container has no max width
+    }
+
+    @include breakpoint(0 $large-max) {
+      position:relative;
+      -webkit-transform: none;
+      transform: none;
+      padding-top: 15px;
+      left: 0;
+    }
+  }
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(255, 255, 255, 0) 64%);
+  }
+}

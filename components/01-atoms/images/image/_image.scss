@@ -1,0 +1,54 @@
+@mixin image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+img,
+picture {
+  @include image;
+}
+
+figure {
+  margin: 0; /* override normalize */
+}
+
+.figure__caption,
+figcaption {
+  font-size: smaller;
+  font-style: italic;
+}
+
+
+.text-long {
+  > article.image,  // image just inside a text area
+  :not(figure) > article.image,  // image nested under another element except figure
+  figure {
+    padding: 1.5em;
+
+    // When the media image is floating in a rich text area, restrict the maximum
+    // width to make sure we leave enough space for the text next to it,
+    // especially with smaller screen sizes.
+    &.align-left,
+    &.align-right {
+      max-width: 50%;
+    }
+
+    &.align-left {
+      padding-left: 0;
+    }
+
+    &.align-right {
+      padding-right: 0;
+    }
+
+    img {
+      margin: 0 auto;
+    }
+  }
+}
+
+// Perfect circle
+.img-circle {
+  border-radius: 50%; // set radius in percents
+}

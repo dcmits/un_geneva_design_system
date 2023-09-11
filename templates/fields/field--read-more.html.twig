@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * @see field.html.twig
+ */
+#}
+{% set read_more_item = items[0] %}
+{% set items = items|filter((v, k) => k is not same as(0)) %}
+{% set items = items|merge({
+    0: read_more_item|merge({
+        'content': read_more_item['content']|merge({
+            '#id': element['#object'].id()
+        })
+    })
+}) %}
+{% include "@atoms/_field.twig" %}

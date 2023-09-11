@@ -1,0 +1,21 @@
+{% extends "@templates/_default.twig" %}
+  {% set main_base_class = 'main-fluid' %}
+  {% block page_content %}
+    {% include "@organisms/paragraphs/paragraph--un-section-hero-3-4/paragraph--un-section-hero-3-4.twig" %}
+    <div class="section">
+      <div class="container">
+        {% include "@organisms/focus-on/focus-on.twig" %}
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        {% include "@atoms/text/headings/_heading.twig" with {
+          heading_base_class: "content-title",
+          heading_inner_wrapper: "span",
+        } %}
+        {% include "@organisms/two-column-grid/two-column-grid.twig" %}
+      </div>
+    </div>
+    {% include "@organisms/paragraphs/paragraph--links-container/paragraph--links-container.twig" %}
+    {% include "@organisms/site/page-last-update/page-last-update.twig" %}
+  {% endblock %}

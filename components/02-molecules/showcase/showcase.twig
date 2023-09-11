@@ -1,0 +1,100 @@
+{% if directory %}
+  {% set image_src = item['#node'].field_featured_image[0].entity|file_uri|image_style('showcase') %}
+  {% set title = item['#node'].getTitle %}
+  {% set subtitle = item['#node'].field_subtitle.value %}
+  {% if item['#node'].body[0].value %}
+    {% set render_body = {
+      '#type': 'processed_text',
+      '#text':  item['#node'].body[0].value,
+      '#format': item['#node'].body[0].format,
+    } %}
+  {% else %}
+    {% set render_body = '' %}
+  {% endif %}
+  {% set body = render_body|render %}
+  {% set links = item['#node'].field_links %}
+  {% set default_icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 18"> <defs> <style> .cls-1 { fill: #4b4b4b; } </style> </defs> <path id="Path_312" data-name="Path 312" class="cls-1" d="M9.027,11.12,2,4.093,4.093,2,9.027,6.934,13.96,2l2.093,2.093Z" transform="translate(0 4) rotate(-90 8 8)"></path> </svg>' %}
+{% else %}
+  {% set image_src = item.image_src %}
+  {% set image_alt = item.image_alt %}
+  {% set title = item.title %}
+  {% set subtitle = item.subtitle %}
+  {% set body = item.body %}
+  {% set links = item.links %}
+{% endif %}
+<div class="layout layout--twocol showcase">
+  {% if size == 'medium' %}
+      <div class="node_title">
+        {% include "@atoms/text/headings/_heading.twig" with {
+          "heading_level": 3,
+          "heading": title,
+        } %}
+      </div>
+      <div class="field_subtitle">{{ subtitle }}</div>
+      <div class="field_featured_image">
+        <article class="image">
+          {% include '@atoms/images/image/_image.twig' with item %}
+        </article>
+      </div>
+      <div class="field_body">
+        {{ body }}
+      </div>
+      <div class="field_links--wrapper">
+        <div class="field_links">
+          {% for link in links %}
+            {% if directory %}
+              {% set translated_link = link.entity.hasTranslation(current_language) ? link.entity.getTranslation(current_language) : link.entity %}
+              {% set link_icon = translated_link.field_link_icon.0.target_id ? drupal_image(translated_link.field_link_icon.0.entity|file_uri)|render : default_icon %}
+              {% include '@molecules/link-item/link-item.twig' with {
+                'link_uri': translated_link.field_link_info.0.url,
+                'link_title': translated_link.field_link_info.0.title,
+                'link_display': 'list',
+                'icon': '<figure>' ~ link_icon  ~ '</figure>',
+                'link_attributes': translated_link.field_link_info.0.url.getOption('attributes')|default([]),
+              } only %}
+            {% else %}
+              {% include '@molecules/link-item/link-item.twig' with link %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+  {% else %}
+    <div class="layout__region layout__region--first">
+      <div class="field_featured_image">
+        <article class="image">
+          {% include '@atoms/images/image/_image.twig' with item %}
+        </article>
+      </div>
+    </div>
+    <div class="layout__region layout__region--second">
+      <div class="node_title">
+        {% include "@atoms/text/headings/_heading.twig" with {
+          "heading_level": 3,
+          "heading": title,
+        } %}
+      </div>
+      <div class="field_subtitle">{{ subtitle }}</div>
+      <div class="field_body">
+        {{ body }}
+      </div>
+      <div class="field_links--wrapper">
+        <div class="field_links">
+          {% for link in links %}
+            {% if directory %}
+              {% set link_icon = link.entity.field_link_icon.0.target_id ? drupal_image(link.entity.field_link_icon.0.entity|file_uri)|render : default_icon %}
+              {% include '@molecules/link-item/link-item.twig' with {
+                'link_uri': link.entity.field_link_info.0.url,
+                'link_title': link.entity.field_link_info.0.title,
+                'link_display': 'list',
+                'icon': '<figure>' ~ link_icon  ~ '</figure>',
+                'link_attributes': link.entity.field_link_info.0.url.getOption('attributes')|default([]),
+              } only %}
+            {% else %}
+              {% include '@molecules/link-item/link-item.twig' with link %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>

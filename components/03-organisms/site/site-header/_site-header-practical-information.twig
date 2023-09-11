@@ -1,0 +1,12 @@
+    <div id="block-un-geneva-pl-practicalinformationdynamicmenublock" class="block">
+      <div>
+        <div class="custom-select">
+          <select name="options" onchange="location = this.value;" aria-label="{{ 'Quicklinks'|t }}">
+            <option value="">{{ 'Quicklinks'|t }}</option>
+            {% for quicklink in quicklinks %}
+              <option value="{{ quicklink.url }}">{{ quicklink.title }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>

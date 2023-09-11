@@ -1,0 +1,11 @@
+{% set last_update_date = last_update|default('') %}
+<div class="page-last-update">
+  <div class="container">
+    <p>
+    {% if label %}
+      <span class="label">{{ label }}:</span>
+    {% endif %}
+    {{ last_update_date }}
+    </p>
+  </div>
+</div>

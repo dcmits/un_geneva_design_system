@@ -1,0 +1,58 @@
+{#
+/**
+ * Available variables:
+ * - topics_base_class - base classname of the wrapper
+ * - topics_modifiers - array of modifiers to add to the base classname of the wrapper
+ * - topics_blockname - blockname prepended to the base classname of the wrapper(s) and each component
+ * - topics_extra_classes - additional classes for the wrapper
+ * - topics_attributes - additional attributes (except class) for the wrapper
+ *
+ * - icon_name - id of the icon in the svg sprite, usually based on topic name
+ *
+ * - topics_link_url - destination URL for the topic
+ *
+ * - title_prefix - prefix markup for the label
+ * - topics_title - label for the topic
+ * - topics_title_base_class - base classname of the label
+ * - topics_title_modifiers - array of modifiers to add to the base classname of the label
+ * - topics_title_blockname - blockname prepended to the base classname of the label
+ */
+#}
+
+{% set topics_base_class = topics_base_class|default('topics-block') %}
+{% set icon_name = icon_name | trim | replace({' ':'-'}) |lower %}
+{% set topics_extra_classes = (topics_extra_classes|default([]))|merge(["icon-container"]) %}
+
+{% embed "@atoms/links/link/link.twig" with {
+  "link_base_class": topics_base_class,
+  "link_modifiers": topics_modifiers,
+  "link_blockname": topics_blockname,
+  "link_extra_classes": topics_extra_classes,
+  "link_attributes": topics_attributes,
+  "link_url": topics_link_url
+} %}
+
+  {% block link_content %}
+    {% block topics_img %}
+      
+        {% include "@atoms/images/icons/_icon.twig" with {
+          icon_name: icon_name,
+      } %}
+  
+    {% endblock %}
+    {% include "@atoms/text/text/06-hr.twig" %}
+    {% if topics_title %}
+      {{ title_prefix }}
+      {% include "@atoms/text/headings/_heading.twig" with {
+          "heading_level": 6,
+          "heading": topics_title,
+          "heading_blockname": topics_title_blockname|default(topics_base_class),
+          "heading_modifiers": topics_title_modifiers,
+          "heading_base_class": topics_title_base_class|default('title'),
+          "attributes": attributes|default([])
+      } only %}
+      {{ title_suffix }}
+    {% endif %} 
+  {% endblock %}
+
+{% endembed %}

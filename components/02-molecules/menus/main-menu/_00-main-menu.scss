@@ -1,0 +1,130 @@
+/* Menu media */
+$main-menu-medium: $medium;
+
+.menu--open {
+  overflow:hidden;
+}
+
+/* Nav */
+.main-nav {
+  /* border-top: 1px solid $gray-200; */
+
+  display: none;
+
+  @include large {
+    display: block;
+    background-color: $gray-350;
+
+    .fixed-container & {
+      background-color: transparent;
+    }
+  }
+
+  &--open {
+    background-color: clr(background);
+    display: block;
+    left: 0;
+    position:fixed;
+    top: 8rem;
+    bottom: 0;
+    padding-top: 50px;
+    right: 0;
+    z-index: 10;
+
+    body.toolbar-vertical & {
+      top: calc(8rem + 39px);
+    }
+    
+    > .container {
+      height: 100%;
+      overflow-y: auto;
+      border-top: 1px solid $gray-200;
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+  }
+}
+
+/* UL */
+.main-menu {
+  @include list-reset;
+
+  position: relative;
+  z-index: 10;
+
+  @include large {
+    border-bottom: none;
+    display: flex;
+
+    .fixed-container & {
+      background-color: $gray-350;
+    }
+
+  }
+}
+
+/*
+ * Sub Navigation
+ */
+
+/* UL (Nested) */
+.main-menu--sub {
+  border-bottom: none;
+  background-color: clr(muted);
+  width: 100%;
+  margin-top:-200%;
+  visibility: hidden;
+  transition:all 0.4s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  @include large {
+    background-color: clr(highlight-high);
+    display: none;
+    height: auto;
+    left: 0;
+    overflow: visible;
+    padding: $space 0;
+    position: absolute;
+    top: 55px;
+    z-index: 1;
+    font-size: 0.9rem;
+    opacity: 1;
+    width: auto;
+  }
+
+  &:hover {
+    @include large {
+      opacity: 1;
+      background-color: clr(accent-high);
+      transition: all 0.2s;
+
+      .main-menu__link--sub {
+
+        &.active,
+        &:active,
+        &:hover {
+          color: clr(background);
+          background-color: $gray-300;
+        }
+      }
+    }
+  }
+
+  /* See main-menu.js */
+  &-open {
+    margin-top: 2px; // needed to make the outline visible
+    margin-bottom: 2px; // needed to make the outline visible
+    padding-top: 2px; // needed to make the outline visible
+    padding-bottom: 2px; // needed to make the outline visible
+    visibility: visible;
+    display: block;
+  }
+}
+
+.main-menu--sub-2 {
+  @include large {
+    display: none; /* Never shown on large screens */
+  }
+}

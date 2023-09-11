@@ -1,0 +1,7 @@
+{% set image = additional_branding_image() %}
+
+{% if image is not empty %}
+<div class="advert-img hidden-xs">
+  {{ additional_branding_image() }}
+</div>
+{% endif %}

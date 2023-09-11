@@ -1,0 +1,413 @@
+.header {
+  margin-bottom: 1rem;
+
+  &__inner {
+    @include wrapper;
+
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__primary,
+  &__secondary {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+  &__primary {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    @include medium {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    @include large {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__branding {
+    margin-right: 0;
+
+    .site-branding {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    
+      figure {
+        width: 50px;
+        min-width: 50px;
+        padding: 5px;
+        padding-left: 0;
+
+        @include small {
+          width: 60px;
+          min-width: 60px;
+        }
+
+        @include large {
+          width: 80px;
+          min-width: 80px;
+        }
+      }
+      
+    }
+    
+    .brand-body {
+      display: none;
+      
+      @include small {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        max-width: 90px;
+      }
+      
+      @include large {
+        max-width: 130px;
+      }
+    }
+    
+    .top-title {
+      margin: 0 4px;
+    
+      a {
+        text-decoration: none;
+        font-size: 1.4rem;
+        line-height: 1;
+        font-weight: 700;
+        color: $black;
+        vertical-align: middle;
+
+    
+        @include large {
+          font-size: 2.1rem;
+        }
+      }
+    
+      @include clearfix;
+    
+      :hover,
+      :focus {
+        color: $gray;
+        text-decoration: none;
+      }
+    }
+
+    .site-title-secondary {
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+      padding-right: 1rem;
+      margin: 0;
+      margin-left: 0.5rem;
+      max-width: 170px;
+      font-family: 'RobotoCondensed';
+
+      @include small {
+        padding-left: 1rem;
+        border-left: 2px solid $gray-200;
+      }
+
+      @include large {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        max-width:250px;
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: clr(text);
+        line-height: 1.2;
+      }
+
+      span {
+        line-height: 1.2;
+        vertical-align: middle;
+        color: clr(text);
+        font-size: 1rem;
+        font-weight: bold;
+
+        @include large {
+          font-size: 1.4rem;
+        }
+      }
+    }
+    .site-branding.two-lines {
+      flex-direction: column;
+      text-align: center;
+
+      .brand-body {
+        display: none;
+        
+        @include breakpoint($screen-sm-min) {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          max-width: 90px;
+        }
+        
+        @include large {
+          max-width: 130px;
+        }
+      }
+
+      .site-title-secondary {
+        max-width: none;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-left: none;
+        padding-left: 0;
+
+        a {
+          display: flex;
+          flex-direction: column;
+        }
+
+        span {
+          font-size: 1.2rem;
+          font-family: 'RobotoCondensed';
+        }
+
+        .row1 {
+          font-weight: 500;
+          border-bottom: 1px solid $gray-200;
+          padding-bottom: 0.2rem;
+          margin-bottom: 0;
+          font-weight: 500;
+        }
+        .row2 {
+          margin-bottom: 0;
+          border-top: 1px solid $gray-200;
+          padding-top: 0.2rem;
+          margin-top: -1px;
+        }
+
+        @include breakpoint($screen-sm-min) {
+          padding-left: 1rem;
+          border-left: 2px solid $gray-200;
+        }
+      }
+
+      @include small {
+        flex-direction: row;
+        text-align: left;
+      }
+    }
+  }
+
+  &__mobile-menu-button {
+    .button.button--ultimenu {
+      cursor: pointer;
+      display: block;
+  }
+
+  @include breakpoint($screen-md-min) {
+      display: none;
+    }
+  }
+  
+  &__search {
+    display: none;
+
+    .menu--open & {
+      display:block;
+      position: absolute;
+      z-index: 11;
+      top: 8rem;
+
+      body.toolbar-vertical & {
+        top: calc(8rem + 39px);
+      }
+  
+      left:50%;
+      transform: translateX(-50%);
+    }
+
+    body.toolbar-vertical.menu--open & {
+      top: calc(8rem + 39px);
+    }
+
+    #block-un-geneva-design-system-header-search,
+    #block-header-search,
+    & > .block {
+      margin: 0;
+      padding: 0;
+    
+      label,
+      .form-actions {
+        position: absolute !important;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+        width: 1px;
+        height: 1px;
+        word-wrap: normal;
+      }
+    
+      #views-exposed-form-main-search-page-1 {
+        input {
+          border: solid 1px $gray-200;
+          border-radius: 2px;
+          color: clr(text);
+          padding: 3px 40px 3px 10px;
+          line-height: 1.5;
+          height: auto;
+          box-shadow: none;
+          -webkit-box-shadow: none;
+          outline: none;
+    
+          /* Width (animated) */
+          width: 140px !important;
+          -webkit-transition: width 0.5s;
+          -moz-transition: width 0.5s;
+          -o-transition: width 0.5s;
+          transition: width 0.5s;
+    
+          /* Background */
+          background: url('../images/search_icon.png') no-repeat scroll -6px 0 transparent;
+          background-repeat: no-repeat;
+          background-position: right 8px center;
+          background-size: 24px;
+    
+          &::placeholder {
+            color: #000;
+            font-weight: bold;
+          }
+    
+          &:focus {
+            width: 160px !important;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+            outline: 0;
+          }
+        }
+    
+        .form-inline .form-group,
+        .form-item {
+          display: block;
+          margin: 0;
+          position: relative;
+
+          &:after {
+            display: block;
+            position: absolute;
+            right: 40px;
+            top: 0;
+            bottom: 0;
+            border-left: 1px solid $gray-200;
+          }
+        }
+      }
+    } /* End: #block-header-search */
+
+    @include breakpoint($screen-md-min) {
+      display: block;
+
+      .menu--open & {
+        position: relative;
+        z-index: 10;
+        top: 0;
+  
+        left:0;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__practical-information {
+    margin-left: auto;
+    margin-right: $space;
+    display: none;
+
+    #block-un-geneva-pl-practicalinformationdynamicmenublock {
+      float: right;
+      height: auto;
+      padding: 0px 6px 0px 40px;
+    
+      .custom-select {
+        float: left;
+        display: flex;
+    
+        select {
+          /* Disable native appearance. */
+          cursor: pointer;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+    
+          /* Box */
+          border: 1px solid $gray-200;
+          border-radius: 2px;
+          padding: 3px 16px 3px 10px;
+          line-height:1.5;
+          margin-right: 10px;
+          width: 100% !important;
+          min-width: 115px;
+    
+          /* Appearance */
+          color: clr(text);
+          background-image: url('../images/arrow_practical-info.svg');
+          background-repeat: no-repeat;
+          background-size: 14px 9px;
+          background-position: top 10px right 8px;
+          background-color: transparent;
+          font-weight: bold;
+    
+          &::-ms-expand {
+            display: none;
+          }
+    
+          &:focus {
+            width: auto;
+            position: relative;
+          }
+        }
+    
+        option {
+          padding: 0 15px 0 15px !important;
+          margin-left: -20px !important;
+        }
+    
+        /*
+        &::before {
+          content: "";
+          background-image: url('/images/practical-info_icon.svg');
+          background-repeat: no-repeat;
+          background-position: left center;
+          width: 26px;
+          height: 26px;
+          display: block;
+          left: 0;
+          right: 0;
+        }
+    
+        &::after {
+          content: "";
+          background-image: url(/images/divider.jpg);
+          display: table-cell;
+          background-repeat: no-repeat;
+          width: 2px;
+          background-position: center center;
+          margin-top: 5px;
+        }
+        */
+      }
+    } /* End: #block-un-geneva-pl-practicalinformationdynamicmenublock */
+    
+    @include breakpoint($screen-md-min[]) {
+      display: block;
+    }
+  }
+
+  &:after {
+    content:'';
+    display: block;
+    width: 100%;
+    /* border-top: 1px solid $gray-200; */
+  }
+}

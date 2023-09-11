@@ -1,0 +1,82 @@
+size: large
+items: #rows
+  0:
+    # Image
+    image_src: "https://picsum.photos/1280/920"
+    image_alt: "This is the card image's alt text"
+
+    # Title
+    title:
+      "CEDAW Committee reviews the report of Slovenia today"
+
+    # Subtitle
+    subtitle:
+      Universal Periodic Review, 23 January - 3 Fabruary 2023
+
+    # Body
+    body:
+      "Pellentesque in ipsum id orci porta dapibus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar."
+
+    # Links
+    links:
+      0:
+        link_uri: http://example.org
+        link_title: Link text 1
+        link_display: list
+        icon: '
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 18">
+              <defs>
+                <style> .cls-1 { fill: #4b4b4b; } </style>
+              </defs>
+              <path id="Path_312" data-name="Path 312" class="cls-1" d="M9.027,11.12,2,4.093,4.093,2,9.027,6.934,13.96,2l2.093,2.093Z" transform="translate(0 4) rotate(-90 8 8)"></path>
+            </svg>
+          </figure>
+          '
+  1:
+    # Image
+    image_src: "https://picsum.photos/1280/920"
+    image_alt: "This is the card image's alt text"
+
+    # Title
+    title:
+      "CEDAW Committee reviews the report of Slovenia today"
+
+    # Subtitle
+    subtitle:
+      Universal Periodic Review, 23 January - 3 Fabruary 2023
+
+    # Body
+    body:
+      "Pellentesque in ipsum id orci porta dapibus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar."
+
+    # Links
+    links:
+      0:
+        link_uri: http://example.org
+        link_title: Link text 1
+        link_display: list
+        icon: '
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 18">
+              <defs>
+                <style> .cls-1 { fill: #4b4b4b; } </style>
+              </defs>
+              <path id="Path_312" data-name="Path 312" class="cls-1" d="M9.027,11.12,2,4.093,4.093,2,9.027,6.934,13.96,2l2.093,2.093Z" transform="translate(0 4) rotate(-90 8 8)"></path>
+            </svg>
+          </figure>
+          '
+      1:
+        link_uri: http://example.org
+        link_title: Link text 2
+        link_display: list
+        icon: '
+          <figure>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 18">
+              <defs>
+                <style> .cls-1 { fill: #4b4b4b; } </style>
+              </defs>
+              <path id="Path_312" data-name="Path 312" class="cls-1" d="M9.027,11.12,2,4.093,4.093,2,9.027,6.934,13.96,2l2.093,2.093Z" transform="translate(0 4) rotate(-90 8 8)"></path>
+            </svg>
+          </figure>
+          '

@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Theme for a container of links.
+ * 
+ * Links can be buttons or card and can be included in diverse contexts.
+ *
+ * Available variables:
+ * - links: List of all the link items. Each link contains:
+ *   - content: The link item's content.
+ */
+#}
+{% set number_of_items = items|length %}
+<div class="bg-alternate un-section container-fluid">
+  <div class="container">
+  {% set inner_content %}
+    <div class="un-links-icons-container">
+      {% for link in links %}
+        {% include '@molecules/link-item/link-item.twig' with link %}
+      {% endfor %}
+    </div>
+  {% endset %}
+    {% include '@organisms/box/box.twig' %}
+  </div>
+</div>
+

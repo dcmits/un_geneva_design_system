@@ -1,0 +1,284 @@
+<?php
+use Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\Core\Form\FormState;
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Url;
+use Drupal\Component\Utility\Html;
+use Drupal\file\Entity\File;
+
+/**
+ * @file
+ * Functions to support theming.
+ */
+
+function un_geneva_design_system_preprocess(&$variables, $hook) {
+
+  if(theme_get_setting('site_name')) {
+    $variables['site_name'] = theme_get_setting('site_name');
+  }
+  if(theme_get_setting('site_name_secondary')) {
+    $variables['site_name_secondary'] = theme_get_setting('site_name_secondary');
+  }
+  if(theme_get_setting('social_media_share_default_image')) {
+    $variables['social_media_share_default_image'] = theme_get_setting('social_media_share_default_image');
+  }
+  $variables['theme_banner'] = un_geneva_design_system_get_default_banner();
+  
+  $theme_handler = Drupal::service('theme_handler');
+  $variables['un_geneva_design_system_path'] = $theme_handler->getTheme('un_geneva_design_system')->getPath();
+  
+  if($hook == 'region' && $variables['region'] == 'header') {
+    $variables['use_theme_logo'] = theme_get_setting('logo.use_default');
+  
+    $parameters = new MenuTreeParameters();
+    $menu_name = 'quicklinks';
+
+    // Optionally limit to enabled items.
+    $parameters->onlyEnabledLinks();
+
+    // Optionally set active trail.
+    $menu_active_trail = \Drupal::service('menu.active_trail')->getActiveTrailIds($menu_name);
+    $parameters->setActiveTrail($menu_active_trail);
+
+    // Load the tree.
+    $tree = \Drupal::menuTree()->load($menu_name, $parameters);
+    $render = Drupal::menuTree()->build($tree);
+
+    if(isset($render['#items'])) {
+      $variables['quicklinks'] = $render['#items'];
+    }
+
+    $block_search = \Drupal\block\Entity\Block::load('un_geneva_design_system_header_search'); // replace mytheme part with your theme name.
+    $variables['header__search'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($block_search);
+    $block_branding = \Drupal\block\Entity\Block::load('un_geneva_theme_branding'); // replace mytheme part with your theme name.
+    $variables['header__branding'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($block_branding);
+    $block_mainnavigation = \Drupal\block\Entity\Block::load('un_geneva_theme_mainnavigation'); // replace mytheme part with your theme name.
+    $variables['header__menu'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($block_mainnavigation);
+  }
+  elseif($hook == 'machine_translated_warning') {
+    $variables['current_language'] = \Drupal::languageManager()->getCurrentLanguage()->getId() == 'zh-hans' ? 'zh' : \Drupal::languageManager()->getCurrentLanguage()->getId();
+  }
+}
+
+function un_geneva_design_system_get_default_banner() {
+
+  $useDefault = theme_get_setting('banner_use_default');
+
+  if($useDefault) {
+    // if theme has a banner.jpg , use it
+    if(file_exists('theme://' . \Drupal::service('theme.manager')->getActiveTheme()->getName() . '/images/banner.jpg')) {
+      return 'theme://' . \Drupal::service('theme.manager')->getActiveTheme()->getName() . '/images/banner.jpg';
+    }
+    else {
+      // Fallback to a predefined image.
+      return 'theme://un_geneva_design_system/images/un_flag.jpg';
+    }
+  }
+  else {
+    $bannerFid = theme_get_setting('banner_image_fid');
+
+    $banner = $bannerFid && isset($bannerFid[0]) && $bannerFid[0] ? File::load($bannerFid[0]) : null;
+  
+    if ($banner) {
+      return $banner->getFileUri();
+    }
+  }
+  // No image, respect that choice.
+  return null;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function un_geneva_design_system_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+  $base = $variables['theme_hook_original'];
+
+  // Adding a node type specific theme suggestion so that we can tweak the outer HTML
+  // for Landing pages in order to enable edge-to-edge background display for the Sections
+  // Paragraphs type.
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    // Upcast the parameter if it's not already done.
+    $node = is_numeric($node) ? \Drupal::entityTypeManager()->getStorage('node')->load($node) : $node;
+
+    $suggestions[] = $base . '__node__' . $node->bundle();
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function un_geneva_design_system_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+
+  // Adding a node type specific theme suggestion so that we can tweak the outer HTML
+  // for Landing pages in order to enable edge-to-edge background display for the Sections
+  // Paragraphs type.
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    // Upcast the parameter if it's not already done.
+    $node = is_numeric($node) ? \Drupal::entityTypeManager()->getStorage('node')->load($node) : $node;
+
+    $suggestions[] = 'node__' . $node->bundle();
+  }
+}
+
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+/* Add Additional Theme Settings to the twig template */
+function un_geneva_design_system_preprocess_block(&$variables) {
+  
+  $variables['block_class'] = '';
+  
+  if(is_array($variables['label'])){
+    $lower_text = strtolower($variables['label']['#markup']);
+  }
+  else {
+    $lower_text = strtolower($variables['label']);
+  }
+  
+  $raw_text = preg_replace('/&(amp;)?#?[a-z0-9]+;/i', '',  $lower_text);
+  $raw_text = str_replace('&', 'and', $raw_text);
+  $variables['block_id'] = str_replace(' ', '-', trim(preg_replace('/\s+/',' ', $raw_text)));
+}
+ 
+
+function un_geneva_design_system_preprocess_views_view_fields(&$variables) {
+
+  if(!isset($variables['language'])) {
+    $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $variables['language'] = $language;
+  }
+}
+  
+
+/**
+ * Implements template_preprocess_node().
+ */
+function un_geneva_design_system_preprocess_node(&$variables) {
+
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['language'] = $language;
+}
+
+/**
+ * Implements template_preprocess_ds_entity_view().
+ *
+ * For instance, nodes using Display Suite entity view
+ * will use this preprocess instead of *_preprocess_node().
+ */
+function un_geneva_design_system_preprocess_ds_entity_view(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_image().
+ *
+ * Outputs empty alt text when it is only quotes ("").
+ */
+function un_geneva_desing_system_preprocess_image(&$variables) {
+
+  if (!empty($variables['alt']) && (($variables['alt'] === '""') || ($variables['alt'] === ' '))) {
+    $variables['alt'] = '';
+  }
+
+  if (!empty($variables['attributes']['alt']) && $variables['attributes']['alt'] === '""') {
+    $variables['attributes']['alt'] = '';
+  }
+
+  if (!isset($variables['alt'])) {
+    $variables['attributes']['alt'] = '';
+  }
+}
+
+function _un_geneva_design_system_slug($input) {
+
+  $transliterated = \Drupal::transliteration()->transliterate($input, LanguageInterface::LANGCODE_DEFAULT, '_');
+  $transliterated = mb_strtolower($transliterated);
+  $transliterated = preg_replace('@[^a-z0-9_.]+@', '_', $transliterated);
+  
+  return $transliterated;
+}
+
+function un_geneva_design_system_preprocess_field(&$variables) {
+
+  // Insert the oembed thumbnail in the iframe video template
+  if($variables['field_name'] == 'field_media_oembed_video') {
+    $variables['items'][0]['content']['#attributes']['loading'] = 'lazy';
+    $source = $variables['element']['#object']->field_media_oembed_video->getEntity()->getSource();
+    $metadata = $source->getMetadata($variables['element']['#object'], 'thumbnail_uri');
+    $variables['thumbnail'] = [
+      '#theme' => 'image',
+      '#uri' => $metadata,
+    ];
+  }
+}
+  
+function un_geneva_design_system_theme_suggestions_field_group_html_element_alter(&$suggestions, &$variables) {
+
+  if(isset($variables['element'])) {
+    $hook = 'field_group_html_element';
+    $element = $variables['element'];
+
+    $name = isset($element['#group_name']) ? $element['#group_name'] : NULL;
+    $entity_type = isset($element['#entity_type']) ? $element['#entity_type'] : NULL;
+    $bundle = isset($element['#bundle']) ? $element['#bundle'] : NULL;
+    $view_mode = (isset($element['field_post_date']) && isset($element['field_post_date']['#view_mode'])) ? $element['field_post_date']['#view_mode'] : NULL;
+    if ($entity_type && $bundle && $name && $view_mode) {
+      $suggestions[] = $hook . '__' . $entity_type . '__' . $bundle . '__' . $name . '__' . $view_mode;
+    }
+  }
+}
+
+function un_geneva_design_system_preprocess_html(&$variables) {
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if($node) {
+    $variables['attributes']['class'][] = 'page-type-node-'. $node->bundle();
+  }
+
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  if($path_alias) {
+    $path_alias = ltrim($path_alias, '/');
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier($path_alias);
+  }
+}
+
+function un_geneva_design_system_theme() {
+  $theme = [
+    'machine_translated_warning' => [
+      'render element' => 'content',
+      'template' => 'misc/machine-translated-warning',
+    ],
+  ];
+  return $theme;
+}
+
+function un_geneva_design_system_theme_suggestions_fieldset_alter(array &$suggestions, array $variables, $hook) {
+  if (isset($variables['element']['#id'])) {
+    $id = str_replace("-", "_", $variables['element']['#id']);
+    $suggestions[] = $hook . '__' . $id;
+  }
+  if (isset($variables['element']['#group_name'])) {
+    $id = str_replace("-", "_", $variables['element']['#group_name']);
+    $suggestions[] = $hook . '__' . $id;
+  }
+}
+
+function un_geneva_design_system_theme_suggestions_field_alter(&$suggestions, array $variables) {
+}
+
+function un_geneva_design_system_preprocess_views_view(&$variables) {
+  $variables['items'][0]['content'][0]['#cache']['contexts'][] = 'url.path';
+}

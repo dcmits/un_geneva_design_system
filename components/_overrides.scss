@@ -1,0 +1,47 @@
+.h1, .h2, .h3, .h4, .h5, .h6, .text-long h1, .text-long h2, .text-long h3, .text-long h4, .text-long h5, .text-long h6, h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+html[lang=ru] .header__branding {
+    max-width: 540px;
+
+    .brand-body {
+        max-width: 140px;
+    }
+
+    .top-title a {
+        font-size: 1.1rem;
+    }
+
+    .site-title-secondary {
+        max-width: 250px;
+
+        span {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+html[lang=es] .header__branding {
+    max-width: 540px;
+
+    .brand-body {
+        max-width: 100px;
+    }
+
+    .site-title-secondary {
+        max-width: 260px;
+    }
+
+    @include large {
+        .brand-body {
+            max-width: 130px;
+        }
+        .top-title a {
+            font-size: 1.8rem;
+        }
+    }
+}

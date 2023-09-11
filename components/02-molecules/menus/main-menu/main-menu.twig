@@ -1,0 +1,15 @@
+{{ attach_library('un_geneva_design_system/main-menu') }}
+
+<nav aria-label="main menu">
+  <div id="main-nav" class="main-nav">
+    <div class="container">
+      <div class="row">
+        {% include "@molecules/menus/_menu.twig" with {
+          menu_class: "main-menu",
+          items: menu_items,
+          ul_attributes: { role: 'menu' },
+        } %}
+      </div>
+    </div>
+  </div>
+</nav>

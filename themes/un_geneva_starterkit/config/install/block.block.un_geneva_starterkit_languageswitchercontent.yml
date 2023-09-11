@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+  theme:
+    - un_geneva_starterkit
+id: un_geneva_starterkit_languageswitchercontent
+theme: un_geneva_starterkit
+region: brandbar
+weight: -24
+provider: null
+plugin: 'language_block:language_content'
+settings:
+  id: 'language_block:language_content'
+  label: 'Language switcher (Content)'
+  label_display: '0'
+  provider: language
+  cache:
+    esi: 0
+    ttl: '0'
+    cachemode: '2'
+visibility: {  }

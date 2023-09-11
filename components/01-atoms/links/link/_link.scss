@@ -1,0 +1,31 @@
+@mixin link {
+  color: $blue-text;
+  text-decoration: none;
+
+  &:hover {
+    color: $blue-500;
+    text-decoration: none;
+  }
+
+  &--dark {
+    color: $gray;
+
+    &:hover {
+      color: $gray-500;
+    }
+  }
+}
+
+.link {
+  @include link;
+}
+
+a {
+  color: $blue-text;
+  text-decoration: none;
+}
+
+a:focus, a:hover {
+  color: $blue-500;
+  text-decoration: none;
+}

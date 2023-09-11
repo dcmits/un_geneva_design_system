@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Theme override for a branding block.
+ *
+ * Each branding element variable (logo, name, slogan) is only available if
+ * enabled in the block configuration.
+ *
+ * Available variables:
+ * - site_logo: Logo for site as defined in Appearance or theme settings.
+ * - site_name: Name for site as defined in Site information settings.
+ * - site_slogan: Slogan for site as defined in Site information settings.
+ */
+#}
+<div class="site-branding {% if site_name_secondary %}two-lines{% endif %}">
+  {% if img_src %}
+    {% include "@atoms/images/image/figure.twig" with {
+      image_src: img_src,
+      image_alt: img_alt,
+      image_url: home_url,
+      link_title: site_name,
+    } %}
+  {% endif %}
+  <div class="brand-body">
+    {% if use_sitename_in_branding %}
+      {% include "@atoms/text/text/07-title.twig" with {
+        title: 'United Nations'|t,
+        link_title: site_name|t,
+        href: home_url
+      }%}
+    {% endif %}
+  </div>
+  <div class="site-title-secondary">
+    <a href="{{ home_url }}" title="{{ site_name|t }}">
+    <span class="row1 h4">{{ site_name|t }}</span>
+    <span class="row2 h4">{{ site_name_secondary|t }}</span>
+    </a>
+  </div>
+</div>

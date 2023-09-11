@@ -1,0 +1,60 @@
+global:
+  css:
+    theme:
+      dist/style.css: {}
+
+main-menu:
+  js:
+    dist/js/02-molecules/menus/main-menu/main-menu.js: {}
+  dependencies:
+    - core/drupal
+
+focus-on:
+  js:
+    dist/js/03-organisms/focus-on/focus-on.js: {}
+  dependencies:
+    - core/drupal
+
+showcases:
+  js:
+    dist/js/03-organisms/showcases/showcases.js: {}
+  dependencies:
+    - core/drupal
+
+two-columns-paragraph:
+  js:
+    dist/js/03-organisms/paragraphs/paragraph--un-columns-two/paragraph--un-columns-two.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+tabs:
+  js:
+    dist/js/02-molecules/tabs/tabs.js: {}
+  dependencies:
+    - core/drupal
+
+sprite:
+  js:
+    components/js/svgxuse.min.js: { attributes: { defer: true } }
+
+accordion:
+  js:
+    dist/js/02-molecules/accordion-item/accordion-item.js: {}
+
+collapse:
+  js:
+    dist/js/02-molecules/collapse/bootstrap-collapse.js: {}
+
+collapse-component:
+  js:
+    dist/js/02-molecules/collapse/collapse.js: {}
+  dependencies:
+    - core/jquery
+    - un_geneva_design_system/collapse
+
+rooms:
+  js:
+    dist/js/05-pages/room/rooms.js: {}
+  dependencies:
+    - core/drupal

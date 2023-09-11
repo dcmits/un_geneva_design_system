@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Display content layed out in four columns max.
+ *
+ * Available variables:
+ * - column_one: HTML content for the first column.
+ * - column_two: HTML content for the second column.
+ * - column_three: HTML content for the third column.
+ * - column_four: HTML content for the fourth column.
+ *
+ */
+#}
+{% set column_width = 3 %}
+{% set small_screen_column_width = 6 %}
+
+<div class="row with-cols">
+  <div class="col-sm-{{small_screen_column_width}} col-md-{{column_width}}">{{ column_one|raw }}</div>
+  <div class="col-sm-{{small_screen_column_width}} col-md-{{column_width}}">{{ column_two|raw }}</div>
+  <div class="col-sm-{{small_screen_column_width}} col-md-{{column_width}}">{{ column_three|raw }}</div>
+  <div class="col-sm-{{small_screen_column_width}} col-md-{{column_width}}">{{ column_four|raw }}</div>
+</div>

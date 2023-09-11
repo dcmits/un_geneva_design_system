@@ -1,0 +1,11 @@
+{{ attach_library('un_geneva_design_system/showcases') }}
+{% set size = modifiers ? modifiers.size : (items|length == 1 ? 'large' : (items|length == 2 ? 'medium' : 'small')) %}
+
+<div id="{{ id }}" class="showcases-list count-{{ items|length }} size-{{ size }}">
+      {% for item in items %}
+        {% include "@molecules/showcase/showcase.twig" with { 
+          "item": item,
+          "size": size,
+        } %}
+      {% endfor %}
+</div>

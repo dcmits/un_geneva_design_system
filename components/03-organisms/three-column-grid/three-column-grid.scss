@@ -1,0 +1,18 @@
+.container .row.with-cols.uneven_with_sidebars_and_padding {
+  & > .col-md-2:first-child,
+  & > .col-md-8 {
+    margin-bottom: 2rem;
+  }
+
+  @include breakpoint($screen-md-min) {
+    & > .col-md-2:first-child {
+      margin-bottom: 0;
+    }
+
+    & > .col-md-8 {
+      margin-bottom: 0;
+      padding-left: 45px;
+      padding-right: 45px;
+    }
+  }
+}

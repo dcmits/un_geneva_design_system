@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Display content layed out in two columns max.
+ *
+ * Available variables:
+ * - column_one: HTML content for the first column.
+ * - column_two: HTML content for the second column.
+ * - columns_ratio: ratio between the two columns.
+ *
+ */
+#}
+{% set column_one_width = 6 %}
+{% set column_two_width = 6 %}
+
+{% if (columns_ratio == 'uneven_66_33') %}
+  {% set column_one_width = 8 %}
+  {% set column_two_width = 4 %}
+{% endif %}
+
+{% if (columns_ratio == 'uneven_33_66') %}
+  {% set column_one_width = 4 %}
+  {% set column_two_width = 8 %}
+{% endif %}
+
+{% if (columns_ratio == 'uneven_75_25') %}
+  {% set column_one_width = 9 %}
+  {% set column_two_width = 3 %}
+{% endif %}
+
+{% if (columns_ratio == 'uneven_25_75') %}
+  {% set column_one_width = 3 %}
+  {% set column_two_width = 9 %}
+{% endif %}
+
+<div class="row with-cols">
+  <div class="col-md-{{column_one_width}}">{{ column_one|raw }}</div>
+  <div class="col-md-{{column_two_width}}">{{ column_two|raw }}</div>
+</div>

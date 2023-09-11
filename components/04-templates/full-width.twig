@@ -1,0 +1,20 @@
+{% extends "@templates/_default.twig" %}
+  {% block page_content %}
+
+  <div class="container">
+    <div class="row">
+    {% include "@templates/placeholder/place-holder.twig" with {
+      "place_holder": "Primary Content",
+    } %}
+    {% include "@templates/placeholder/place-holder.twig" with {
+      "place_holder": "Primary Content",
+    } %}
+    {% include "@templates/placeholder/place-holder.twig" with {
+      "place_holder": "Primary Content",
+    } %}
+    {% include "@templates/placeholder/place-holder.twig" with {
+      "place_holder": "Primary Content",
+    } %}
+    </div>
+  </div>
+  {% endblock %}

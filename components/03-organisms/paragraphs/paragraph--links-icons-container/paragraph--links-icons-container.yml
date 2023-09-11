@@ -1,0 +1,21 @@
+icon: 'SOCIAL MEDIA'
+inner_content: '<p>This is some text in a box. Any kind of content can go here.</p>'
+paragraph:
+  field_box_type:
+    value: 'icon-list'
+links:
+  - 0:
+    link_uri: http://example.org
+    link_title: Example text link with icon
+    link_display: 'icon_only'
+    icon: '<figure><img alt="Twitter" src="https://ungeneva.org/sites/default/files/icons/twitter-brands.svg"></figure>'
+  - 1:
+    link_uri: http://example.org
+    link_title: Example text link with icon
+    link_display: 'icon_only'
+    icon: '<figure><img alt="Twitter" src="https://ungeneva.org/sites/default/files/icons/facebook.svg"></figure>'
+  - 2:
+    link_uri: http://example.org
+    link_title: Example text link with icon
+    link_display: 'icon_only'
+    icon: '<figure><img alt="Twitter" src="https://ungeneva.org/sites/default/files/icons/instagram.svg"></figure>'

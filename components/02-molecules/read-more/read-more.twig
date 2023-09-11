@@ -1,0 +1,16 @@
+{{ attach_library('un_geneva_design_system/collapse') }}
+
+{% set collapse_id = "read-more-#{id}" %}
+<div class="read-more">
+    {% if teaser is not empty %}
+        <div>{{ teaser|raw }}</div>
+    {% endif %}
+    {% if hidden is not empty %}
+        <div id="{{collapse_id}}" class="collapse">
+            <div>{{ hidden|raw }}</div>
+        </div>
+        <button type="button" data-toggle="collapse" data-target="#{{collapse_id}}" aria-expanded="false" aria-controls="{{collapse_id}}">
+            {{ label }}
+        </button>
+    {% endif %}
+</div>

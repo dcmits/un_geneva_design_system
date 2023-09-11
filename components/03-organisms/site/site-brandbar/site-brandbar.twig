@@ -1,0 +1,43 @@
+<div class="brandbar">
+  <div class="container">
+    <div class="row">
+      <div id="un-global-link-area">
+        <a href="https://www.un.org/" target="_blank" rel="noopener external" title="{{ 'United Nations Global Website'|t }}">{{ 'Welcome to the United Nations'|t }}</a>
+      </div>
+      <div id="language-switcher-area">
+        {% block brandbar_content %}
+         {{ page.brandbar }}
+          {% if languages %}
+
+          <div id="block-languagedropdownswitcher-2">
+            <label id="language-switcher-label" for="edit-lang-dropdown-select" class="control-label sr-only">{{ 'Select your language'|t }}</label>
+            <div class="select-wrapper form-item__dropdown">
+              <select name="lang_dropdown_select" aria-labelledby="language-switcher-label">
+                {% for link in languages %}
+                  <option value="{{ link.link_url }}">{{ link.link_content }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+
+          <div class="language-switcher-language-url">
+            <nav role="navigation" aria-labelledby="language-switcher-label">
+              <ul>
+                {% for link in languages %}
+                  <li>
+                  {% include "@atoms/links/link/link.twig" with {
+                    "link_base_class": link.link_base_class,
+                    "link_content": link.link_content,
+                    "link_url": link.link_url,
+                  } %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </nav>
+          </div>
+          {% endif %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>

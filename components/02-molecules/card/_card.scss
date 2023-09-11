@@ -1,0 +1,39 @@
+.card {
+  //box-shadow: 1px 3px 4px;
+  //border-radius: 5%;
+  //overflow: hidden;
+}
+
+.card__title {
+  @include heading-large($font-size: 2em);
+  @include no-bottom;
+
+  &-link {
+    @include link;
+  }
+}
+
+.card__subtitle {
+  @include heading-medium($font-size: 1rem);
+  @include no-bottom;
+
+  color: $gray;
+}
+
+.card__body {
+  margin: 0.7em 0 1em;
+}
+
+.card__link {
+  @include link;
+}
+
+.card__button {
+  @include button;
+}
+
+// Variations
+.card--bg {
+  background-color: $gray-100;
+  padding: 1em;
+}

@@ -1,0 +1,5 @@
+link_url: '#'
+link_content: 'Dark link text'
+link_modifiers:
+  - 'dark'
+link_attributes: []

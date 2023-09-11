@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Theme override to display a remote video media item in the default view mode.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ * @see media.html.twig
+ *
+ * @ingroup themeable
+ */
+#}
+
+{#
+  Make sure the media item scales to the width of its container,
+  using Bootstrap classes.
+#}
+{{ include('media.html.twig', {attributes: attributes.addClass(['embed-responsive', 'embed-responsive-16by9'])}) }}

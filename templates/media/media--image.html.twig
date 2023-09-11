@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Theme override to display a media image.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<article{{ attributes.addClass(media.bundle()|clean_class) }}>
+  {{ title_suffix.contextual_links }}
+  {% if attributes['data-colorbox'] == '1'  %}
+    <a class="colorbox colorbox-inline" href="{{ file_url(media.field_media_image.entity.uri.value)}} " title="{{ media.field_caption.value }}">
+  {% endif %}
+  {% if content %}
+    {{ content }}
+  {% endif %}
+  {% if attributes['data-colorbox'] == '1'  %}
+    </a>
+  {% endif %}
+</article>

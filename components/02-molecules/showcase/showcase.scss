@@ -1,0 +1,153 @@
+.showcase {
+  margin-bottom: 3rem;
+
+  .size-small & {
+    display: flex;
+    flex-direction: column;
+
+    .layout__region {
+      &--first {
+        width: 100%;
+        flex: auto;
+      }
+
+      &--second {
+        width: 100%;
+        flex: auto;
+      }
+    }
+
+    .field_featured_image {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .size-medium & {
+    .field_featured_image {
+      margin: 0.5rem 0;
+    }
+  }
+
+  .size-large & {
+    .field_featured_image {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  @include small {
+
+    .size-small & {
+  
+    }
+
+    .field_featured_image {
+      margin-bottom: 0;
+    }
+  }
+
+  @include medium {
+
+    .size-small & {
+      flex-direction: row;
+
+      .layout__region {
+        &--first {
+          width: 240px;
+        }
+        &--second {
+          width: calc(100% - 240px);
+          padding-left: 2rem;
+        }
+      }
+    }
+
+    .size-large & {
+      display: flex;
+      flex-direction: row;
+
+      .layout__region {
+        &--first {
+          width: 50%;
+        }
+        &--second {
+          width: 50%;
+          padding-left: 2rem;
+        }
+      }
+    }
+  }
+
+  @include large {
+    .size-small & {
+      .layout__region {
+        &--first {
+          width: 320px;
+        }
+        &--second {
+          width: calc(100% - 320px);
+          padding-left: 2rem;
+        }
+      }
+    }
+  }
+
+  .node_title h3 {
+    @include heading-medium($font-size: 1.2em);
+    line-height: 1.2;
+    @include no-bottom;
+    font-family: 'RobotoCondensed';
+  }
+
+  .field_subtitle {
+    font-family: 'RobotoCondensed';
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: $gray-350;
+    font-weight: bold;
+  }
+
+  .field_body {
+    margin: 0 0 0.5rem 0;
+    color: $gray;
+  }
+
+  .field_links .link-item--display-list {
+    .link-title {
+      @include link;
+    }
+
+    figure {
+      padding: 0 5px 0 0;
+      align-self: flex-start;
+
+      img,
+      svg {
+        width: 16px;
+        height: auto;
+      }
+    }
+  }
+
+  .field_featured_image img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.showcases-list {
+  @include medium {
+    &.size-medium {
+      display: flex;
+      flex-direction: row;
+  
+      .showcase {
+        width: calc(50% - 1rem);
+        margin-right: 2rem;
+  
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

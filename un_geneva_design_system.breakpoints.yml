@@ -1,0 +1,15 @@
+un_geneva_design_system.small:
+  label: small
+  mediaQuery: 'all and (min-width: 25em)'
+un_geneva_design_system.small-med:
+  label: small-med
+  mediaQuery: 'all and (min-width: 26em)'
+un_geneva_design_system.small-large:
+  label: small-large
+  mediaQuery: 'all and (min-width: 41em)'
+un_geneva_design_system.medium:
+  label: medium
+  mediaQuery: 'all and (min-width: 48em)'
+un_geneva_design_system.large:
+  label: large
+  mediaQuery: 'all and (min-width: 61.25em)'

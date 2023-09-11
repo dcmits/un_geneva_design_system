@@ -1,0 +1,14 @@
+features:
+  node_user_picture: 1
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: 1
+logo:
+  use_default: 1
+favicon:
+  use_default: 1
+banner_use_default: 1
+banner_image_fid: null
+site_name: 'United Nations'
+site_name_secondary: 'The United Nations Office at Geneva'
+social_media_share_default_image: 'http://www.ungeneva.org/sites/default/files/styles/un_section_hero/public/2019-08/UN-Flag.jpg?itok=-CSNEi5q'

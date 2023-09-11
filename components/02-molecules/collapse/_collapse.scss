@@ -1,0 +1,44 @@
+body .panel {  // need to bump the CSS priority to override default styling
+  border-color: $gray-200;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.panel-heading {
+  background-color: #eeeeee7f;
+}
+
+.panel-title {
+  display: table;
+  width: 100%;
+
+  & > a[role=button] {
+    display: table-cell;
+    vertical-align: middle;
+    height: 60px;
+    color: $blue-text;
+
+    &:hover {
+      color: $blue-500;
+    }
+
+    &::after {
+      content: "˅";
+      float: right;
+      font-size: larger;
+    }
+
+    &.collapsed::after {
+      content: "˃";
+    }
+  }
+}
+
+.bg-alternate {
+  .panel-heading {
+    background-color: $white;
+  }
+  .panel-body {
+    border-top: 1px solid $gray-200;
+  }
+}

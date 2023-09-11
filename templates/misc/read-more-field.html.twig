@@ -1,0 +1,19 @@
+{#
+/**
+* @file
+* Default theme implementation to display a read-more field.
+*
+* Available variables:
+* - teaser: The teaser that will always remain visible.
+* - hidden: The field that is initially hidden.
+* - label: The label that will expand the hidden field.
+*
+* @ingroup themeable
+*/
+#}
+{% include '@molecules/read-more/read-more.twig' with {
+  'teaser': teaser['#text'] is not empty ? teaser,
+  'label': label|t,
+  'hidden': hidden['#text'] is not empty ? hidden,
+  'id': id|default(0)
+} %}

@@ -1,0 +1,100 @@
+.un-box {
+  @include box-shadow-standout;
+
+  .panel-body & {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  display: table;
+  background-color: $white;
+  width: 100%;
+  margin: 40px 0;
+  padding: 1rem;
+
+  .aside {
+    padding: 1rem;
+
+    @include breakpoint($screen-xs-min) {
+      display: table-cell;
+      padding: 0;
+      vertical-align: top;
+      width: 100px;
+      padding-top: 1rem;
+    }
+  }
+
+  .aside-inner {
+    color: $blue-text;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include breakpoint($screen-xs-min) {
+      padding-right: 1rem;
+      border-right: 1px solid $gray-200;
+    }
+
+    figure {
+      float: none;
+      display: inline-block;
+      padding: 1em;
+      width: 80px;
+      height: 80px;
+
+      img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .inner {
+    padding: 1rem;
+
+    @include breakpoint($screen-xs-min) {
+      display: table-cell;
+      vertical-align: top;
+    }
+  }
+
+  &.icon-list {
+    margin:20px 0;
+    
+    .aside {
+      width: auto;
+      max-width:250px;
+      vertical-align: middle;
+
+      .aside-inner {
+        border-right: none;
+        text-align: left;
+      }
+    }
+
+    .inner {
+      padding: 0;
+    }
+
+    .un-links-icons-container {
+      justify-content: flex-end;
+    }
+
+    @include breakpoint(0 $small-min) {
+      .aside {
+        width: 100%;
+        max-width:none;
+        padding: 5px 10px;
+
+        .aside-inner {
+          text-align: center;
+        }
+      }
+
+      .un-links-icons-container {
+        justify-content: center;
+      }
+    }
+  }
+}

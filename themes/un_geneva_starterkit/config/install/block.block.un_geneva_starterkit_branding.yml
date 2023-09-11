@@ -1,0 +1,22 @@
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - un_geneva_starterkit
+id: un_geneva_starterkit_branding
+theme: un_geneva_starterkit
+region: header
+weight: -21
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

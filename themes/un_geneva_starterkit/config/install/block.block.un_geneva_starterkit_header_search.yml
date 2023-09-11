@@ -1,0 +1,25 @@
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.main_search
+  module:
+    - views
+  theme:
+    - un_geneva_starterkit
+third_party_settings:
+  block_class:
+    replaced_id: block-header-search
+id: un_geneva_starterkit_header_search
+theme: un_geneva_starterkit
+region: header
+weight: -20
+provider: null
+plugin: 'views_exposed_filter_block:main_search-page_1'
+settings:
+  id: 'views_exposed_filter_block:main_search-page_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility: {  }

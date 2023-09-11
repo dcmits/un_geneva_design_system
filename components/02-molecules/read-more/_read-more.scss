@@ -1,0 +1,27 @@
+.read-more {
+  button {
+    background: transparent;
+    border: none;
+    color: $blue;
+    letter-spacing: 0.25em;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+  }
+
+  .collapse + button::before {
+    content: "\25BC";
+  }
+
+  .collapse.in + button::before {
+    content: "\25B2";
+  }
+  .collapse.in + button {
+    display: none;
+  }
+}
+
+// No spacing between letters for cursive scripts.
+[lang="ar"] .read-more button {
+  letter-spacing: 0;
+}

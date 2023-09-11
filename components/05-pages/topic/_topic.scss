@@ -1,0 +1,89 @@
+.field--field-organizations {
+    & > .field--item > div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .field--label h2 {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    .link-item--type-organization {
+        padding: 20px;
+
+        hr {
+            margin: 10px 20px;
+        }
+
+        .link-extra {
+            margin-top: 0;
+        }
+    }
+
+    @media (min-width:$screen-sm-min) {
+        & > .field--item > div {
+            flex-direction: row;
+            & > div {
+                width: calc(50% - 10px);
+
+                &:nth-child(2n) {
+                    margin-left: 20px;
+                }
+            }
+        }
+        .field--label h2 {
+            font-size: 34px;
+        }
+ 
+        .link-item--type-organization {
+            padding: 40px;
+    
+            hr {
+                margin:20px;
+            }
+    
+            .link-extra {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    @media (min-width:$large-min) {
+        & > .field--item > div {
+            & > div {
+                width: calc(33.33% - 13.33px);
+
+                &:nth-child(2n) {
+                    margin-left: 0px;
+                }
+
+                &:nth-child(3n+2),
+                &:nth-child(3n) {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+
+    @media (min-width:$xl) {
+        & > .field--item > div {
+            & > div {
+                width: calc(25% - 15px);
+
+                &:nth-child(3n+2),
+                &:nth-child(3n) {
+                    margin-left: 0px;
+                }
+
+                &:nth-child(4n+3),
+                &:nth-child(4n+2),
+                &:nth-child(4n) {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+}

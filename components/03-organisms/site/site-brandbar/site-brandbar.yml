@@ -1,0 +1,25 @@
+languages:
+  0:
+    link_base_class: link is_not_active 
+    link_url: "/ar"
+    link_content: "عربى"
+  1:
+    link_base_class: link is_not_active 
+    link_url: "/zh"
+    link_content: "中文"
+  2:
+    link_base_class: link is-active 
+    link_url: "/en"
+    link_content: "English"
+  3:
+    link_base_class: link is_not_active 
+    link_url: "/fr"
+    link_content: "Français"
+  4:
+    link_base_class: link is_not_active 
+    link_url: "/ru"
+    link_content: "Pусский"
+  5:
+    link_base_class: link is_not_active 
+    link_url: "/es"
+    link_content: "Español"

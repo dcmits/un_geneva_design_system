@@ -1,0 +1,40 @@
+.icon use[*|href$="~hover"] {
+  display: none;
+}
+
+.icon-container:hover {
+  
+  .icon use {
+    display: none;
+  }
+
+  .icon use[*|href$="~hover"] {
+    display: inline;
+  }
+}
+
+.icons-demo {
+  display: flex;
+  flex-wrap: wrap;
+}
+.icons-demo > div {
+  text-align: center;
+  padding: 1rem;
+  flex: 1;
+
+  svg {
+    max-width: 100px;
+  }
+
+  .icon.icon--hover:hover {
+    background-color: $black;
+    
+    use {
+      display: none;
+    }
+
+    use[*|href$="~hover"] {
+      display: inline;
+    }
+  }
+}

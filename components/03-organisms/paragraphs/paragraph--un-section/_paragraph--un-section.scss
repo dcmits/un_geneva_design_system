@@ -1,0 +1,28 @@
+.un-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  &.bg-alternate {
+    background-color: $background-alternate;
+  }
+
+  & > h2:first-child,
+  h2.content-title:first-child {
+    margin-top: 0;
+  }
+
+  // A container inside a section may overflow since they have a fixed width.
+  .container {
+    max-width: 100%;
+  }
+}
+
+// If the section follows the page title, we don't need extra spacing.
+h1 + .un-section {
+  padding-top: 0;
+}
+
+// A fluid container section inside a parent container needs to break out.
+.container .un-section.container-fluid {
+  @include breakout(15px);
+}

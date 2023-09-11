@@ -1,0 +1,310 @@
+// Main Banner Container
+.super-hero-banner {
+  position: relative;
+
+  // Vignette Options
+  &.vignette-bottom {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), hsla(0, 0%, 100%, 0) 50%);
+  }
+
+  &.vignette-top {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), hsla(0, 0%, 100%, 0) 50%);
+  }
+
+  &.vignette-full {
+    background: radial-gradient(closest-corner, transparent 50%, #000);
+  }
+
+  &.silk-screen {
+    .super-hero-banner-media::before {
+      @include breakpoint($screen-xs-max) {
+        content: ' ';
+        background-color: rgba(0, 0, 0, 0.4);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      }
+    }
+  }
+
+  // On Small Screens, no vignette, add a box-shadow and margins.
+  // Reset text-color to black.
+  @include breakpoint(0 $screen-xs-max) {
+    // No vignette
+    //background-image: none !important;
+    // Black text
+    //color: #000 !important;
+
+    // Add Box Shadow and margin
+    //box-shadow: 0 2px 10px 0 #867e7e;
+    //margin: 20px;
+
+    & > .container {
+      background-color: $gray-100;
+    }
+  }
+}
+
+// The Media (Image/Video) showing underneath the text, or above on a small screen.
+.super-hero-banner-media {
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+
+  // On smaller screens the innercontent is not overlaid onto the media.
+  @include breakpoint(0 $screen-xs-max) {
+    position: relative;
+    padding: 0;
+    height: 70vw;
+  }
+
+  picture {
+    height:100%;
+    width:100%;
+  }
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    height: 100%; // To cover the whole container
+    width: 100%;
+
+    @include breakpoint(0 $screen-xs-max) {
+      //height: 18vh;
+    }
+  }
+}
+
+// Content Container, defines the height for the Hero Banner overall
+// Also positions the inner content.
+.super-hero-banner-content {
+  width: 100%;
+  height: calc(100vh - 257px);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  z-index: 3;
+
+  @include breakpoint($screen-xs-max $screen-hd) {
+    height: 46vw;
+  }
+  @include breakpoint(0 $screen-xs-max) {
+    height: unset;
+  }
+
+  .top & {
+    justify-content: flex-start;
+  }
+
+  .middle & {
+    justify-content: center;
+  }
+
+  .bottom & {
+    justify-content: flex-end;
+  }
+
+  .left & {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .center & {
+    align-items: center;
+    text-align: center;
+  }
+
+  .right & {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  @include breakpoint(0 $screen-xs-max) {
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  // On a small screen, make this entire container dark.
+  @include breakpoint(0 $screen-xs-max) {
+    .dark & {
+      background: black;
+    }
+  }
+}
+
+.super-hero-banner .container {
+  @include breakpoint(0 $screen-xs-max) {
+    height: 100%;
+  }
+}
+
+.super-hero-banner-innercontent {
+  border: none;
+  padding: 30px;
+  margin: 20px;
+  display: block;
+  z-index: 2;
+
+  @include breakpoint(0 $screen-xs-min) {
+    padding: 20px;
+  }
+
+  @include breakpoint(0 $screen-xs-max) {
+    margin: 0 0 20px 0;
+
+    .bottom & {
+      margin-bottom: 10px;
+    }
+  }
+
+  // Default coloring
+  color: #fff;
+  // For smaller screens, force black
+  @include breakpoint(0 $screen-xs-max) {
+    color: #000;
+  }
+
+  // If a vignette is applied, also add a text-shadow.
+  .silk-screen &,
+  .vignette-bottom &,
+  .vignette-top &,
+  .vignette-full & {
+    .text-long {
+      text-shadow: #000 0 0 4px;
+
+      // Remove for smaller screens. (Or reverse the media query)
+      @include breakpoint(0 $screen-xs-max) {
+        text-shadow: none;
+      }
+    }
+  }
+
+  // If a fully opaque box is applied.
+  .light & {
+    background: #fff;
+    color: #000;
+
+    .text-long {
+      text-shadow: none;
+    }
+  }
+
+  .dark & {
+    background: #000;
+    color: #fff;
+
+    .text-long {
+      text-shadow: none;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  // Heading and Text Sizes
+  .text-long h2 {
+    font-size: 400%;
+    margin: 0 0;
+
+    @include breakpoint($screen-xs-max) {
+      margin-bottom: 1rem;
+    }
+
+    @include breakpoint($large-min $screen-hd-min) {
+      font-size:350%;
+    }
+
+    @include breakpoint($medium-min $large-max) {
+      font-size:280%;
+    }
+  }
+
+  .text-long h3 {
+    font-size: 250%;
+    margin: 0 0 1rem 0;
+
+    @include breakpoint($screen-xs-max) {
+      margin-bottom: 2rem;
+    }
+
+    @include breakpoint($large-min $screen-hd-min) {
+      font-size:200%;
+    }
+
+    @include breakpoint($medium-min $large-max) {
+      font-size:150%;
+    }
+  }
+
+  .text-long h4,
+  .text-long h5,
+  .text-long h6 {
+    margin: 0;
+  }
+  
+  // Reset text-color to black.
+  @include breakpoint($small-min $screen-xs-max) {
+    // Heading and Text Sizes
+    .text-long h2 {
+      font-size: 2.3rem;
+      line-height: 1.5;
+    }
+
+    .text-long h3 {
+      font-size: 1.6rem;
+      line-height: 1.3;
+    }
+
+    .text-long p {
+      font-size: 1rem;
+    }
+  }
+
+  @include breakpoint(0 $small-max) {
+    // Heading and Text Sizes
+    .text-long h2 {
+      font-size: 1.6rem;
+      line-height: 1.5;
+    }
+
+    .text-long h3 {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .text-long p {
+      font-size: 1rem;
+    }
+  }
+
+  .button {
+    text-shadow: none;
+  }
+}
+
+.indicator {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  color: $dark-gray;
+  text-align: center;
+  z-index: 3;
+
+  .fa {
+    width: 1em;
+    background: $white;
+    border-radius: 50%;
+  }
+}

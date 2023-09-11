@@ -1,0 +1,23 @@
+variables:
+  - name: 'white'
+    variants:
+      - name: 'white'
+  - name: 'gray'
+    variants:
+      - name: 'gray-100'
+      - name: 'gray-200'
+      - name: 'gray-300'
+      - name: 'gray-350'
+      - name: 'gray'
+      - name: 'gray-500'
+  - name: 'black'
+    variants:
+      - name: 'black'
+  - name: 'blue'
+    variants:
+      - name: 'blue-100'
+      - name: 'blue'
+      - name: 'blue-500'
+  - name: 'aria-compliant-blue'
+    variants:
+      - name: 'aria-compliant-blue'

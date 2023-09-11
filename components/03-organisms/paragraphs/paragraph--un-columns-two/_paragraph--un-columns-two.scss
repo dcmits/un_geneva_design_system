@@ -1,0 +1,16 @@
+.row.with-cols {
+  .col-md-6 {
+    .field_un_column_one,
+    .field_un_column_two {
+      .un-box {
+        margin-top: 0;
+      }
+
+      .text-long>article.image,
+       .text-long :not(figure)>article.image,
+       .text-long figure {
+        padding-top: 0;
+       }
+    }
+  }
+}

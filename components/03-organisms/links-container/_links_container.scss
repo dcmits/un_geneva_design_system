@@ -1,0 +1,35 @@
+.un-links-images-container,
+.un-links-icons-container,
+.un-buttons-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;  // center elements by default
+  flex-wrap: wrap;
+
+  .link-item--display-card,
+  .link-item--display-button {
+    display: flex;
+    align-items: stretch;
+
+    .link-title {
+      display: flex;
+      flex: 1 0 80px;
+      height: auto;
+      width: auto;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .link-item--display-button {
+    flex-direction: row;
+  }
+
+  .link-item--display-card {
+    flex-direction: column;
+  }
+}
+
+.topics-sustainable-development-goals .un-links-images-container a.link-item--display-card.link-item--size-small {
+  width: 210px;
+}

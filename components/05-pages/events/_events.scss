@@ -1,0 +1,279 @@
+// Events list views, such as Ciné ONU past screenings view.
+// Using this syntax for id attribute since AJAX views will append
+// a random string at the end of the view id.
+.events-list {
+    h2 {
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
+
+    .content-title {
+        margin-bottom: 2rem;
+    }
+  
+    .layout__region--top {
+      position: relative;
+  
+      img {
+        @include box-shadow-standout;
+  
+        width: 100%;
+        margin: 0 auto;
+      }
+  
+      .field--name-field-topics {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+  
+        .field--item {
+          position: relative;
+          font-size: 16px;
+          line-height: 20px;
+          color: #fff;
+          float: left;
+          padding: 10px 8px;
+          opacity: 0.9;
+  
+          a {
+            line-height: 20px;
+            color: #fff;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  
+    .layout__region--bottom {
+      h2 {
+        font-size: 24px;
+        line-height: 28px;
+        color: #303030;
+  
+        a {
+          color: #303030;
+          text-decoration: none;
+        }
+      }
+  
+      .focus-on-date {
+        display: inline;
+        font-size: 16px;
+        line-height: 22px;
+        color: #4d4d4d;
+      }
+  
+      .focus-on-date + .focus-on-date {
+        // Hack to provide fallback date by having 2 adjacent ones
+        display: none;
+      }
+  
+      .focus-on-organization {
+        display: inline;
+        font-size: 16px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: #4d4d4d;
+        padding: 0 5px;
+  
+        span {
+          &::before {
+            content: "|";
+          }
+        }
+      }
+    }
+  
+    &.cine-onu,
+    &.international-day {
+      .views-row {
+        margin-bottom: 1.5em;
+      }
+  
+      .layout--twocol > .layout__region--first, .layout--twocol > .layout__region--second {
+        flex: 0 1 100%;
+      }
+  
+      .layout__region--first{
+        img {
+          width: 100%;
+        }
+      }
+  
+      .layout__region--second {
+        h2 {
+          font-size: 24px;
+          line-height: 28px;
+          color: #303030;
+          margin-top: 5px;
+    
+          a {
+            color: #303030;
+          }
+        }
+  
+        .metadata-info {
+          margin: 10px 0;
+  
+          span {
+            display: block;
+            
+            &:before {
+              display: none;
+            }
+          }
+          .event-location small {
+            padding-left: 14px;
+          }
+        }
+      }
+  
+      .views-exposed-form {
+        margin-bottom: 2em;
+        width: 100%;
+        flex-grow: 3;
+      }
+
+      &#views-view-upcoming_events {
+        .views-content {
+          align-items: center;
+        }
+
+        .views-row {
+          width: 100%;
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+
+      &#views-view-featured_screenings_embed {
+        .views-content {
+          align-items: center;
+        }
+
+        .views-row {
+          width: 100%;
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+  
+      @media (min-width:$screen-sm-min) {
+        .views-content {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
+        .views-row {
+          width: calc((100% - 4rem) / 3);
+          margin-left: 1rem;
+          margin-right: 1rem;
+
+          &:nth-child(3n) {
+            margin-right: 0;
+          }
+
+          &:nth-child(3n+1) {
+            margin-left: 0;
+          }
+        }
+        .layout--twocol > .layout__region--first, .layout--twocol > .layout__region--second {
+          flex: 0 1 50%;
+        }
+  
+        .layout__region--second {
+          padding-left: 20px;
+  
+          h2 {
+            margin-top: -5px;
+          }
+        }
+      }
+      @media (min-width:$screen-lg) {
+        .views-content {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          flex-wrap: wrap;
+        }
+        &#views-view-past-screenings-embed {
+          width: 100%;
+        }
+  
+        .views-row {
+          width: 49%;
+          margin-bottom: 2em;
+  
+          &:nth-child(2n) {
+            margin-left: 2%;
+          }
+        }
+      }
+
+      @include medium {
+        &#views-view-past_screenings_preview_embed {
+            .views-content {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .views-row {
+                width:calc( (100% - 4rem ) / 3);
+                margin-left: 1rem;
+                margin-right: 1rem;
+
+                &:nth-child(3n) {
+                    margin-right: 0;
+                }
+                &:nth-child(3n+1) {
+                    margin-left: 0;
+                }
+            }
+        }
+        &#views-view-past_events_embed,
+        &#views-view-past_screenings_embed {
+            width: 100%;
+            .views-content {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .views-row {
+                width:calc( (100% - 4rem ) / 3);
+                margin-left: 1rem;
+                margin-right: 1rem;
+
+                &:nth-child(3n) {
+                    margin-right: 0;
+                }
+                &:nth-child(3n+1) {
+                    margin-left: 0;
+                }
+            }
+        }
+      }
+      @include xl {
+        &#views-view-featured_screenings_embed,
+        &#views-view-upcoming_events {
+          .views-row {
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+      }
+    }
+  }
+  
+  #views-bootstrap-cine-onu-past-screenings-preview-embed,
+  #views-bootstrap-cine-onu-past-screenings-embed,
+  #views-bootstrap-international-days-past-events-embed {
+    .layout__region--bottom h2 {
+      margin-top: 5px;
+    }
+  
+    .col {
+      margin-bottom: 1.5em;
+    }
+  }

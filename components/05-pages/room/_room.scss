@@ -1,0 +1,126 @@
+.page-type-node-room {
+  fieldset {
+    legend {
+      font-size: 1.4rem;
+    }
+
+    &.form-item {
+      width: 100%;
+      max-width: none;
+    }
+
+    &#group_technical_features {
+      .fieldset-container {
+        display: flex;
+        flex-wrap: wrap;
+
+        .field--label-inline::after {
+          display: none;
+        }
+
+        & > div {
+          display: flex;
+          margin-bottom: 1rem;
+          width: 100%;
+
+          @include breakpoint($screen-lg-min) {
+            width: 50%;
+          }
+        }
+      }
+    }
+
+    &#group_dimensions {
+      .field--label-inline {
+        min-width: 120px;
+      }
+    }
+
+    &.two-columns {
+      & > .fieldset-container {
+        display: flex;
+        flex-wrap: wrap;
+
+        .column {
+          width: 100%;
+
+          @include breakpoint($screen-md-min) {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .field_room_availability_restrict {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+
+  .room-specs {
+    padding: 0 2rem;
+  }
+
+  #change-room {
+    margin: 1rem 0;
+
+    @include breakpoint($screen-md-min) {
+      display: none;
+    }
+  }
+
+  .field_room_360_images_path--wrapper {
+    .field--label {
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+  .field_room_floor_plan--wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 2rem;
+
+    .field_room_floor_plan {
+      padding: 1rem;
+    }
+  }
+}
+
+#block-un-geneva-design-system-views-block-rooms-block-1,
+#views-view-rooms-block_1 {
+  position: absolute;
+  background-color: #fff;
+  width: auto;
+  left: 1rem;
+  right: 1rem;
+  padding: 1rem;
+  @include box-shadow-standout;
+  z-index: 10;
+  display: none;
+  margin-top: -1rem;
+
+  &.nav--open {
+    display: block;
+  }
+
+  @include breakpoint($screen-md-min) {
+    display: block;
+    position: relative;
+    left: auto;
+    right: auto;
+    margin-top: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .rows-group {
+    margin-bottom: 2rem;
+
+    .node_title .current-page {
+      font-weight: bold;
+    }
+  }
+
+
+}

@@ -1,0 +1,12 @@
+link_uri: http://example.org
+link_title: Example text link with icon
+link_display: button
+extra: Example description
+icon: '
+<figure>
+  <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="2" width="96" height="96" style="fill:#00adef;stroke:#ffffff;stroke-width:2"/>
+    <text x="50%" y="50%" font-size="18" text-anchor="middle" alignment-baseline="middle" font-family="monospace, sans-serif" fill="#ffffff">icon</text>
+  </svg>
+</figure>
+'

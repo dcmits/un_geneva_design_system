@@ -1,0 +1,363 @@
+.link-item--display-card,
+.link-item--display-button {
+  @include box-shadow-standout;
+
+  display: inline-block;  // Better compat with old browsers
+  vertical-align: top;  // align groups of items on top edge, better visual
+  text-align: center;
+  margin: 12.5px;
+  background-color: clr(background);
+  overflow: hidden;  // So the image does not overflow when scaled
+
+  .link-title {
+    display: table-cell;  // allows variable height vertical centering in old browsers
+    height: 80px;  // counts as min-height for table display, will grow beyond
+    vertical-align: middle;  // center vertically
+    padding: 16px;
+    color: $blue-text;
+    overflow-wrap: anywhere;  // Avoid long words overflowing horizontally
+    transition: all 0.5s ease;
+    font-weight: bold;
+    position: relative;
+
+    &.with-link-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start !important;
+      text-align: left;
+
+      .link-extra {
+        color: $gray;
+        margin-top: calc($space/3);
+        line-height: 1.2;
+        font-weight: normal;
+        transition: all 0.5s ease;
+      }
+    }
+  }
+
+  &.current-page .link-title,
+  &:focus .link-title,
+  &:hover .link-title,
+  &.link-item--type-image:focus .link-title,
+  &.link-item--type-image:hover .link-title {
+    background-color: $blue-text;
+    color: $white;
+  }
+
+  &.link-item--type-text:hover .link-title .link-extra,
+  &.link-item--type-image:hover .link-title .link-extra,
+  &.link-item--type-icon:hover .link-title .link-extra {
+    color: $white;
+    border-color: $white;
+  }
+
+  &.link-item--type-icon .link-title.with-link-description {
+    padding: 1rem 2rem 2rem 2rem;
+    text-align: center !important;
+    align-items: center !important;
+  }
+}
+
+.link-item--display-card {
+  // Put 4 cards per normal row
+  width: 330px;  // (max-width(1440px) - gap between items) / # of items
+
+  .link-title {
+    width: 330px;  // To use full width, has to be an absolute unit
+  }
+
+  @include xl {
+    &.link-item--size-regular:nth-of-type(4):last-of-type {
+      // if there are 4 items, put in 1 row, if more, 3 per row.
+      margin-right: 0;
+    }
+  }
+
+  &.link-item--size-small {
+    width: 220px;  // (max-width(1440px) - gap between items) / # of items
+
+    .link-title {
+      width: 220px;  // To use full width, has to be an absolute unit
+    }
+  }
+
+  &.link-item--type-icon {
+    figure {
+      float: none;  // overriding upstream styles
+      width: auto;  // overriding upstream styles
+      padding: 0;  // overriding upstream styles
+
+      &:after {
+        display: block;
+        content: '';
+        border-bottom: 1px solid $blue-text;
+        width: auto;
+        height: 0;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom:-1px;
+      }
+
+      img {
+        display: inline-block;
+        height: 200px;  // container (330) - link-title (80)
+        padding: 40px 40px;
+        transition: all 0.5s ease;
+        vertical-align: middle;
+      }
+    }
+
+    &:hover figure img {
+      border-bottom-color: $white;
+    }
+
+    &.link-item--size-small {
+      figure img {
+        height: 140px;  // container (220) - link-title (80)
+        padding: 20px;
+      }
+    }
+  }
+
+  &.link-item--type-text {
+    // Put 6 buttons per normal row
+    width: 205px;  // (max-width(1440px) - gap between items) / # of items
+    border: 1px solid $blue-text;
+
+    .link-title {
+      width: 205px;  // To use full width, has to be an absolute unit
+    }
+  }
+
+  &.link-item--type-image {
+    transition: all 0.5s ease;
+
+    .link-title {
+      background-color: clr(background);
+      z-index: 1;  // so the image will never overlap the title area
+    }
+
+    img {
+      width: 100%;  // ensure it covers the full width of the container.
+      height: auto;  // container (330) - link-title (80)
+      transition: all 0.5s ease;
+    }
+
+    &.image-style-un_link_item img {
+      @include breakpoint($small-min) {
+        width: 330px;  // ensure it covers the full width of the container.
+        height: 250px;  // container (330) - link-title (80)
+      }
+    }
+
+    &:focus,
+    &:hover {
+      background-color: $blue-text;
+
+      img {
+        filter: opacity(0.4) grayscale(1);
+        transform: scale(1.1);
+      }
+    }
+
+    &.link-item--size-small img {
+      width: 220px;  // ensure it covers the full width of the container.
+      height: auto;  // to preserve aspect ratio
+    }
+
+    &.link-item--size-small {
+      margin: 7.5px;  // smaller margin to put 6 items per row
+    }
+
+    &.without-title {
+      img {  // When there is no title, have the image take up the whole space
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-item--display-card {
+    &.link-item--type-image {
+      &:focus,
+      &:hover {
+        img {
+          transform: none;  // scaling effect can make some people sick
+        }
+      }
+    }
+  }
+}
+
+.link-item--display-button {
+  @include box-shadow-standout;
+
+  display: table;
+  max-width: 480px;
+  width: 100%;
+
+  border: 1px solid $blue-text;
+  margin: 12.5px auto;  // center when possible
+  background-color: clr(background);
+
+  figure {
+    align-self: center; // When displayed in a link container with display:flex
+    display: table-cell;
+    border-collapse: collapse;
+    float: none;
+    padding: 1rem;
+    vertical-align: middle;
+    height: 80px;
+    width: 80px;
+
+    img {
+      display: inline;  // fixes horizontal alignment in all contexts
+      height: 100%; // taller images will shrink, not make the button taller
+    }
+  }
+
+  .link-title.with-link-description {
+    height: auto;
+    text-align: left;
+
+    .link-extra {
+      border-top: 1px solid $blue-text;
+      padding-top: 0.5rem;
+      width: 100%;
+    }
+  }
+}
+
+.un-box .un-buttons-container .link-item--display-button {
+  @include breakpoint($screen-sm-min) {
+    width: 100%; // Avoid overflow
+  }
+}
+
+.link-item--display-list {
+  display: flex;
+  align-items: center;
+  color: currentColor;
+  margin: 5px 0;
+  width: 100%;
+  line-height: 1.2;
+
+  &:hover,
+  &:focus {
+    color: currentColor;
+
+    .link-title {
+      text-decoration: underline $blue-text;
+    }
+  }
+
+  figure {
+    float: none;
+    padding: 0 10px 0 0;  // overriding default styles
+    width: auto;  // overriding default styles
+
+    img {
+      height: 30px;
+      width: 30px;
+      max-width: 30px;
+    }
+  }
+
+  svg {
+    width: 50px;
+    height: auto;
+  }
+}
+
+.link-item--display-icon_only {
+  display: flex;
+  align-items: center;
+  color: currentColor;
+  margin: 5px;
+
+  .link-title {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    color: currentColor;
+  }
+
+  figure {
+    float: none;
+    padding: 0;  // overriding default styles
+    width: auto;  // overriding default styles
+
+    img {
+      height: 30px;
+      width: 30px;
+      max-width: 30px;
+    }
+  }
+
+  svg {
+    width: 50px;
+  }
+}
+
+.link-item--type-organization {
+  border: 1px solid $gray-200;
+  padding: 40px;
+  margin-bottom: 20px;
+
+  .link-image {
+    img {
+      height: 175px;
+      object-fit: contain;
+      object-position: 50% 50%;
+      width: 100%;
+    }
+  }
+
+  hr {
+    border-top-color: $gray-200;
+    margin: 20px;
+  }
+
+  .link-title {
+    text-align: center;
+    height: 47.5px;  // line-height * 2
+    display: flex;
+    align-items: center;
+
+    a {
+      color: $gray;
+      font-weight: bold;
+      flex-grow: 1;
+    }
+  }
+
+  .link-extra {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    color: $blue-text;
+
+    a {
+      color: currentColor;
+
+      &:focus,
+      &:hover {
+        color: $blue-500;
+      }
+
+      .fa {
+        line-height: 1.42857;
+      }
+    }
+  }
+}
+
+#practical-information-links {
+  text-align: center;
+}

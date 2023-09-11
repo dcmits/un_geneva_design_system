@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Display content layed out in three columns max.
+ *
+ * Available variables:
+ * - column_one: HTML content for the first column.
+ * - column_two: HTML content for the second column.
+ * - column_three: HTML content for the third column.
+ * - columns_ratio: ratio for the width of the three columns:
+ *   - uneven_with_sidebars: big central columns with 2 sidebars
+ *   - even: 3 columns of the same width
+ *
+ */
+#}
+{% set column_central_width = 8 %}
+{% set column_side_width = 2 %}
+
+{% if (columns_ratio == 'even') %}
+  {% set column_central_width = 4 %}
+  {% set column_side_width = 4 %}
+{% endif %}
+
+<div class="row with-cols {{ columns_ratio }}">
+  <div class="col-md-{{column_side_width}}">{{ column_one|raw }}</div>
+  <div class="col-md-{{column_central_width}}">{{ column_two|raw }}</div>
+  <div class="col-md-{{column_side_width}}">{{ column_three|raw }}</div>
+</div>

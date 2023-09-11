@@ -1,0 +1,35 @@
+// Related items view
+.related-items {
+    .related-item {
+      padding: 1em 0;
+      border-top: 1px solid $moderate-gray;
+  
+      &:first-of-type {
+        padding-top: 0;
+        border-top: none;
+      }
+  
+      a {
+        display: block;
+  
+        &:link,
+        &:hover,
+        &:visited {
+          color: $black;
+          font-weight: bold;
+        }
+  
+        &:hover,
+        &:focus {
+          text-decoration: underline solid $blue;
+        }
+      }
+  
+      time {
+        display: block;
+        color: $gray-300;
+        font-size: small;
+      }
+    }
+  }
+  

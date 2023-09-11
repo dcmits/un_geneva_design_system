@@ -1,0 +1,36 @@
+column_one: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+column_two: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+columns_ratio: ''
+last_update: '14 september 2022'
+label: 'Last update'
+content:
+  <div class="super-hero-banner-media">
+    <img src="https://www.ungeneva.org/sites/default/files/styles/un_section_hero_fs/public/2019-10/human-rights-room-hero-image.jpg?itok=D89QBZhj" width="1920" height="883" alt="Hero Full Screen" loading="lazy" typeof="foaf:Image">
+  </div>
+  <div class="content-box">
+    <div class="container">
+      <div class="row">
+          <div class="super-hero-banner-content">
+              <div class="super-hero-banner-innercontent">
+                <div class="un-rich-text">
+                  <div class="text-long">
+                    <h2>Un Geneva</h2>
+                    <h3>Working for Peace, Rights and Well-being</h3>
+                    <a class="button button--alt" href="">Take action</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+paragraph:
+  field_hero_content_orientation:
+    value: "middle right"
+  field_hero_vignette_style:
+    value: ""
+  field_hero_content_style:
+    value: ""
+modifiers:
+  contentOrientation: "middle right"
+  vignette: ""

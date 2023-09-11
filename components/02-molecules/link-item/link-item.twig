@@ -1,0 +1,114 @@
+{#
+/**
+ * @file
+ * Link item that supports multiple variants:
+ * text-only, text + SVG icon, text + image
+ *
+ * Available variables:
+ * - icon: Raw SVG data for the icon.
+ * - image: data for the image
+ * - image_style: image style
+ * - attributes: HTML attributes for the containing element.
+ * - link_attributes: HTML attributes for the link.
+ * - link_uri: Destination URL
+ * - link_title: Main label for the link
+ * - link_display: Card styling variant. Possible values:
+ *   - card (default, visual on top)
+ *   - card-small (smaller version of the above)
+ *   - list (inline, visual on the side)
+ *   - organization (visual on top, additional info at the bottom)
+ * - link_size: regular | small
+ * - extra: HTML content for organizations
+ */
+#}
+
+{% if colorbox %}
+  {% set additional_classes = additional_classes|default([colorbox]) %}
+{% endif %}
+
+{% set additional_classes = additional_classes|default([]) %}
+
+{% set link_display = link_display|default('card') %}
+{% set link_size = link_size|default('regular') %}
+
+{% set type = link_display %}
+
+{% if link_display == "button" %}
+  {% set type = 'text' %}
+{% endif %}
+
+{% if link_display starts with 'card' %}
+  {# Cards contain floating elements #}
+  {% set additional_classes = additional_classes|merge([link_display, "clearfix"]) %}
+  {% set link_display = 'card' %}
+  {% set type = 'text' %}
+{% endif %}
+
+{% if (icon) %}
+  {# We'll apply a different layout to links with an icon #}
+  {% set type = "icon" %}
+{% endif %}
+
+{% if (image) %}
+  {# We'll apply a different layout to links with an image #}
+  {% if link_display starts with 'card' %}
+    {% set type = "image" %}
+  {% endif %}
+{% endif %}
+
+{% if link_title is empty %}
+  {% set additional_classes = additional_classes|merge(["without-title"]) %}
+{% endif %}
+
+{% if path('<current>') starts with link_uri.toString %}
+  {% set additional_classes = additional_classes|merge(["current-page"]) %}
+{% endif %}
+
+{% set additional_classes = additional_classes|merge(["image-style-" ~ image_style]) %}
+
+{% if link_attributes is not empty %}
+  {% set additional_attributes = create_attribute(link_attributes) %}
+{% endif %}
+
+{% if type == 'organization' %}
+  <div {{ bem("link-item", ["type-" ~ type, "display-" ~ link_display ], '', additional_classes) }}>
+    <div class="link-image">
+      <a href="{{ link_uri }}">
+        {% if (image) %}
+          <img src="{{ image|raw }}" alt=" " />
+        {% endif %}
+      </a>
+    </div>
+    {% include "@atoms/text/text/06-hr.twig" %}
+    <div class="link-title">
+      <a href="{{ link_uri }}">{{ link_title }}</a>
+    </div>
+    {% if extra %}
+      <div class="link-extra">
+        {{ extra|raw }}
+      </div>
+    {% endif %}
+  </div>
+{% else %}
+
+  <a href="{{ link_uri }}" {{- bem("link-item", ["type-" ~ type, "display-" ~ link_display, "size-" ~ link_size ], '', additional_classes) -}} {{ additional_attributes }}>
+    {% if (icon) %}
+      {{ icon|raw }}
+    {% endif %}
+    {% if (image) %}
+      <figure>
+        <img src="{{ image|raw }}" alt="" />
+      </figure>
+    {% endif %}
+    {% if link_title is not empty %}
+      <div class="link-title {% if extra %}with-link-description{% endif %}">
+        <span class="link-title-top">{{ link_title|raw }}</span>
+        {% if extra %}
+          <div class="link-extra">
+            {{ extra|raw }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </a>
+{% endif %}

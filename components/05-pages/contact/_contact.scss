@@ -1,0 +1,14 @@
+// Contact form
+.un-contact-form {
+  & > div {
+    // Have the contact form display as centered
+    display: flex;
+    align-items: center;
+
+    & > form {
+      flex-basis: max-content;
+      max-width: 100%;  // Avoid overflow when content is wider than layout
+    }
+  }
+}
+

@@ -1,0 +1,19 @@
+{%
+  set attributes = add_attributes({
+    "class": [
+      "gallery"
+    ]
+  })
+%}
+
+{% block content %}
+<div {{ attributes }}>
+  {% if items is not empty %}
+    {% for item in items %}
+      <div{{ item.attributes }}>{{ item.content }}</div>
+    {% endfor %}
+  {% else %}
+    {{ content }}
+  {% endif %}
+</div>
+{% endblock %}

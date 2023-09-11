@@ -1,0 +1,419 @@
+#block-views-block-in-focus-front-page-block-1,
+#block-views-block-in-focus-front-page-block-5,
+.cine-onu {
+  margin-bottom: 50px;
+
+  h2#focus-on {
+    text-align: center;
+    font-size: 28px;
+    color: #4d4d4d;
+    text-transform: uppercase;
+    margin: 40px 0;
+  }
+
+  #views-bootstrap-in-focus-front-page-block-3,
+  #views-bootstrap-in-focus-front-page-block-5,
+  #views-bootstrap-cine-onu-featured-screenings-embed {
+    .first-focus-row {
+      margin-bottom: 40px;
+
+      h2 {
+        font-size: 36px;
+        line-height: 43px;
+        color: #303030;
+
+        a {
+          color: #303030;
+          text-decoration: none;
+        }
+      }
+
+      img {
+        @include box-shadow-standout;
+
+        width: 100%; // should occupy the whole width
+      }
+
+      .focus-on-date,
+      .focus-on-organization {
+        display: inline;
+        font-size: 16px;
+        line-height: 22px;
+        color: #4d4d4d;
+
+        span {
+          &::before {
+            content: "|";
+          }
+        }
+      }
+
+      .focus-on-date + .focus-on-date {
+        // Hack to provide fallback date by having 2 adjacent ones
+        display: none;
+      }
+
+      .group-left {
+        img {
+          width: 100%;
+        }
+      }
+
+      .group-right {
+        margin-top: 30px;
+
+        .highlight {
+          font-size: 16px;
+          line-height: 22px;
+          color: #4d4d4d;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          padding-bottom: 10px;
+
+          a {
+            text-decoration: none;
+            color: #4d4d4d;
+          }
+        }
+
+        h2 {
+          font-size: 36px;
+          line-height: 43px;
+          color: #303030;
+
+          a {
+            color: #303030;
+            text-decoration: none;
+          }
+        }
+
+        .fc-date {
+          font-size: 16px;
+          line-height: 22px;
+          color: #4d4d4d;
+          float: left;
+
+          &::after {
+            content: "|";
+          }
+        }
+
+        .org {
+          font-size: 16px;
+          line-height: 22px;
+          color: #4d4d4d;
+          padding: 0 5px;
+
+          a {
+            color: #4d4d4d;
+            text-decoration: none;
+          }
+        }
+
+        .field--type-entity-reference {
+          font-size: 16px;
+          line-height: 22px;
+          text-transform: uppercase;
+          color: #4d4d4d;
+          float: left;
+          padding: 0 5px;
+
+          a {
+            color: #4d4d4d;
+            text-decoration: none;
+          }
+        }
+
+        p {
+          display: inline-block;
+          padding: 10px 0 30px 0;
+          font-size: 28px;
+          line-height: 38px;
+          color: #333;
+          margin: 0;
+        }
+
+        .field--name-node-link {
+          font-size: 20px;
+          line-height: 22px;
+          color: #00adef;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+
+          a {
+            color: #00adef;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .second-focus-row {
+      h2 {
+        margin-top: 15px;
+        margin-bottom: 0;
+      }
+
+      .block-2,
+      .block-3,
+      .block-4 {
+        margin-bottom: 40px;
+
+        .layout__region--top {
+          position: relative;
+
+          img {
+            @include box-shadow-standout;
+
+            width: 100%;
+            margin: 0 auto;
+          }
+
+          .field--name-field-topics {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+
+            .field--item {
+              position: relative;
+              font-size: 16px;
+              line-height: 20px;
+              color: #fff;
+              float: left;
+              padding: 10px 8px;
+              opacity: 0.9;
+
+              a {
+                line-height: 20px;
+                color: #fff;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+
+      .block-2 {
+        .field--name-field-topics {
+          .field--item {
+            background-color: #0a97d9;
+          }
+        }
+      }
+
+      .block-3 {
+        .field--name-field-topics {
+          .field--item {
+            background-color: #5dbb46;
+          }
+        }
+      }
+
+      .block-4 {
+        .field--name-field-topics {
+          .field--item {
+            background-color: #c31f33;
+          }
+        }
+      }
+
+      .layout__region--bottom {
+        h2 {
+          font-size: 24px;
+          line-height: 28px;
+          color: #303030;
+
+          a {
+            color: #303030;
+            text-decoration: none;
+          }
+        }
+
+        .focus-on-date {
+          display: inline;
+          font-size: 16px;
+          line-height: 22px;
+          color: #4d4d4d;
+        }
+
+        .focus-on-date + .focus-on-date {
+          // Hack to provide fallback date by having 2 adjacent ones
+          display: none;
+        }
+
+        .focus-on-organization {
+          display: inline;
+          font-size: 16px;
+          line-height: 22px;
+          text-transform: uppercase;
+          color: #4d4d4d;
+          padding: 0 5px;
+
+          span {
+            &::before {
+              content: "|";
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .node--view-mode-focus-on-attachment {
+  }
+
+}
+
+#block-views-block-in-focus-front-page-block-1,
+#block-views-block-in-focus-front-page-block-3,
+#block-views-block-in-focus-front-page-block-5 {
+  .views-row {
+    margin-bottom: $space-double;
+
+    h2 {
+      font-size: 1.4rem;
+      line-height: 1.2;
+      color: clr(text);
+      margin-top: $space/2;
+      margin-bottom: 0;
+
+      a {
+        color: inherit;
+      }
+    }
+
+    .field_post_date {
+      display: none;
+    }
+
+    .layout__region--top img,
+    .field_featured_image img {
+      @include box-shadow-standout;
+      width: 100%;
+    }
+
+    .node--type-focus-on-content-item {
+      display: block;
+    }
+
+    .group-left {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .group-right {
+      margin-top: 0px;
+      width: 100%;
+    }
+
+    &.row-1 {
+      margin-bottom: 4rem;
+
+      h2 {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+      }
+
+      img {
+        @include box-shadow-standout;
+
+        width: 100%; // should occupy the whole width
+      }
+    }
+
+    @include medium {
+      &.row-1 {
+  
+        h2 {
+          font-size: 1.8rem;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+    @include large {
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+  }
+  @include breakpoint($screen-xs-max) {
+    .view-rows-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .views-row {
+        width: calc(33.3% - 4rem / 3);
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        &.row-1 {
+          width: 100%;
+          flex-grow: 3;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+
+        &:not(.contextual):nth-child(3n+1) {
+          margin-right: 0;
+        }
+        &:not(.contextual):nth-child(3n+2) {
+          margin-left: 0;
+        }
+      }
+
+      &.contextual-region .views-row {
+        &:nth-child(3n) {
+          margin-left: 0;
+          margin-right: 1rem;
+        }
+        &:nth-child(3n+1) {
+          margin-left: 1rem;
+          margin-right: 1rem;
+        }
+        &:nth-child(3n+2) {
+          margin-left: 1rem;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  @include large {
+    .views-row.row-1 {
+      .node--type-news,
+      .node--type-focus-on-content-item {
+        display: flex;
+
+        .group-left {
+          width: 60%;
+          padding-right: 1rem;
+        }
+
+        .group-right {
+          width: 40%;
+          padding-left: 1rem;
+        }
+
+        h2 {
+          margin-top: 0;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+#views-view-focus_on-block_6 .views-content,
+.focus-on-view {
+  display: flex;
+  flex-direction: column;
+
+  @include medium {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

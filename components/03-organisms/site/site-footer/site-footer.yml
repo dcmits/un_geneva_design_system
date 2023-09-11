@@ -1,0 +1,15 @@
+ownership_menu:
+  - url: '#'
+    title: 'Terms of Use'
+  - url: '#'
+    title: 'Privacy Notice'
+  - url: '#'
+    title: 'Multilingualism Disclaimer'
+extra_footer_menu:
+  - url: '#'
+    title: 'Services Operating Hours'
+  - url: '#'
+    title: 'Frequently Asked Questions'
+accessibility_menu:
+  - url:  '#'
+    title': 'Accesibility'

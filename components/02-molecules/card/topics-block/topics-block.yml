@@ -1,0 +1,23 @@
+# Icon
+icon_name: 'environment'
+
+# Title
+topics_label:
+  "This is a topics Label"
+topics_title:
+  "This is a topics title"
+topics_title_link:
+topics_title_modifiers:
+  1:
+    no-space
+topics_title_blockname:
+
+# Link
+topics_link_url:
+  "#"
+topics_link_text:
+  'Read more about this topics'
+topics_link_modifiers:
+  1:
+    more-link
+topics_link_blockname:

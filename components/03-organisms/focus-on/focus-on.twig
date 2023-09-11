@@ -1,0 +1,25 @@
+{{ attach_library('un_geneva_design_system/focus-on') }}
+{%
+  set classes = [
+    'focus-on-view',
+    'views-view-grid',
+    options.alignment,
+  ]
+%}
+
+{% if title %}
+  <h2 class="content-title"><span>{{ title }}</span></h2>
+{% endif %}
+
+<div id="{{ id }}" class="focus-on-view">
+      {% for item in items %}
+        {% include "@molecules/card/focus-card/focus-card.twig" with { 
+              "card_img_src": item.card_img_src,
+              "card_image_output_image_tag": TRUE,
+              "card_title": item.card_title,
+              "card_link_url": item.card_link_url,
+              "card_subtitle": item.card_subtitle,
+              "card_body": item.card_body,
+        } %}
+      {% endfor %}
+</div>

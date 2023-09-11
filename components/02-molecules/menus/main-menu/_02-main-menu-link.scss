@@ -1,0 +1,67 @@
+/* A */
+.main-menu__link {
+  color: clr(accent);
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  padding: $space/2 $space $space/2 $space;
+  text-decoration: none;
+  font-weight: 400;
+
+  &--with-sub {
+    width: 80%;
+  }
+
+  @include large {
+    border-bottom: none;
+    display: inline-block;
+    font-size: 1.1rem;
+    /*font-weight: 300;*/
+    padding: $space;
+    color: clr(background);
+    position: relative;
+    width: auto;
+
+    &.main-menu__link--sub.active,
+    &.main-menu__link--sub:active,
+    &.main-menu__link--sub:focus {
+      color: clr(text);
+    }
+
+    &--with-sub {
+      padding-right: $space-double;
+    }
+
+    &:focus,
+    &:hover {
+      color: clr(background);
+
+      &::after {
+        color: clr(highlight);
+      }
+    }
+  }
+}
+
+/*
+ * Sub Navigation Links
+ */
+
+/* A (Nested) */
+.main-menu__link--sub {
+  color: clr(accent);
+  font-weight: normal;
+  font-size: 1rem;
+
+  @include large {
+    display: block;
+    padding: $space-one-third $space;
+    padding-right: $space-double;
+  }
+}
+
+.main-menu--sub-2 {
+  background-color: clr(highlight);
+}
+
+.main-menu__link--sub-2 {}

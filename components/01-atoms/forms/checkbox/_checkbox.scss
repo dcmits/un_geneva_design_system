@@ -1,0 +1,16 @@
+.form-item--checkboxes,
+.form-item--checkbox__item {
+  @include list-reset;
+}
+
+.contact-form {
+  .field--widget-boolean-checkbox .form-item {
+    display: flex;
+    margin-bottom: 0;
+
+    .form-item__label {
+      margin-right: 0;
+      margin-left: 0.5rem;
+    }
+  }
+}

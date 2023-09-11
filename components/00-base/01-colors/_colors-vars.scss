@@ -1,0 +1,51 @@
+// Color variables - it is better to use the colors in
+// components/00-base/01-colors/_01-colors-used.scss rather than
+// these colors directly.
+
+// color system (see https://tailwindcss.com/docs/customizing-colors for details)
+// standard color: [color] = [color]-400
+// lighter colors: [color]-300, [color]-200, [color]-100
+// darker colors: [color]-500, [color]-600, [color]-700, [color]-800, [color]-900
+
+// Grayscale
+$white: #fff;
+
+$un-blue: #009edb; // old value #00adef
+$un-blue-text: #1d70b8; // for best possible contrast
+$blue: $un-blue;
+$blue-text: $un-blue-text;
+$blue-100: #afe0f2;
+$blue-400: $blue;
+$blue-500: #068dfc;
+$blue-600: #006aa9;
+$aria-compliant-blue: #096cbd;
+
+$gray: #4b4b4b;
+
+$gray-100: #f2f2f2;
+$gray-200: #dadede;
+$gray-300: #a3a3a3;
+$gray-350: #707070;
+$gray-400: $gray;
+$gray-500: #303030;
+
+$black: black;
+
+// Project
+
+// Status
+$yellow-light: #f9fb93;
+$red-light: #fbe3e4;
+$green-light: #cfefc2;
+
+// Project
+$purple: #610c63;
+
+
+// backward-compatible colors
+$dark-gray: $gray-500;
+$gray-dark: $gray-500;
+$background-alternate: $gray-100;
+$gray-light: $gray-100;
+$gray-lighter: $gray-100;
+$moderate-gray: $gray-200;

@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Theme override implementation to display a paragraph.
+ *
+ * @see _paragraph.twig
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set additional_attributes = {
+  'class': [
+    'hero-section'
+  ]
+} %}
+
+{% if directory %}
+  {% set default_image = default_banner_image()|default({}) %}
+
+  {# Use default image if no custom one exists #}
+  {% if content is empty or (content.field_un_image.0 is empty and content[1]['#uri'] is empty) %}
+    {% set content = content|default({})|merge({
+      'field_un_image': content.field_un_image|default([])|merge(
+        default_image
+      )
+    }) %}
+  {% endif %}
+
+  {% if content is empty %}
+    {% set content = "" %}
+  {% endif %}
+  <div {{ add_attributes(additional_attributes) }}>
+    {{ content }}
+  </div>
+{% else %}
+  <div {{ add_attributes(additional_attributes) }}>
+    <img src="./un_flag.jpg" width="1920" height="356" alt="UN Flag" loading="lazy" typeof="foaf:Image">
+    <div class="container">
+      <nav class="node-breadcrumbs" role="navigation" aria-label="Breadcrumb" dir="ltr">
+        <h2 class="visually-hidden">Breadcrumb</h2>
+        <ol class="breadcrumb">
+          <li>
+            <a href="/en">Home</a>
+          </li>
+          <li class="page-title"><h1>Page Title</h1></li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+{% endif %}

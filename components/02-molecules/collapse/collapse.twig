@@ -1,0 +1,33 @@
+{#
+  Element that collapses, independently of others on the page.
+
+  Available variables:
+  - title: Title of the toggle, always visible
+  - content: Content that can be collapsed or shown
+  - attributes: (optional) list of attributes for outer container
+  - id: (optional) CSS id for the collapse item
+#}
+{{ attach_library('un_geneva_design_system/collapse-component') }}
+
+{%
+  set attributes = add_attributes({
+    "class": [
+      "panel",
+    ]
+  })
+%}
+
+{% set id = id|default("collapse-" ~ random()) %}
+
+<div {{ attributes }} role="tablist">
+  <div class="panel-heading" role="tab">
+    <h4 class="panel-title">
+      <a class="collapsed" role="button" data-toggle="collapse" href="#{{id}}" aria-expanded="false" aria-controls="{{id}}">
+        {{ title }}
+      </a>
+    </h4>
+  </div>
+  <div class="panel-body collapse" id="{{id}}" role="tabpanel">
+  {{ content }}
+  </div>
+</div>

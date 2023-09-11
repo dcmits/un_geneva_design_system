@@ -1,0 +1,64 @@
+{% if not item_modifiers %}
+  {% set item_modifiers = [] %}
+{% endif %}
+{% if not item_attributes %}
+  {% set item_attributes = {} %}
+{% endif %}
+{% if not ul_attributes %}
+  {% set ul_attributes = { role: 'menu' } %}
+{% endif %}
+{# Pass original item modifiers down to children #}
+{% set original_item_modifiers = item_modifiers %}
+{% if item.in_active_trail == TRUE %}
+  {% set item_modifiers = item_modifiers|merge(['active']) %}
+{% endif %}
+{% if menu_level > 0 %}
+  {% set item_modifiers = item_modifiers|merge(['sub', 'sub-' ~ menu_level]) %}
+{% endif %}
+{% if item.below %}
+  {% set item_modifiers = item_modifiers|merge(['with-sub']) %}
+  {% set item_attributes = item_attributes|merge({'aria-controls': 'menu-sub-' ~ (menu_level + 1) ~ '-' ~ item_index, 'aria-haspopup': 'true', 'aria-expanded': 'false' }) %}
+{% endif %}
+{# below could maybe be done without a loop? #}
+{% for modifier in item.modifiers %}
+  {% set item_modifiers = item_modifiers|merge([modifier]) %}
+{% endfor %}
+{% if directory %}
+  {% set item_description = item.content.field_content[0] ?? '' %}
+{% else %}
+  {% set item_description = item.description ?? '' %}
+{% endif %}
+
+{% set list_item_label = item_label %}
+{% set li_base_class = item_base_class|default(menu_class ~ '__item') %}
+{% set li_modifiers = item_modifiers %}
+{% if item_index > menu_count/2 %}
+  {% set li_modifiers = li_modifiers|merge(['right']) %}
+{% endif %}
+{% set li_blockname = item_blockname %}
+
+{% import "@molecules/menus/_menu.twig" as menus %}
+
+{% extends "@atoms/lists/_list-item.twig" %}
+  {% block list_item_content %}
+    {% set link_attributes = item_attributes %}
+    {% if not item.below %}
+      {% set link_attributes = item_attributes|merge({ role: 'menuitem' }) %}
+    {% endif %}
+      {% include "@atoms/links/link/link.twig" with {
+        link_content: item.title,
+        link_url: item.url,
+        link_base_class: item_base_class|default(menu_class ~ '__link'),
+        link_modifiers: item_modifiers,
+        link_attributes: link_attributes,
+      } %}
+    {% if item.below %}
+      <span class="expand-sub" aria-haspopup="true" aria-controls="menu-sub-{{ menu_level + 1 }}-{{ item_index }}"></span>
+      {% if attributes %}
+        {% set attributes = attributes|merge({id : 'menu-sub-' ~ (menu_level + 1) ~ '-' ~ item_index }) %}
+      {% else %}
+        {% set attributes = {id : 'menu-sub-' ~ (menu_level + 1) ~ '-' ~ item_index } %}
+      {% endif %}
+      {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_class, menu_modifiers, menu_blockname, item_base_class, original_item_modifiers, item_blockname, directory, item_description, ul_attributes) }}
+    {% endif %}
+  {% endblock %}

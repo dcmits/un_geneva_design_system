@@ -1,0 +1,15 @@
+un_geneva_starterkit.small:
+  label: small
+  mediaQuery: 'all and (min-width: 25em)'
+un_geneva_starterkit.small-med:
+  label: small-med
+  mediaQuery: 'all and (min-width: 26em)'
+un_geneva_starterkit.small-large:
+  label: small-large
+  mediaQuery: 'all and (min-width: 41em)'
+un_geneva_starterkit.medium:
+  label: medium
+  mediaQuery: 'all and (min-width: 48em)'
+un_geneva_starterkit.large:
+  label: large
+  mediaQuery: 'all and (min-width: 61.25em)'

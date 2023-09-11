@@ -1,0 +1,12 @@
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 40px 0;
+
+  article {
+    border: 1px solid $gray-dark;
+    margin: 2px;
+  }
+}

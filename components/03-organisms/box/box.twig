@@ -1,0 +1,17 @@
+{% extends "@organisms/_paragraph.twig" %}
+
+{% block content %}
+<div class="un-box {{ paragraph.field_box_type.value }}">
+  {% if icon or icon_label %}
+  <div class="aside">
+    <div class="aside-inner">
+      {{ icon|raw }}
+      {{ icon_label|raw }}
+    </div>
+  </div>
+  {% endif %}
+  <div class="inner">
+    {{ inner_content|raw }}
+  </div>
+</div>
+{% endblock %}

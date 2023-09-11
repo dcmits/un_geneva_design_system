@@ -1,0 +1,5 @@
+link_uri: http://example.org
+link_title: Example organization link
+link_display: organization
+image: 'https://placeimg.com/300/100/nature'
+extra: '<a href="http://example.org"><i class="fa fa-external-link"></i> Visit website</a>'
