@@ -7,6 +7,8 @@ logo:
   use_default: 1
 favicon:
   use_default: 1
+banner_use_default: 1
+banner_image_fid: ''
 site_name: 'The United Nations Office at Geneva'
 site_name_secondary: ''
 social_media_share_default_image: 'http://www.ungeneva.org/sites/default/files/styles/un_section_hero/public/2019-08/UN-Flag.jpg?itok=-CSNEi5q'

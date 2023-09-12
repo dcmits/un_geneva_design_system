@@ -50,17 +50,23 @@ function un_geneva_design_system_preprocess(&$variables, $hook) {
     }
 
     $block_search = \Drupal\block\Entity\Block::load('un_geneva_design_system_header_search'); // replace mytheme part with your theme name.
-    $variables['header__search'] = \Drupal::entityTypeManager()
+    if($block_search) {
+      $variables['header__search'] = \Drupal::entityTypeManager()
       ->getViewBuilder('block')
       ->view($block_search);
+    }
     $block_branding = \Drupal\block\Entity\Block::load('un_geneva_theme_branding'); // replace mytheme part with your theme name.
-    $variables['header__branding'] = \Drupal::entityTypeManager()
+    if($block_branding) {
+      $variables['header__branding'] = \Drupal::entityTypeManager()
       ->getViewBuilder('block')
       ->view($block_branding);
+    }
     $block_mainnavigation = \Drupal\block\Entity\Block::load('un_geneva_theme_mainnavigation'); // replace mytheme part with your theme name.
-    $variables['header__menu'] = \Drupal::entityTypeManager()
+    if($block_mainnavigation) {
+      $variables['header__menu'] = \Drupal::entityTypeManager()
       ->getViewBuilder('block')
       ->view($block_mainnavigation);
+    }
   }
   elseif($hook == 'machine_translated_warning') {
     $variables['current_language'] = \Drupal::languageManager()->getCurrentLanguage()->getId() == 'zh-hans' ? 'zh' : \Drupal::languageManager()->getCurrentLanguage()->getId();

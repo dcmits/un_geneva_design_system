@@ -2,6 +2,16 @@ name: 'UN Geneva starterkit theme'
 type: theme
 base theme: un_geneva_design_system
 core_version_requirement: ^10
+dependencies:
+  - block_class
+  - components
+  - emulsify_twig
+  - lang_dropdown
+  - language
+  - menu_block
+  - search
+  - twig_tweak
+  - unified_twig_ext
 libraries:
   - un_geneva_starterkit/global
 ckeditor_stylesheets:

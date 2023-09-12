@@ -5,15 +5,15 @@ dependencies:
     - lang_dropdown
   theme:
     - un_geneva_starterkit
-id: un_geneva_starterkit_languagedropdownswitchercontent
+id: un_geneva_starterkit_languagedropdownswitcher
 theme: un_geneva_starterkit
 region: brandbar
-weight: -23
+weight: 0
 provider: null
-plugin: 'language_dropdown_block:language_content'
+plugin: 'language_dropdown_block:language_interface'
 settings:
-  id: 'language_dropdown_block:language_content'
-  label: 'Language dropdown switcher (Content)'
+  id: 'language_dropdown_block:language_interface'
+  label: 'Language dropdown switcher'
   label_display: '0'
   provider: lang_dropdown
   showall: true
@@ -41,8 +41,4 @@ settings:
   languageicons:
     flag_position: 1
   hidden_languages: {  }
-  cache:
-    esi: 0
-    ttl: '0'
-    cachemode: '2'
 visibility: {  }
