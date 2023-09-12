@@ -17,7 +17,7 @@ php web/core/scripts/drupal generate-theme [new_theme] --path themes/custom --st
 ```
 2. Install dependencies (block_class, components, emulsify_twig, lang_dropdown, language, menu_block, search, twig_tweak, unified_twig_ext)
 3. Add patches in compser.json
-`
+```
         "patches": {
             "drupal/core": {
                 "Add stream wrappers to access extension files": "https://www.drupal.org/files/issues/2021-12-15/1308152-395.patch"
@@ -32,7 +32,7 @@ php web/core/scripts/drupal generate-theme [new_theme] --path themes/custom --st
                 "Fix action attribute of form that triggers XSS alert.": "./patches/lang_dropdown-xss-action.patch"
             }
         }
-`
+```
 2. Install the theme
 3. Update the theme settings (Site name, Secondary site name, social media share image, default banner image)
 
