@@ -31,22 +31,26 @@ function un_geneva_design_system_preprocess(&$variables, $hook) {
   if($hook == 'region' && $variables['region'] == 'header') {
     $variables['use_theme_logo'] = theme_get_setting('logo.use_default');
   
-    $parameters = new MenuTreeParameters();
     $menu_name = 'quicklinks';
+    if(\Drupal::entityTypeManager()->getStorage('menu')->load($menu_name)) {
+      $parameters = new MenuTreeParameters();
 
-    // Optionally limit to enabled items.
-    $parameters->onlyEnabledLinks();
-
-    // Optionally set active trail.
-    $menu_active_trail = \Drupal::service('menu.active_trail')->getActiveTrailIds($menu_name);
-    $parameters->setActiveTrail($menu_active_trail);
-
-    // Load the tree.
-    $tree = \Drupal::menuTree()->load($menu_name, $parameters);
-    $render = Drupal::menuTree()->build($tree);
-
-    if(isset($render['#items'])) {
-      $variables['quicklinks'] = $render['#items'];
+      // Optionally limit to enabled items.
+      $parameters->onlyEnabledLinks();
+  
+      // Optionally set active trail.
+      $menu_active_trail = \Drupal::service('menu.active_trail')->getActiveTrailIds($menu_name);
+      $parameters->setActiveTrail($menu_active_trail);
+  
+      // Load the tree.
+      $tree = \Drupal::menuTree()->load($menu_name, $parameters);
+      if(!empty($tree)) {
+        $render = Drupal::menuTree()->build($tree);
+  
+        if(isset($render['#items'])) {
+          $variables['quicklinks'] = $render['#items'];
+        }
+      }
     }
 
     $block_search = \Drupal\block\Entity\Block::load('un_geneva_design_system_header_search'); // replace mytheme part with your theme name.

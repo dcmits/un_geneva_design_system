@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: un_section_hero
+label: 'UN section hero (1920×356)'
+effects:
+  5271e074-c12d-49c2-81b6-803576cc7eb9:
+    uuid: 5271e074-c12d-49c2-81b6-803576cc7eb9
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 356
+      anchor: center-center
