@@ -9,5 +9,10 @@
  *
  * @see template_preprocess_input()
  */
-#}
-<input{{ attributes.addClass('form-item__textfield') }} />{{ children }}
+ #}
+{% if element['#type'] in ['checkbox','radio', 'button', 'submit'] %}
+ {% set input_attributes = attributes %}
+{% else %}
+ {% set input_attributes = attributes.addClass('form-item__textfield') %}
+{% endif %}
+<input{{ input_attributes }} />{{ children }}
