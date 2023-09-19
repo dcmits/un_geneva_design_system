@@ -61,6 +61,7 @@ php web/core/scripts/drupal generate-theme [new_theme] --path themes/custom --st
 
 ### Updating the local version of the design system
 ```
+rm -rf web/themes/contrib/un_geneva_design_system
 composer update dcmits/un_geneva_design_system --no-cache
 ```
 
