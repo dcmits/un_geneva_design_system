@@ -26,7 +26,7 @@ function un_geneva_design_system_preprocess(&$variables, $hook) {
   $variables['theme_banner'] = un_geneva_design_system_get_default_banner();
   
   $theme_handler = Drupal::service('theme_handler');
-  $variables['un_geneva_design_system_path'] = $theme_handler->getTheme('un_geneva_design_system')->getPath();
+  $variables['un_geneva_design_system_path'] = base_path() . $theme_handler->getTheme('un_geneva_design_system')->getPath();
   
   if($hook == 'region' && $variables['region'] == 'header') {
     $variables['use_theme_logo'] = theme_get_setting('logo.use_default');
