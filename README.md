@@ -30,7 +30,7 @@ Default components provided by the design system:
     }
 }
 ```
-2. Install dependencies (block_class, components, emulsify_twig, lang_dropdown, language, menu_block, search, twig_tweak, unified_twig_ext)
+2. Install dependencies (block_class, components, emulsify_twig, lang_dropdown, language, menu_block, twig_tweak, unified_twig_ext)
 3. Install the theme
 ```
 composer require dcmits/un_geneva_design_system

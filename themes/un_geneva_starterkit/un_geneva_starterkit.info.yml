@@ -9,7 +9,6 @@ dependencies:
   - lang_dropdown
   - language
   - menu_block
-  - search
   - twig_tweak
   - unified_twig_ext
 libraries:

@@ -38,7 +38,6 @@
         "drupal/lang_dropdown": "*",
         "drupal/language": "*",
         "drupal/menu_block": "*",
-        "drupal/search": "*",
         "drupal/unified_twig_ext": "*"
     }
 }
