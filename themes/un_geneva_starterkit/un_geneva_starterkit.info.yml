@@ -6,6 +6,7 @@ dependencies:
   - block_class
   - components
   - emulsify_twig
+  - image
   - lang_dropdown
   - language
   - menu_block
