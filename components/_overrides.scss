@@ -45,3 +45,7 @@ html[lang=es] .header__branding {
         }
     }
 }
+
+.fa-twitter::before {
+    content: "\1D54F" !important;
+}
