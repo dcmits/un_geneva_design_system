@@ -21,9 +21,9 @@ showcases:
   dependencies:
     - core/drupal
 
-two-columns-paragraph:
+equal-height-cols:
   js:
-    dist/js/03-organisms/paragraphs/paragraph--un-columns-two/paragraph--un-columns-two.js: {}
+    dist/js/03-organisms/paragraphs/equal-height-cols.js: {}
   dependencies:
     - core/drupal
     - core/jquery

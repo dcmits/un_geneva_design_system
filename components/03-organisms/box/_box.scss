@@ -54,8 +54,13 @@
     padding: 1rem;
 
     @include breakpoint($screen-xs-min) {
-      display: table-cell;
-      vertical-align: top;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .un-buttons-container {
+        margin-top: auto;
+      }
     }
   }
 
