@@ -42,3 +42,5 @@ components:
       - components/04-templates
     pages:
       - components/05-pages
+interface translation project: un_geneva_design_system
+interface translation server pattern: themes/contrib/un_geneva_design_system/translations/%project.%language.po
