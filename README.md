@@ -67,6 +67,22 @@ composer update dcmits/un_geneva_design_system --no-cache
 
 ## Extending the design system
 
+1. clone the repo
+2. start ddev container
+```
+ddev start
+```
+3. launch the storybook app
+```
+ddev launch
+```
+4. add/modify components
+5. rebuild static files
+```
+ddev npm run build
+```
+
+
 [![Emulsify Design System](https://user-images.githubusercontent.com/409903/170579210-327abcdd-2c98-4922-87bb-36446a4cc013.svg)](https://www.emulsify.info/)
 
 Emulsify is an open-source tool for creating design systems with reusable components and clear guidelines for teams. Emulsify helps organizations scale their design while reducing cost, streamlining workflows, and improving accessibility.
