@@ -1,39 +1,39 @@
-# French translation of the UN Geneva design system
+# Spanish translation of the UN Geneva design system
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: UN Geneva design system (1.0.0)\n"
 "POT-Creation-Date: 2023-10-11 12:34+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
-"Language-Team: French\n"
+"Language-Team: Spanish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>1);\n"
 
 msgid "United Nations"
-msgstr "Nations Unies"
+msgstr "الأمم المتحدة"
 
 msgid "The United Nations Office at Geneva"
-msgstr "L'Office des Nations Unies à Genève"
+msgstr "مكتب الأمم المتحدة في جنيف"
 
 msgid "United Nations Office at Geneva"
-msgstr "Office des Nations Unies à Genève"
+msgstr "مكتب الأمم المتحدة في جنيف"
 
 msgid "Quicklinks"
-msgstr "Liens directs"
+msgstr "روابط سريعة"
 
 msgid "Search"
-msgstr "Recherche"
+msgstr "يبحث"
 
 msgid "Contact"
-msgstr "Contact"
+msgstr "اتصل"
 
 msgid "Follow and connect with us"
-msgstr "Suivez-nous et connectez-vous avec nous"
+msgstr "تابعنا وتواصل معنا"
 
 msgid "Menu"
-msgstr "Menu"
+msgstr "القائمة"
 
 msgid "Welcome to the United Nations"
-msgstr "Bienvenue aux Nations Unies"
+msgstr "مرحباً بكم في الأمم المتحدة"
