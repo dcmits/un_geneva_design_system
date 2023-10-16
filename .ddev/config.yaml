@@ -238,10 +238,10 @@ web_extra_exposed_ports:
 #- name: "http-2"
 #  command: "/var/www/html/node_modules/.bin/http-server /var/www/html/sub -p 3000"
 #  directory: /var/www/html
-web_extra_daemons:
-  - name: "storybook"
-    command: "npm install && npm run develop"
-    directory: /var/www/html
+#web_extra_daemons:
+#  - name: "storybook"
+#    command: "npm install && npm run develop"
+#    directory: /var/www/html
 
 # override_config: false
 # By default, config.*.yaml files are *merged* into the configuration
