@@ -1,15 +1,83 @@
-.footer {
-  &--inner {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+#footer {
+  margin-top: auto;
+  background-color: $gray-500;
+  border-top: $un-blue 4px solid;
+  color: $gray-350;
+
+  .footer {
+
+    &--inner {
+      padding: 1rem 0;
+    }
+
+    &-menu {
+      padding: 0;
+      border-top: 1px solid $gray-375;
+      margin: 1rem 0;
+      padding-top: 1rem;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      &__item {
+        list-style-type: none;
+        display: inline-block;
+        border-right: 3px solid $gray-375;
+        line-height: 1;
+        padding: 0 0.8rem;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+      &__link {
+        color: $white;
+        font-size: 0.75rem;
+        letter-spacing: 0.77px;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+    }
+
+    &--top {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    .un-logo {
+      width: 170px;
+      height: auto;
+    }
   }
 
+  .social-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+
+    &__item {
+      margin: 0 1rem;
+    }
+
+    &__link {
+      font-size: 1.5rem;
+      color: $gray-300;
+
+      &:hover {
+        color: $gray-200;
+      }
+    }
+  }
+}
+
+/*
   &--main {
-    background-color: clr(accent);
-    color: clr(highlight-high);
     padding: 1rem 0;
     font-size: 0.9rem;
 
@@ -270,7 +338,6 @@
         padding: 0 $space/2;
         border-right: 1px solid $gray-300;
         text-align: center;
-        /* min-width: 33%; */
     
         &:first-child {
           padding-left: 0;
@@ -325,3 +392,4 @@
 #block-un-geneva-design-system-accessibilitylink {
   padding-top: 2rem;
 }
+*/

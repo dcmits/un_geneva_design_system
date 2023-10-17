@@ -50,6 +50,12 @@
 }
 @font-face {
     font-family: 'Roboto';
+    font-weight: 500;
+    font-style: normal;
+    src: url('../fonts/Roboto/roboto-medium-webfont.woff') format('woff');
+}
+@font-face {
+    font-family: 'Roboto';
     font-weight: normal;
     font-style: italic;
     src: url('../fonts/Roboto/roboto-italic-webfont.woff') format('woff');
@@ -99,6 +105,7 @@
     font-style: normal;
 }
 
+/*
 @font-face{
     font-family:'FontAwesome';
     src:url('../fonts/FontAwesome/fontawesome-webfont.eot?v=4.7.0');
@@ -111,4 +118,5 @@
 }
 
 @import "/fonts/font-awesome.min.css"
-  
+*/
+@import "/fonts/fontawesome-web/css/all.min.css"

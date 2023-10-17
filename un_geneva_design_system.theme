@@ -72,9 +72,7 @@ function un_geneva_design_system_preprocess(&$variables, $hook) {
       ->view($block_mainnavigation);
     }
   }
-  elseif($hook == 'machine_translated_warning') {
-    $variables['current_language'] = \Drupal::languageManager()->getCurrentLanguage()->getId() == 'zh-hans' ? 'zh' : \Drupal::languageManager()->getCurrentLanguage()->getId();
-  }
+  $variables['current_language'] = \Drupal::languageManager()->getCurrentLanguage()->getId() == 'zh-hans' ? 'zh' : \Drupal::languageManager()->getCurrentLanguage()->getId();
 }
 
 function un_geneva_design_system_get_default_banner() {
