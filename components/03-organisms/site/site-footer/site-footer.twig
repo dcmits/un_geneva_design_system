@@ -1,85 +1,29 @@
 {% set footer__base_class = 'footer' %}
+{% if not current_language %}
+  {% set current_language = 'en' %}
+{% endif %}
+{% set logo_src = (directory ? un_geneva_design_system_path ~ '/images/' : './') ~ 'logo/logo-' ~ current_language ~ '-reverse.svg' %}
 
-<footer {{ bem(footer__base_class) }}>
-  <div {{ bem(footer__base_class, ['main']) }}>
+<footer id="footer" {{ bem(footer__base_class) }}>
     <div class="container">
       <div {{ bem(footer__base_class, ['inner']) }}>
-
-        <div class="col col--left">
-        {% block footer_content_left %}
-          <div class="block social-media-connect">
-            <h2 class="block-title"><span>{{ 'Follow and connect with us'|t }}</span></h2>
-            <ul class="social clearfix">
-              <li class="social-fb"><a href="https://www.facebook.com/UN.Geneva" title="UN Geneva on Facebook" target="_blank"><i class="fa fa-facebook"></i><span class="sr-only">Follow UN Geneva on Facebook</span></a></li>
-              <li class="social-fl"><a href="https://www.flickr.com/photos/unisgeneva" title="UN Geneva on flickr" target="_blank"><i class="fa fa-flickr"></i><span class="sr-only">Follow UNIS Geneva on Flickr</span></a></li>
-              <li class="social-tw"><a href="https://twitter.com/ungeneva" title="UN Geneva on Twitter" target="_blank"><i class="fa fa-twitter"></i><span class="sr-only">Follow UN Geneva on Twitter</span></a></li>
-            </ul>
-            <ul class="social clearfix">
-              <li class="social-li"><a href="https://www.linkedin.com/company/united-nations-office-at-geneva" title="UN Geneva on LinkedIn" target="_blank"><i class="fa fa-linkedin"></i><span class="sr-only">Follow UN Geneva on LinkedIn</span></a></li>
-              <li class="social-yu"><a href="http://www.youtube.com/user/UninformationGeneva" title="UN Geneva on YouTube" target="_blank"><i class="fa fa-youtube"></i><span class="sr-only">Follow UN Geneva on Youtube</span></a></li>
-              <li class="social-in"><a href="https://www.instagram.com/UNGeneva" title="UN Geneva on Instagram" target="_blank"><i class="fa fa-instagram"></i><span class="sr-only">Follow UN Geneva on Instagram</span></a></li>
-            </ul>
+        <div {{ bem(footer__base_class, ['top']) }}>
+          <div class="un-logo">
+            <a href="{{ url('<front>') }}"><img src=" {{ logo_src }}" /></a>
           </div>
-        {% endblock %}
-        </div>
-
-        <div class="col col--middle">
-        {% block footer_content_middle %}
-          <!-- PL placeholder content -->
-          <div id="block-un-geneva-pl-addressblock" class="block address-block">
-            <h2 class="block-title"><span>{{ 'Contact'|t }}</span></h2>
-            <p>Palais des Nations <br/>
-            1211 Geneva 1211, Switzerland <br/>
-            Phone: +41(0) 22 917 1234 </p>
-            <p class="contact-footer">
-              {% include "@atoms/links/link/link.twig" with {
-                link_base_class: "button",
-                link_url: "#",
-                link_content: "Contact Us"
-              } %}
-            </p>
-          </div>
-          <!-- /PL placeholder content -->
-        {% endblock %}
-        </div>
-
-        <div class="col col--right">
-        {% block footer_content_right %}
-          <!-- PL placeholder content -->
-          <div class="block practical-information">
-            <h2 class="block-title"><span>Practical Information</span></h2>
-            {% include "@molecules/menus/_menu.twig" with {
-              menu_class: "footer-menu",
-              items: quicklinks,
+          {% block social_menu %}
+            {% include "@molecules/menus/social/social-menu.twig" with {
+              menu_class: "social-menu",
+              items: social_menu,
             } %}
-          </div>
-          <div class="block">
-            {% include "@molecules/menus/_menu.twig" with {
-              items: extra_footer_menu,
-            } %}
-            {% include "@molecules/menus/_menu.twig" with {
-              items: accesibility_menu,
-            } %}
-          </div>
-          <!-- /PL placeholder content -->
-        {% endblock %}
+          {% endblock %}
         </div>
-      </div>
-    </div>
-  </div>
-  <div {{ bem(footer__base_class, ['ownership']) }}>
-    <div class="container">
-      <div {{ bem(footer__base_class, ['inner']) }}>
-        {% block footer_content_bottom %}
+        {% block footer_menu %}
           {% include "@molecules/menus/_menu.twig" with {
-            menu_class: "ownership-menu",
-            items: ownership_menu,
+            menu_class: "footer-menu",
+            items: footer_menu,
           } %}
-          <div class="copyright">
-            <p>&copy; United Nations Office at Geneva</p>
-          </div>
         {% endblock %}
       </div>
     </div>
-  </div>
 </footer>

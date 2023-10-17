@@ -5,9 +5,6 @@
 
 {% extends "@atoms/links/link/link.twig" %}
   {% block link_content %}
-    {% include "@atoms/images/icons/_icon.twig" with {
-      icon_name: item.icon,
-      icon_blockname: menu_class,
-    } %}
-    <span {{ bem('text', [], menu_class) }}>{{ item.title }}</span>
+    <i class="fa fa-brands {{ item.icon }}"></i>
+    <span class="sr-only">{{ item.title }}</span>
   {% endblock %}
