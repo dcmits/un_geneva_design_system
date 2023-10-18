@@ -14,18 +14,6 @@
 #}
 {% extends "@organisms/site/site-footer/site-footer.twig" %}
 
-{% block footer_content_left %}
-  {{ page.footer_left }}
-{% endblock %}
-
-{% block footer_content_middle %}
-  {{ page.footer_middle }}
-{% endblock %}
-
-{% block footer_content_right %}
-  {{ page.footer_right }}
-{% endblock %}
-
-{% block footer_content_bottom %}
-  {{ page.footer_bottom }}
+{% block footer_menu %}
+  {{ page.footer_bottom.un_geneva_theme_footer }}
 {% endblock %}
