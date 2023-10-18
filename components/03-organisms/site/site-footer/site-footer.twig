@@ -9,7 +9,7 @@
       <div {{ bem(footer__base_class, ['inner']) }}>
         <div {{ bem(footer__base_class, ['top']) }}>
           <div class="un-logo">
-            <a href="{{ url('<front>') }}"><img src=" {{ logo_src }}" /></a>
+            <a href="{{ url('<front>') }}"><img src="{{ logo_src }}" /></a>
           </div>
           {% block social_menu %}
             {% include "@molecules/menus/social/social-menu.twig" with {
