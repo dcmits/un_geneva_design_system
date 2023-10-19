@@ -7,7 +7,7 @@
 {# List #}
 {% extends "@atoms/lists/ul.twig" %}
   {% block list_content %}
-    {% for item in social_menu_items %}
+    {% for item in items %}
       {% include "@molecules/menus/social/_social-menu-item.twig" %}
     {% endfor %}
   {% endblock %}

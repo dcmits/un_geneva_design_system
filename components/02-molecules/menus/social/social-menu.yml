@@ -1,7 +1,7 @@
-social_menu_items:
+items:
   - title: 'Twitter'
     url: '#'
-    icon: 'fa-square-x-twitter'
+    icon: 'fa-twitter'
   - title: 'Facebook'
     url: '#'
     icon: 'fa-facebook-square'
