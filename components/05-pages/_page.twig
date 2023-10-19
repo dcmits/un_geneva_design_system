@@ -36,9 +36,8 @@
  * - page.content: The main content of the current page.
  * - page.sidebar_first: Items for the first sidebar.
  * - page.sidebar_second: Items for the second sidebar.
- * - page.footer_left: Items for the footer region.
- * - page.footer_middle: Items for the footer region.
- * - page.footer_right: Items for the footer region.
+ * - page.content_bottom: Items for the bottom of the content section (pre footer).
+ * - page.footer: Items for the footer region.
  * - page.breadcrumb: Items for the breadcrumb region.
  *
  * @see template_preprocess_page()
@@ -70,6 +69,10 @@
 
   {% block page_content %}
     {{ page.content }}
+  {% endblock %}
+
+  {% block content_bottom %}
+    {{ page.content_bottom }}
   {% endblock %}
 
   {% block page_footer %}

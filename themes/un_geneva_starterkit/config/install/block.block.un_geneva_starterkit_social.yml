@@ -2,23 +2,20 @@ langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.footer
+    - system.menu.social
   module:
     - menu_block
   theme:
     - un_geneva_starterkit
-third_party_settings:
-  block_class:
-    replaced_id: block-footer-menu
-id: un_geneva_starterkit_footer
+id: un_geneva_starterkit_social
 theme: un_geneva_starterkit
 region: footer
-weight: -23
+weight: -22
 provider: null
-plugin: 'menu_block:footer'
+plugin: 'menu_block:social'
 settings:
-  id: 'menu_block:footer'
-  label: Footer
+  id: 'menu_block:social'
+  label: Social
   label_display: '0'
   provider: menu_block
   follow: false
@@ -28,8 +25,8 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-  parent: 'footer:'
-  suggestion: footer
+  parent: 'social:'
+  suggestion: social
   cache:
     esi: 0
     ttl: '0'

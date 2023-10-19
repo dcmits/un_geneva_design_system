@@ -21,10 +21,8 @@ regions:
   header: Header
   content: Content
   sidebar: Sidebar
-  footer_left: 'Footer Left'
-  footer_middle: 'Footer Middle'
-  footer_right: 'Footer Right'
-  footer_bottom: 'Footer Bottom'
+  content_bottom: 'Content Bottom'
+  footer: Footer
   block_reference_region: 'Block Reference Region (Hidden)'
 logo: images/logo.png
 starterkit: true
