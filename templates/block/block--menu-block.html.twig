@@ -40,7 +40,7 @@
       {% set title_attributes = title_attributes.addClass('visually-hidden') %}
     {% endif %}
     {{ title_prefix }}
-    <h2{{ title_attributes.addClass('block-title').setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
+    <span {{ title_attributes.addClass('h2 block-title').setAttribute('id', heading_id) }}>{{ configuration.label }}</span>
     {{ title_suffix }}
 
     {# Menu. #}

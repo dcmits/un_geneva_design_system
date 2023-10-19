@@ -48,7 +48,7 @@
       align-items: center;
       justify-content: space-between;
 
-      @include small {
+      @include medium {
         align-items: flex-end;
         margin-top: 1rem;
       }
@@ -58,31 +58,53 @@
       width: 140px;
       height: auto;
 
-      @include small {
+      @include medium {
         width: 170px;
       }
     }
   }
 
-  .social-menu {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    font-size: 1.5rem;
-    max-width: calc(100% - 160px);
+  #block-un-geneva-theme-social-menu {
+    width: calc(100% - 160px);
 
-    &__item {
-      margin: 0.5rem;
+    nav {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
     }
 
-    &__link {
-      font-size: 1.5rem;
-      color: $gray-300;
+    @include medium {
+      width: calc(100% - 190px);
+    }
 
-      &:hover {
-        color: $gray-200;
+    .social-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      font-size: 1.5rem;
+      width: 100%;
+  
+      &__item {
+        margin: 0.5rem;
+
+        @include small {
+          margin: 0.5rem 0.7rem;
+        }
+        @include medium {
+          margin: 0.5rem 1rem;
+        }
+      }
+  
+      &__link {
+        font-size: 1.5rem;
+        color: $gray-300;
+  
+        &:hover {
+          color: $gray-200;
+        }
       }
     }
   }
