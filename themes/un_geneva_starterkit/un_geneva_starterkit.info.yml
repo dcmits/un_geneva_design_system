@@ -22,7 +22,8 @@ regions:
   content: Content
   sidebar: Sidebar
   content_bottom: 'Content Bottom'
-  footer: Footer
+  footer_social: 'Footer Social'
+  footer_menu: 'Footer Menu'
   block_reference_region: 'Block Reference Region (Hidden)'
 logo: images/logo.png
 starterkit: true

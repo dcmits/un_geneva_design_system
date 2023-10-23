@@ -2,10 +2,18 @@
 {% set link_base_class = 'link' %}
 {% set link_modifiers = item_modifiers %}
 {% set link_blockname = menu_class %}
-{% set icon_class = directory ? item.url.getOption('attributes').class|join(' ') : item.icon %}
+{% if directory %}
+  {% set icon_class = item.url.getOption('attributes').class|join(' ') %}
+{% else %}
+  {% set icon_class = item.icon %}
+{% endif %}
 
 {% extends "@atoms/links/link/link.twig" %}
   {% block link_content %}
-    <i class="{{ icon_class }}"></i>
-    <span class="sr-only">{{ item.title }}</span>
+    {% if icon_class %}
+      <i class="{{ icon_class }}"></i>
+      <span class="sr-only">{{ item.title }}</span>
+    {% else %}
+      <span class="small">{{ item.title }}</span>
+    {% endif %}
   {% endblock %}

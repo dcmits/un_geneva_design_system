@@ -1,0 +1,13 @@
+diff --git a/src/Form/LanguageDropdownForm.php b/src/Form/LanguageDropdownForm.php
+index 94fc597..ead6bb9 100755
+--- a/src/Form/LanguageDropdownForm.php
++++ b/src/Form/LanguageDropdownForm.php
+@@ -120,6 +120,8 @@ class LanguageDropdownForm extends FormBase {
+       'key' => $unique_id,
+     ];
+ 
++    $form['#action'] = '#';
++
+     $selected_option_language_icon = $language_selected = $language_session_selected = '';
+ 
+     $form['lang_dropdown_type'] = [
