@@ -22,7 +22,7 @@ regions:
   header: Header
   content: Content
   sidebar: Sidebar
-  content: 'Content Bottom'
+  content_bottom: 'Content Bottom'
   footer_social: 'Footer Social'
   footer_menu: 'Footer Menu'
   block_reference_region: 'Block Reference Region (Hidden)'
