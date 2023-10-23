@@ -14,10 +14,18 @@
 #}
 {% extends "@organisms/site/site-footer/site-footer.twig" %}
 
-{% block footer_menu %}
-  {{ page.footer_menu }}
+{% block footer_social %}
+  {% if page.footer_social %}
+    <div class="region region--footer-social">
+      {{ page.footer_social }}
+    </div>
+  {% endif %}
 {% endblock %}
 
-{% block footer_social %}
-  {{ page.footer_social }}
+{% block footer_menu %}
+  {% if page.footer_menu %}
+    <div class="region region--footer-menu">
+      {{ page.footer_menu }}
+    </div>
+  {% endif %}
 {% endblock %}
