@@ -35,6 +35,13 @@
 {% set heading_id = attributes.id ~ '-heading'|clean_id %}
 <div {{ attributes.addClass('block').setAttribute('id', block_id) }}>
   <nav aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby', 'id') }}>
+    {# Label. If not displayed, we still provide it for screen readers. #}
+    {% if not configuration.label_display %}
+      {% set title_attributes = title_attributes.addClass('visually-hidden') %}
+    {% endif %}
+    {{ title_prefix }}
+    <span {{ title_attributes.addClass('h2 block-title').setAttribute('id', heading_id) }}>{{ configuration.label }}</span>
+    {{ title_suffix }}
     {% block content %}
       {{ content }}
     {% endblock %}
