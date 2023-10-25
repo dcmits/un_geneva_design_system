@@ -9,7 +9,7 @@
       <div {{ bem(footer__base_class, ['inner']) }}>
         <div {{ bem(footer__base_class, ['top']) }}>
           <div class="un-logo">
-            <a href="{{ url('<front>') }}"><img src="{{ logo_src }}" /></a>
+            <img src="{{ logo_src }}" alt="" />
           </div>
           {% block footer_social %}
             <div class="region region--footer-social">
@@ -33,7 +33,7 @@
         {% block footer_menu %}
           <div class="region region--footer-menu">
             <div id="block-footer-menu" class="block">
-              <span class="h2 visually-hidden block-title" id="block-footer-menu-heading">Fooeter menu</span>
+              <span class="h2 visually-hidden block-title" id="block-footer-menu-heading">Footer menu</span>
               <nav aria-labelledby="block-un-geneva-theme-social-heading" class="block">
                 {% include "@molecules/menus/_menu.twig" with {
                   menu_class: "menu",
