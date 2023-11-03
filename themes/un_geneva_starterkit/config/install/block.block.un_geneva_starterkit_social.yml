@@ -9,7 +9,7 @@ dependencies:
     - un_geneva_starterkit
 id: un_geneva_starterkit_social
 theme: un_geneva_starterkit
-region: footer
+region: footer_social
 weight: -22
 provider: null
 plugin: 'menu_block:social'

@@ -16,7 +16,7 @@ Default components provided by the design system:
     "type": "package",
     "package": {
         "name": "dcmits/un_geneva_design_system",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "type": "drupal-theme",
         "source": {
         "type" : "git",
@@ -56,6 +56,7 @@ composer require dcmits/un_geneva_design_system
 ```
 php web/core/scripts/drupal generate-theme [new_theme] --path themes/custom --starterkit un_geneva_starterkit --name="[New theme name]"
 ```
+[new_theme] should be lowercase letters and digits and underscores (it shouldn't start with a digit)
 6. Install and set as default the new theme from the Appeareance menu
 7. Update the theme settings (Site name, Secondary site name, social media share image, default banner image)
 

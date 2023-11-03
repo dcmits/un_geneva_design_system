@@ -12,7 +12,7 @@ third_party_settings:
     replaced_id: block-footer-menu
 id: un_geneva_starterkit_footer
 theme: un_geneva_starterkit
-region: footer
+region: footer_menu
 weight: -23
 provider: null
 plugin: 'menu_block:footer'
