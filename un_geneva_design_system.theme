@@ -75,6 +75,14 @@ function un_geneva_design_system_preprocess(&$variables, $hook) {
   $variables['current_language'] = \Drupal::languageManager()->getCurrentLanguage()->getId() == 'zh-hans' ? 'zh' : \Drupal::languageManager()->getCurrentLanguage()->getId();
 }
 
+function un_geneva_design_system_preprocess_page(&$variables) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  if($current_alias == \Drupal::configFactory()->get('system.site')->get('page.front')) {
+    $variables['is_front'] = true;
+  }
+}
+
 function un_geneva_design_system_get_default_banner() {
 
   $useDefault = theme_get_setting('banner_use_default');
@@ -117,6 +125,11 @@ function un_geneva_design_system_theme_suggestions_page_alter(array &$suggestion
     $node = is_numeric($node) ? \Drupal::entityTypeManager()->getStorage('node')->load($node) : $node;
 
     $suggestions[] = $base . '__node__' . $node->bundle();
+  }
+  $current_path = \Drupal::service('path.current')->getPath();
+  $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  if($current_alias == \Drupal::configFactory()->get('system.site')->get('page.front')) {
+    $suggestions[] = $base . '__front';
   }
 }
 
