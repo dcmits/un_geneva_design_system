@@ -17,7 +17,7 @@
 {% endif %}
 {# For Pattern Lab: The icon_url is defined in _data/paths.json. No action is required #}
 {# For Drupal: The icon_url is defined in the following line. No action is required #}
-{% set icon_url = icon_url|default(directory ? '/' ~ un_geneva_design_system_path ~ '/dist/img/sprite/' : '/img/sprite/') %}
+{% set icon_url = icon_url|default(directory ? '' ~ un_geneva_design_system_path ~ '/dist/img/sprite/' : '/img/sprite/') %}
 {% set icon_role = icon_role|default('img') %}
 
 {{ attach_library('un_geneva_design_system/sprite') }}
