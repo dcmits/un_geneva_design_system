@@ -10,7 +10,7 @@ items: #rows
     # Image
     card_img_modifiers:
     card_img_blockname:
-    card_img_src: "https://placeimg.com/1280/920/nature"
+    card_img_src: "https://picsum.photos/1280/920"
     card_img_alt: "This is the card image's alt text"
     card_image_output_image_tag: TRUE
 
@@ -52,7 +52,7 @@ items: #rows
     # Image
     card_img_modifiers:
     card_img_blockname:
-    card_img_src: "https://placeimg.com/1280/920/nature"
+    card_img_src: "https://picsum.photos/1280/920"
     card_img_alt: "This is the card image's alt text"
     card_image_output_image_tag: TRUE
 
@@ -93,7 +93,7 @@ items: #rows
     # Image
     card_img_modifiers:
     card_img_blockname:
-    card_img_src: "https://placeimg.com/1280/920/nature"
+    card_img_src: "https://picsum.photos/1280/920"
     card_img_alt: "This is the card image's alt text"
     card_image_output_image_tag: TRUE
 
@@ -135,7 +135,7 @@ items: #rows
     # Image
     card_img_modifiers:
     card_img_blockname:
-    card_img_src: "https://placeimg.com/1280/920/nature"
+    card_img_src: "https://picsum.photos/1280/920"
     card_img_alt: "This is the card image's alt text"
     card_image_output_image_tag: TRUE
 

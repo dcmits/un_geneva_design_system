@@ -2,16 +2,16 @@ links:
   - 0:
     link_uri: http://example.org
     link_title: Example text link with image
-    image: 'https://placeimg.com/220/220/nature'
+    image: 'https://picsum.photos/220/220'
   - 1:
     link_uri: http://example.org
     link_title: Example text link with image
-    image: 'https://placeimg.com/220/220/nature'
+    image: 'https://picsum.photos/220/220'
   - 2:
     link_uri: http://example.org
     link_title: Example text link with image
-    image: 'https://placeimg.com/220/220/nature'
+    image: 'https://picsum.photos/220/220'
   - 3:
     link_uri: http://example.org
     link_title: Example text link with image
-    image: 'https://placeimg.com/220/220/nature'
+    image: 'https://picsum.photos/220/220'
