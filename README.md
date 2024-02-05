@@ -16,7 +16,7 @@ Default components provided by the design system:
     "type": "package",
     "package": {
         "name": "dcmits/un_geneva_design_system",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "type": "drupal-theme",
         "source": {
         "type" : "git",

@@ -1,26 +1,18 @@
 {
-    "name": "emulsify-ds/emulsify-drupal",
-    "description": "Storybook development + Webpack Build + Drupal 8 theme",
+    "name": "dcmits/un_geneva_design_system",
+    "description": "Custom design system starterkit theme for UN Geneva",
     "type": "drupal-theme",
-    "homepage": "http://emulsify.info",
+    "homepage": "https://www.ungeneva.org",
     "license": "GPL-2.0-only",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "authors": [
       {
-        "name": "Brian Lewis",
-        "email": "brian@fourkitchens.com"
+        "name": "Bogdan Dinu",
+        "email": "bogdanradu.dinu@un.org"
       },
       {
-          "name": "Chris Martin",
-          "email": "chris.martin@fourkitchens.com"
-      },
-      {
-          "name": "Evan Willhite",
-          "email": "evan@fourkitchens.com"
-      },
-      {
-          "name": "Randy Oest",
-          "email": "randy@fourkitchens.com"
+          "name": "Serge Melis",
+          "email": "serge.melis@un.org"
       }
     ],
     "repositories": {

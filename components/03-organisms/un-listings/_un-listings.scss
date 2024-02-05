@@ -1,81 +1,89 @@
 // News / Press Releases / Briefings listings
 .un-listings-box {
-    @include box-shadow-standout;
-  
-    display: table;
-    font-size: small;
-    height: 100px;  // will hold titles spanning over 2 lines
-    width: 100%;
-    margin: 20px 0;
-  
-    .un-listings-box-inner {
-      display: table-cell;
-      background-color: $white;
-      color: $black;
-      padding: 20px;
+  @include box-shadow-standout;
+
+  display: table;
+  font-size: small;
+  height: 100px;  // will hold titles spanning over 2 lines
+  width: 100%;
+  margin: 20px 0;
+
+  .un-listings-box-inner {
+    display: table-cell;
+    background-color: $white;
+    color: $black;
+    padding: 20px;
+    transition: all 0.5s ease;
+    vertical-align: middle;
+
+    .item-summary {
+      margin-top: 10px;
+    }
+
+    .item-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .item-type {
+      color: $blue-text;
+      padding-bottom: 5px;
       transition: all 0.5s ease;
-      vertical-align: middle;
-  
-      .item-summary {
-        margin-top: 10px;
+
+      &:empty {
+        display: none;
       }
-  
-      .item-title {
-        font-size: 1.5em;
-        font-weight: bold;
-        margin: 0;
-      }
-  
-      .item-type {
-        color: $blue-text;
-        padding-bottom: 5px;
-        transition: all 0.5s ease;
-  
-        &:empty {
-          display: none;
-        }
-  
-        &::before {
-          content: "/ ";
-        }
-      }
-    }
-  
-    .un-listings-box-aside {
-      display: table-cell;
-      background-color: $gray-300;
-      color: $white;
-      font-size: 1.25em;
-      padding: 20px;
-      text-align: center;
-      vertical-align: middle;
-      width: 150px;
-    }
-  
-    &:hover,
-    &:focus {
-      .un-listings-box-inner {
-        background-color: $blue;
-        color: $white;
-  
-        .item-type {
-          color: $moderate-gray;
-        }
-      }
-    }
-  
-    &.no-hover {
-      &:hover,
-      &:focus {
-        .un-listings-box-inner {
-          background-color: $white;
-          color: inherit;
-  
-          .item-type {
-            color: inherit;
-          }
-        }
+
+      &::before {
+        content: "/ ";
       }
     }
   }
   
+  .un-listings-box-extra {
+  }
+
+  .un-listings-box-aside {
+    display: table-cell;
+    background-color: $gray-300;
+    color: $white;
+    font-size: 1.25em;
+    padding: 20px;
+    text-align: center;
+    vertical-align: middle;
+    width: 150px;
+  }
+
+  &:hover,
+  &:focus {
+    .un-listings-box-inner {
+      background-color: $blue;
+      color: $white;
+
+      .item-type {
+        color: $moderate-gray;
+      }
+
+      a {
+        transition: all 0.5s ease;
+        color: $white;
+      }
+    }
+  }
+
+  &.no-hover {
+    &:hover,
+    &:focus {
+      .un-listings-box-inner {
+        background-color: $white;
+        color: inherit;
+
+        .item-type {
+          color: inherit;
+        }
+      }
+    }
+  }
+
+}

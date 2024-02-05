@@ -1,7 +1,7 @@
 {
-  "name": "emulsify-drupal",
-  "version": "1.0.0",
-  "description": "Storybook development + Webpack Build + Drupal 8 theme",
+  "name": "un-geneva-design-system",
+  "version": "1.0.2",
+  "description": "Custom design system starterkit theme for UN Geneva",
   "keywords": [
     "component library",
     "design system",
@@ -10,8 +10,8 @@
     "storybook",
     "styleguide"
   ],
-  "author": "Four Kitchens <shout@fourkitchens.com>",
-  "license": "ISC",
+  "author": "Bogdan Dinu <bogdanradu.dinu@un.org>",
+  "license": "GPL-2.0-only",
   "scripts": {
     "a11y": "npm run storybook-build && ./scripts/a11y.js -r",
     "build": "webpack --config ./webpack/webpack.prod.js",

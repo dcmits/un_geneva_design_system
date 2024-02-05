@@ -1,0 +1,14 @@
+{% set item_attributes = attributes ? attributes : create_attribute() %}
+<div {{ item_attributes.addClass('un-listings-box') }}>
+  <div class="un-listings-box-aside">{{ aside|raw }}</div>
+  <div class="un-listings-box-inner">
+    <div class="un-listings-box-main">
+      <div class="item-type">{{ type|raw }}</div>
+      <div class="item-title">{{ title }}</div>
+      <div class="item-summary">{{ body|raw }}</div>
+    </div>
+    {% if extra %}
+      <div class="un-listings-box-extra">{{ extra|raw }}</div>
+    {% endif %}
+  </div>
+</div>
