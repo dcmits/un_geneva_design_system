@@ -1,14 +1,14 @@
 {% if directory %}
-  {% if item['#node'].hasFiled('field_featured_video') and item['#node'].field_featured_video[0].entity %}
+  {% if item['#node'].hasField('field_featured_video') and item['#node'].field_featured_video[0].entity %}
     {% set has_video = true %}
     {% set video_embed_url = item['#node'].field_featured_video[0].entity.field_media_oembed_video.value|oembed_url %}
   {% else %}
     {% set has_video = false %}
   {% endif %}
 
-  {% if item['#node'].hasFiled('field_featured_image') and item['#node'].field_featured_image[0].entity %}
+  {% if item['#node'].hasField('field_featured_image') and item['#node'].field_featured_image[0].entity %}
     {% set image_src = item['#node'].field_featured_image[0].entity|file_uri|image_style('showcase') %}
-  {% elseif item['#node'].hasFiled('field_featured_video') and item['#node'].field_featured_video[0].entity %}
+  {% elseif item['#node'].hasField('field_featured_video') and item['#node'].field_featured_video[0].entity %}
     {% set image_src = item['#node'].field_featured_video[0].entity.thumbnail|file_uri|image_style('showcase') %}
   {% endif %}
 
@@ -29,6 +29,6 @@
     {% include '@atoms/images/image/_image.twig' with item %}
   </article>
   {% if has_video %}
-    <a href="{{ video_embed_url }}" class="colorbox-iframe" title="Play video">play video</a>
+    <a href="{{ video_embed_url }}" class="colorbox-iframe" title="{{ 'Play video'|t }}"><span>&nbsp;</span></a>
   {% endif %}
 </div>
