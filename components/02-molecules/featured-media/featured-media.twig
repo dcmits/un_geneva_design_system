@@ -22,6 +22,8 @@
   {% endif %}
 {% endif %}
 
+{{ attach_library('un_geneva_design_system/featured_media') }}
+
 <div class="field_featured_image {% if has_video %}with-video-embed{% endif %}">
   <article class="image">
     {% include '@atoms/images/image/_image.twig' with item %}
