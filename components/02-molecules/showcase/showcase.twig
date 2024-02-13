@@ -2,7 +2,6 @@
   {% if item['#node'].field_featured_video[0].entity %}
     {% set has_video = true %}
     {% set video_embed_url = item['#node'].field_featured_video[0].entity.field_media_oembed_video.value|oembed_url %}
-    <a href="https://novarnish.ungeneva.ddev.site/en/media/oembed?url=https%3A//webtv.un.org/en/asset/k1y/k1y3z3qfxl&max_width=810&max_height=457&hash=AyfPWgA9hOyHfciDopbZ3bZ7AgAWuTB9TbyH9OA_pRw" class="colorbox-iframe">open colorbox</a>
   {% else %}
     {% set has_video = false %}
   {% endif %}
