@@ -1,0 +1,9 @@
+.field_featured_image {
+  position: relative;
+
+  &.with-video-embed {
+    .colorbox-iframe {
+      
+    }
+  }
+}

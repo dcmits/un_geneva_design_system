@@ -1,5 +1,18 @@
 {% if directory %}
-  {% set image_src = item['#node'].field_featured_image[0].entity|file_uri|image_style('showcase') %}
+  {% if item['#node'].field_featured_video[0].entity %}
+    {% set has_video = true %}
+    {% set video_embed_url = item['#node'].field_featured_video[0].entity.field_media_oembed_video.value|oembed_url %}
+    <a href="https://novarnish.ungeneva.ddev.site/en/media/oembed?url=https%3A//webtv.un.org/en/asset/k1y/k1y3z3qfxl&max_width=810&max_height=457&hash=AyfPWgA9hOyHfciDopbZ3bZ7AgAWuTB9TbyH9OA_pRw" class="colorbox-iframe">open colorbox</a>
+  {% else %}
+    {% set has_video = false %}
+  {% endif %}
+
+  {% if item['#node'].field_featured_image[0].entity %}
+    {% set image_src = item['#node'].field_featured_image[0].entity|file_uri|image_style('showcase') %}
+  {% elseif item['#node'].field_featured_video[0].entity %}
+    {% set image_src = item['#node'].field_featured_video[0].entity.thumbnail|file_uri|image_style('showcase') %}
+  {% endif %}
+
   {% set title = item['#node'].getTitle %}
   {% set subtitle = item['#node'].field_subtitle.value %}
   {% if item['#node'].body[0].value %}
@@ -31,11 +44,7 @@
         } %}
       </div>
       <div class="field_subtitle">{{ subtitle }}</div>
-      <div class="field_featured_image">
-        <article class="image">
-          {% include '@atoms/images/image/_image.twig' with item %}
-        </article>
-      </div>
+      {% include '@molecules/featured-media/featured-media.twig' with item %}
       <div class="field_body">
         {{ body }}
       </div>
@@ -60,11 +69,7 @@
       </div>
   {% else %}
     <div class="layout__region layout__region--first">
-      <div class="field_featured_image">
-        <article class="image">
-          {% include '@atoms/images/image/_image.twig' with item %}
-        </article>
-      </div>
+      {% include '@molecules/featured-media/featured-media.twig' with item %}
     </div>
     <div class="layout__region layout__region--second">
       <div class="node_title">

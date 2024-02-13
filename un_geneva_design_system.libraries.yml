@@ -53,6 +53,13 @@ collapse-component:
     - core/jquery
     - un_geneva_design_system/collapse
 
+featured_media:
+  js:
+    dist/js/02-molecules/featured-media/featured-media.js: {}
+  dependencies:
+    - core/jquery
+    - colorbox/colorbox
+
 rooms:
   js:
     dist/js/05-pages/room/rooms.js: {}
