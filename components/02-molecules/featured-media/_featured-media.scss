@@ -5,8 +5,13 @@
     .colorbox-iframe {
       display: block;
       position: absolute;
-      top: calc(50% - 30px);
-      left: calc(50% - 30px);
+      top: 0;
+      left: 0;
+      display: flex;
+      bottom: 0;
+      right: 0;
+      align-items: center;
+      justify-content: center;
 
       span {
         display: block;
@@ -24,9 +29,6 @@
       }
 
       @media (min-width: 992px) {
-        top: calc(50% - 40px);
-        left: calc(50% - 40px);
-  
         span {
           width: 80px;
           height: 80px;
