@@ -48,6 +48,12 @@
 
 <div {{ bem(card_base_class, (card_modifiers), card_blockname) }}>
   {% block card_img %}
+      <div class="focus-card__image">
+      {% include '@molecules/featured-media/featured-media.twig' with {
+        item: { '#node': node }
+      } %}
+      </div>
+      {#
     {% if card_video %}
       <div class="focus-card__image">
         <div class="media-video field_featured_video">
@@ -67,6 +73,7 @@
       } %}
       </div>
     {% endif %}
+      #}
   {% endblock %}
   <div {{ bem(card_copy_base_class|default('focus-card__copy'), (card_copy_modifiers), card_copy_blockname) }}>
     {% if card_title %}
