@@ -10,7 +10,7 @@ Default components provided by the design system:
 - page template
 
 ## Usage
-1. Include the custom package in the repositories section of composer.json before the packages.drupal.org
+1. Include the custom package in the repositories section of composer.json before the packages.drupal.org. Replace the dist:url with "https://github.com/dcmits/un_geneva_design_system/archive/main.zip" to automatically pull latest revision.
 ```
 {
     "type": "package",
@@ -24,8 +24,8 @@ Default components provided by the design system:
         "reference" : "main"
         },
         "dist": {
-        "url": "https://github.com/dcmits/un_geneva_design_system/archive/main.zip",
-        "type": "zip"
+            "url": "https://github.com/dcmits/un_geneva_design_system/archive/refs/tags/1.0.2.zip",
+            "type": "zip"
         }
     }
 }
