@@ -2,6 +2,9 @@ import showcasesTemplate from './showcases.twig';
 
 import showcasesData from './showcases.yml';
 
+import 'jquery-colorbox'
+import '../../02-molecules/featured-media/featured-media';
+
 /**
  * Storybook Definition.
  */

@@ -9,6 +9,7 @@ import '../components/fontawesome.scss';
 
 // If in a Drupal project, it's recommended to import a symlinked version of drupal.js.
 import './_drupal.js';
+import './jquery-global.js';
 
 import { initializeRTL } from 'storybook-addon-rtl';
 

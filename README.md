@@ -16,7 +16,7 @@ Default components provided by the design system:
     "type": "package",
     "package": {
         "name": "dcmits/un_geneva_design_system",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "type": "drupal-theme",
         "source": {
         "type" : "git",
@@ -24,7 +24,7 @@ Default components provided by the design system:
         "reference" : "main"
         },
         "dist": {
-            "url": "https://github.com/dcmits/un_geneva_design_system/archive/refs/tags/1.0.2.zip",
+            "url": "https://github.com/dcmits/un_geneva_design_system/archive/refs/tags/1.0.3.zip",
             "type": "zip"
         }
     }

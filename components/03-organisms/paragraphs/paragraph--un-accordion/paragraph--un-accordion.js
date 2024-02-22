@@ -1,6 +1,5 @@
 Drupal.behaviors.collapse = {
   attach(context) {
-    console.log('attached accordion js');
     const links = context.querySelectorAll('[data-toggle="collapse"]');
     Array.from(links).forEach((item,index) => {
       item.addEventListener('click', (e) => {

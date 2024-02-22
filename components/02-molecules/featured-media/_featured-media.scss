@@ -2,38 +2,22 @@
   position: relative;
 
   &.with-video-embed {
-    .colorbox-iframe {
+    .colorbox-iframe::after {
+      content: '';
       display: block;
       position: absolute;
-      top: 0;
       left: 0;
-      display: flex;
       bottom: 0;
-      right: 0;
-      align-items: flex-end;
-      justify-content: flex-start;
-
-      span {
-        display: block;
-        width: 60px;
-        height: 60px;
-        background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><rect width="256" height="256" style="paint-order: fill; fill: rgb(29, 112, 184);"/><g><g><g><path d="M 97.875 69.131 C 98.775 69.631 115.775 81.131 135.475 94.731 C 166.375 115.931 171.575 119.731 172.875 121.631 C 175.475 125.431 175.475 130.531 172.875 134.331 C 171.575 136.231 166.375 140.031 135.475 161.231 C 115.775 174.831 98.775 186.331 97.875 186.831 C 92.275 189.731 85.175 187.431 82.375 181.731 L 81.175 179.231 L 81.175 127.931 L 81.175 76.731 L 82.475 74.231 C 83.775 71.531 86.475 69.231 89.475 68.331 C 91.775 67.531 95.675 67.931 97.875 69.131 Z" style="fill: rgb(255, 255, 255);"/></g></g></g></svg>');
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-      }
-
-      &:hover span {
-        background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><rect width="256" height="256" style="paint-order: fill; fill: rgb(255, 255, 255);"/><g><g><g><path d="M 97.875 69.131 C 98.775 69.631 115.775 81.131 135.475 94.731 C 166.375 115.931 171.575 119.731 172.875 121.631 C 175.475 125.431 175.475 130.531 172.875 134.331 C 171.575 136.231 166.375 140.031 135.475 161.231 C 115.775 174.831 98.775 186.331 97.875 186.831 C 92.275 189.731 85.175 187.431 82.375 181.731 L 81.175 179.231 L 81.175 127.931 L 81.175 76.731 L 82.475 74.231 C 83.775 71.531 86.475 69.231 89.475 68.331 C 91.775 67.531 95.675 67.931 97.875 69.131 Z" style="fill: rgb(29, 112, 184);"/></g></g></g></svg>');
-      }
-
-      @media (min-width: 992px) {
-        span {
-          width: 80px;
-          height: 80px;
-        }
-      }
-  
+      width: 60px;
+      height: 60px;
+      background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><rect width="256" height="256" style="paint-order: fill; fill: rgb(29, 112, 184);"/><g><g><g><path d="M 97.875 69.131 C 98.775 69.631 115.775 81.131 135.475 94.731 C 166.375 115.931 171.575 119.731 172.875 121.631 C 175.475 125.431 175.475 130.531 172.875 134.331 C 171.575 136.231 166.375 140.031 135.475 161.231 C 115.775 174.831 98.775 186.331 97.875 186.831 C 92.275 189.731 85.175 187.431 82.375 181.731 L 81.175 179.231 L 81.175 127.931 L 81.175 76.731 L 82.475 74.231 C 83.775 71.531 86.475 69.231 89.475 68.331 C 91.775 67.531 95.675 67.931 97.875 69.131 Z" style="fill: rgb(255, 255, 255);"/></g></g></g></svg>');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 100;
+    }
+    .colorbox-iframe:hover::after {
+      background-image: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><rect width="256" height="256" style="paint-order: fill; fill: rgb(255, 255, 255);"/><g><g><g><path d="M 97.875 69.131 C 98.775 69.631 115.775 81.131 135.475 94.731 C 166.375 115.931 171.575 119.731 172.875 121.631 C 175.475 125.431 175.475 130.531 172.875 134.331 C 171.575 136.231 166.375 140.031 135.475 161.231 C 115.775 174.831 98.775 186.331 97.875 186.831 C 92.275 189.731 85.175 187.431 82.375 181.731 L 81.175 179.231 L 81.175 127.931 L 81.175 76.731 L 82.475 74.231 C 83.775 71.531 86.475 69.231 89.475 68.331 C 91.775 67.531 95.675 67.931 97.875 69.131 Z" style="fill: rgb(29, 112, 184);"/></g></g></g></svg>');
     }
   }
 }

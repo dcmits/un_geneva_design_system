@@ -1,6 +1,6 @@
 {
   "name": "un-geneva-design-system",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Custom design system starterkit theme for UN Geneva",
   "keywords": [
     "component library",
@@ -38,6 +38,8 @@
     "add-attributes-twig-extension": "^0.1.0",
     "bem-twig-extension": "^0.1.1",
     "concurrently": "^5.3.0",
+    "jquery": "^3.7.1",
+    "jquery-colorbox": "^1.6.4",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

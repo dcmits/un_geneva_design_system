@@ -2,6 +2,7 @@
   {% if item['#node'].hasField('field_featured_video') and item['#node'].field_featured_video[0].entity %}
     {% set has_video = true %}
     {% set video_embed_url = item['#node'].field_featured_video[0].entity.field_media_oembed_video.value|oembed_url %}
+    {% set link_title = item['#node'].getTitle %}
   {% else %}
     {% set has_video = false %}
   {% endif %}
@@ -25,10 +26,13 @@
 {{ attach_library('un_geneva_design_system/featured_media') }}
 
 <div class="field_featured_image {% if has_video %}with-video-embed{% endif %}">
-  <article class="image">
-    {% include '@atoms/images/image/_image.twig' with item %}
-  </article>
   {% if has_video %}
-    <a href="{{ video_embed_url }}" class="colorbox-iframe" title="{{ 'Play video'|t }}"><span>&nbsp;</span></a>
+    <a href="{{ video_embed_url }}" class="colorbox-iframe" title="{{ 'Play video for'|t }} {{ link_title }}">
+  {% endif %}
+      <article class="image">
+        {% include '@atoms/images/image/_image.twig' with item %}
+      </article>
+  {% if has_video %}
+    </a>
   {% endif %}
 </div>

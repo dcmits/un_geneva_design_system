@@ -4,6 +4,7 @@ items: #rows
     # Image
     image_src: "https://picsum.photos/1280/920"
     image_alt: "This is the card image's alt text"
+    video_embed_url: "https://www.youtube.com/watch?v=ntDM3ErkTEU"
 
     # Title
     title:

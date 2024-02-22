@@ -5,7 +5,7 @@ Drupal.behaviors.focusOn = {
       if(item.getElementsByClassName('focus-card__title-link').length > 0) {
         item.style.cursor = 'pointer';
         item.addEventListener('click', (e) => {
-          if(!(e.target instanceof HTMLAnchorElement)) {
+          if(!(e.target instanceof HTMLAnchorElement || jQuery(e.target).parents('a').length > 0)) {
             item.getElementsByClassName('focus-card__title-link')[0].click();
           }
         });

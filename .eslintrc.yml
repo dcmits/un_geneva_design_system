@@ -16,6 +16,7 @@ globals:
   it: true
   describe: true
   Drupal: true
+  jQuery: true
 parser: "@babel/eslint-parser"
 parserOptions:
   requireConfigFile: false

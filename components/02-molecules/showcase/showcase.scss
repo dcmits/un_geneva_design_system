@@ -25,6 +25,14 @@
   .size-medium & {
     .field_featured_image {
       margin: 0.5rem 0;
+
+      @include breakpoint($screen-md-min) {
+        &.with-video-embed .colorbox-iframe::after {
+          width: 80px;
+          height: 80px;
+        }
+      }
+
     }
   }
 
