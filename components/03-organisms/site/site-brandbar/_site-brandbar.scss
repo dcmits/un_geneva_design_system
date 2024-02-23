@@ -82,16 +82,21 @@
         text-align: left;
         appearance: none;
 
-        @include breakpoint(0 $small-max) {
-          width: 90px !important;
-        }
       }
 
       &::after {
         padding-right: 0;
         color: #333;
+      }
 
-        @include breakpoint(0 $small-max) {
+      @include breakpoint(0 $small-max) {
+        padding-right: 0;
+
+        select {
+          width: 90px !important;
+        }
+
+        &::after {
           right:0;
         }
       }
