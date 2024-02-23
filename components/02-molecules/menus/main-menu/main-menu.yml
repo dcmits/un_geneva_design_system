@@ -1,7 +1,7 @@
 menu_items:
   - title: 'About'
     url: '#'
-    description: '<p>Learn more about our work and the UN presence in Geneva</p><p><img src="logo.png"/></p>'
+    description: '<p>Learn more about our work and the UN presence in Geneva</p><p><img src="logo.svg"/></p>'
     below:
       - title: 'Who we are'
         url: '#'

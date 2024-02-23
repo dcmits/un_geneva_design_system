@@ -2,11 +2,11 @@
 {# If `directory` is defined, set the path relative for Drupal.
  # Otherwise, set the path relative to the Component Library. #}
 {% if use_theme_logo %}
-  {% set header__logo_src = directory ? un_geneva_design_system_path ~ '/images/logo.png' : 'logo.png' %}
+  {% set header__logo_src = directory ? un_geneva_design_system_path ~ '/images/logo.svg' : 'logo.svg' %}
 {% elseif site_logo %}
   {% set header__logo_src = site_logo %}
 {% else %}
-  {% set header__logo_src = './logo.png' %}
+  {% set header__logo_src = './logo.svg' %}
 {% endif %}
 
 <header {{ bem(header__base_class) }}>
