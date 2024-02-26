@@ -72,13 +72,14 @@
         <div class="field_links">
           {% for link in links %}
             {% if directory %}
-              {% set link_icon = link.entity.field_link_icon.0.target_id ? drupal_image(link.entity.field_link_icon.0.entity|file_uri)|render : default_icon %}
+              {% set translated_link = link.entity.hasTranslation(current_language) ? link.entity.getTranslation(current_language) : link.entity %}
+              {% set link_icon = translated_link.field_link_icon.0.target_id ? drupal_image(translated_link.field_link_icon.0.entity|file_uri)|render : default_icon %}
               {% include '@molecules/link-item/link-item.twig' with {
-                'link_uri': link.entity.field_link_info.0.url,
-                'link_title': link.entity.field_link_info.0.title,
+                'link_uri': translated_link.field_link_info.0.url,
+                'link_title': translated_link.field_link_info.0.title,
                 'link_display': 'list',
                 'icon': '<figure>' ~ link_icon  ~ '</figure>',
-                'link_attributes': link.entity.field_link_info.0.url.getOption('attributes')|default([]),
+                'link_attributes': translated_link.field_link_info.0.url.getOption('attributes')|default([]),
               } only %}
             {% else %}
               {% include '@molecules/link-item/link-item.twig' with link %}
