@@ -3,6 +3,7 @@
     {% set has_video = true %}
     {% set video_embed_url = item['#node'].field_featured_video[0].entity.field_media_oembed_video.value|oembed_url %}
     {% set link_title = item['#node'].getTitle %}
+    {% set image_alt = 'Play video for'|t ~ link_title %}
   {% else %}
     {% set has_video = false %}
   {% endif %}
@@ -15,10 +16,11 @@
 
 {% else %}
   {% set image_src = item.image_src %}
-  {% set image_alt = item.image_alt %}
   {% if item.video_embed_url %}
     {% set has_video = true %}
+    {% set image_alt = 'Play video for'|t ~ link_title %}
   {% else %}
+    {% set image_alt = item.image_alt %}
     {% set has_video = false %}
   {% endif %}
 {% endif %}
@@ -27,7 +29,7 @@
 
 <div class="field_featured_image {% if has_video %}with-video-embed{% endif %}">
   {% if has_video %}
-    <a href="{{ video_embed_url }}" class="colorbox-iframe" title="{{ 'Play video for'|t }} {{ link_title }}">
+    <a href="{{ video_embed_url }}" class="colorbox-iframe" title="{{ image_alt }}">
   {% endif %}
       <article class="image">
         {% include '@atoms/images/image/_image.twig' with item %}
