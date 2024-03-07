@@ -31,6 +31,9 @@ Default components provided by the design system:
 }
 ```
 2. Install dependencies (block_class, components:^3.0@beta, emulsify_twig, lang_dropdown, menu_block, twig_tweak, unified_twig_ext)
+```
+composer require drupal/block_class drupal/components:^3.0@beta drupal/emulsify_twig drupal/lang_dropdown drupal/menu_block drupal/twig_tweak drupal/unified_twig_ext
+```
 3. Install the theme
 ```
 composer require dcmits/un_geneva_design_system
@@ -48,16 +51,31 @@ composer require dcmits/un_geneva_design_system
             "removeAttribute method not found on array": "https://www.drupal.org/files/issues/2022-11-18/emulsify_twig-removeattribute_not_found_on_array-3260914-5.patch"
         },
         "drupal/lang_dropdown": {
-            "Fix action attribute of form that triggers XSS alert.": "./web/themes/contrib/.patches/lang_dropdown-xss-action.patch"
+            "Fix action attribute of form that triggers XSS alert.": "./web/themes/contrib/un_geneva_design_system/.patches/lang_dropdown-xss-action.patch"
         }
     }
 ```
+if you do not have composer patches installed run:
+```
+composer require cweagans/composer-patches
+```
+run composer update to patch the modules
+```
+composer update
+```
 5. Generate new theme (using the Drupal core starter kit theme generation script)
+First make sure the custom theme folder exists
+```
+mkdir web/themes/custom
+```
+generate theme
 ```
 php web/core/scripts/drupal generate-theme [new_theme] --path themes/custom --starterkit un_geneva_starterkit --name="[New theme name]"
 ```
 [new_theme] should be lowercase letters and digits and underscores (it shouldn't start with a digit)
-6. Install and set as default the new theme from the Appeareance menu
+
+6. Install and set as default the new theme from the Appeareance menu. Also do a cache rebuild after installing the new theme.
+
 7. Update the theme settings (Site name, Secondary site name, social media share image, default banner image)
 
 ### Updating the local version of the design system
