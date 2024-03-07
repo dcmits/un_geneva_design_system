@@ -27,4 +27,4 @@ regions:
   block_reference_region: 'Block Reference Region (Hidden)'
 logo: images/logo.svg
 starterkit: true
-version: 1.0.1
+version: 1.0.3
