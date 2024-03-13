@@ -207,7 +207,7 @@ function un_geneva_design_system_preprocess_ds_entity_view(&$variables) {
  *
  * Outputs empty alt text when it is only quotes ("").
  */
-function un_geneva_desing_system_preprocess_image(&$variables) {
+function un_geneva_design_system_preprocess_image(&$variables) {
 
   if (!empty($variables['alt']) && (($variables['alt'] === '""') || ($variables['alt'] === ' '))) {
     $variables['alt'] = '';
