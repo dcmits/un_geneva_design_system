@@ -5,16 +5,34 @@
   {% set item_attributes = attributes ? attributes : create_attribute() %}
   {% set item_attributes_text = item_attributes %}
 {% endif %}
+{% if not time_icon %}
+  {% set time_icon = 'fa-regular fa-clock' %}
+{% endif %}
+{% if not date_icon %}
+  {% set date_icon = 'fa-regular fa-calendar-days' %}
+{% endif %}
+{% if not location_icon %}
+  {% set location_icon = 'fa-solid fa-location-dot' %}
+{% endif %}
+{% if not audio_icon %}
+  {% set audio_icon = 'fa-solid fa-headphones' %}
+{% endif %}
+{% if not transcripts_icon %}
+  {% set transcripts_icon = 'fa-solid fa-file-lines' %}
+{% endif %}
+{% if not private_icon %}
+  {% set private_icon = 'fa fa-lock' %}
+{% endif %}
 <div {{ item_attributes }}>
   <div class="meeting-list-item--meta">
     {% if date %}
       <div class="meeting-list-item--meta--date">
-        <i class="fa fa-calendar"></i>&nbsp;{{ date }}
+        <i class="{{ date_icon }}"></i>&nbsp;{{ date }}
       </div>
     {% endif %}
     {% if time %}
       <div class="meeting-list-item--meta--time">
-        <i class="fa fa-clock-o"></i>&nbsp;{{ time }}
+        <i class="{{ time_icon }}"></i>&nbsp;{{ time }}
       </div>
     {% endif %}
     {% if room %}
@@ -22,7 +40,7 @@
         {% if room_link %}
           <a href="{{ room_link }}" title="{{ room }}">
         {% endif %}
-            <i class="fa fa-map-marker"></i>&nbsp;{{ room }}
+            <i class="{{ location_icon }}"></i>&nbsp;{{ room }}
         {% if room_link %}
           </a>
         {% endif %}
@@ -36,18 +54,18 @@
       <div class="meeting-list-item--recordings">
         {% if audio %}
           <div class="meeting-list-item--languages" title="{{ 'Supported audio languages'|t }}">
-            <i class="fa fa-headphones"></i>&nbsp;{{ audio }}
+            <i class="{{ audio_icon }}"></i>&nbsp;{{ audio }}
           </div>
         {% endif %}
         {% if transcripts %}
           <div class="meeting-list-item--transcripts" title="{{ 'Supported transcript languages'|t }}">
-            <i class="fa fa-file-text"></i>&nbsp;{{ transcripts }}
+            <i class="{{ transcripts_icon }}"></i>&nbsp;{{ transcripts }}
           </div>
         {% endif %}
       </div>
     </div>
     {% if private %}
-      <div class="meeting-list-item--status"><span class="meeting-list-item--visibility" title="{{ 'Private meeting'|t }}"><i class="fa fa-lock"></i></span></div>
+      <div class="meeting-list-item--status"><span class="meeting-list-item--visibility" title="{{ 'Private meeting'|t }}"><i class="{{ private_icon }}"></i></span></div>
     {% endif %}
     {% if link %}
       <div class="meeting-list-item--link"><a href="{{ link }}" class="button button--alt">{{ 'Listen'|t }}</a></div>
