@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const twigDrupal = require('twig-drupal-filters');
 const twigBEM = require('bem-twig-extension');
+const twigCreateAttribute = require('./create_attribute.function.js');
 const twigAddAttributes = require('add-attributes-twig-extension');
 const twigDefaultBannerImage = require('./default_banner_image.function.js');
 /**
@@ -56,5 +57,6 @@ module.exports.setupTwig = function setupTwig(twig) {
   twigDrupal(twig);
   twigBEM(twig);
   twigAddAttributes(twig);
+  twigCreateAttribute(twig);
   return twig;
 };

@@ -6,6 +6,8 @@ use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Url;
 use Drupal\Component\Utility\Html;
 use Drupal\file\Entity\File;
+use Drupal\node\NodeInterface;
+use Drupal\taxonomy\TermInterface;
 
 /**
  * @file
@@ -82,6 +84,31 @@ function un_geneva_design_system_preprocess_page(&$variables) {
     $variables['is_front'] = true;
   }
 }
+
+function un_geneva_design_system_preprocess_taxonomy_term(&$variables) {
+  if (($entity = \Drupal::routeMatch()->getParameter('taxonomy_term')) || ($entity = \Drupal::routeMatch()->getParameter('taxonomy_term_preview'))) {
+    if ($entity instanceof TermInterface) {
+      $variables['#entity_type'] = 'taxonomy_term';
+      $variables['#bundle'] = $entity->bundle();
+    }
+  }
+}
+
+function un_geneva_design_system_preprocess_layout(&$variables) {
+  if (($entity = \Drupal::routeMatch()->getParameter('taxonomy_term')) || ($entity = \Drupal::routeMatch()->getParameter('taxonomy_term_preview'))) {
+    if ($entity instanceof TermInterface) {
+      $variables['content']['#entity_type'] = 'taxonomy_term';
+      $variables['content']['#bundle'] = $entity->bundle();
+    }
+  }
+  else if (($node = \Drupal::routeMatch()->getParameter('node')) || ($node = \Drupal::routeMatch()->getParameter('node_preview'))) {
+    if ($node instanceof NodeInterface) {
+      $variables['content']['#entity_type'] = 'node';
+      $variables['content']['#bundle'] = $node->bundle();
+    }
+  }
+}
+
 
 function un_geneva_design_system_get_default_banner() {
 
@@ -191,6 +218,12 @@ function un_geneva_design_system_preprocess_node(&$variables) {
 
   $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
   $variables['language'] = $language;
+  if (($node = \Drupal::routeMatch()->getParameter('node')) || ($node = \Drupal::routeMatch()->getParameter('node_preview'))) {
+    if ($node instanceof NodeInterface) {
+      $variables['#entity_type'] = 'node';
+      $variables['#bundle'] = $node->bundle();
+    }
+  }
 }
 
 /**

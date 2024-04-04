@@ -1,0 +1,56 @@
+{% if directory %}
+  {% set item_attributes = attributes ? attributes : create_attribute() %}
+  {% set item_attributes_text = item_attributes.addClass('meeting-list-item') %}
+{% else %}
+  {% set item_attributes = attributes ? attributes : create_attribute() %}
+  {% set item_attributes_text = item_attributes %}
+{% endif %}
+<div {{ item_attributes }}>
+  <div class="meeting-list-item--meta">
+    {% if date %}
+      <div class="meeting-list-item--meta--date">
+        <i class="fa fa-calendar"></i>&nbsp;{{ date }}
+      </div>
+    {% endif %}
+    {% if time %}
+      <div class="meeting-list-item--meta--time">
+        <i class="fa fa-clock-o"></i>&nbsp;{{ time }}
+      </div>
+    {% endif %}
+    {% if room %}
+      <div class="meeting-list-item--meta--room">
+        {% if room_link %}
+          <a href="{{ room_link }}" title="{{ room }}">
+        {% endif %}
+            <i class="fa fa-map-marker"></i>&nbsp;{{ room }}
+        {% if room_link %}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+  <div class="meeting-list-item--main">
+    <div class="meeting-list-item--main--wrapper">
+      <div class="meeting-list-item--title">{{ title }}</div>
+      <div class="meeting-list-item--body">{{ body|raw }}</div>
+      <div class="meeting-list-item--recordings">
+        {% if audio %}
+          <div class="meeting-list-item--languages" title="{{ 'Supported audio languages'|t }}">
+            <i class="fa fa-headphones"></i>&nbsp;{{ audio }}
+          </div>
+        {% endif %}
+        {% if transcripts %}
+          <div class="meeting-list-item--transcripts" title="{{ 'Supported transcript languages'|t }}">
+            <i class="fa fa-file-text"></i>&nbsp;{{ transcripts }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    {% if private %}
+      <div class="meeting-list-item--status"><span class="meeting-list-item--visibility" title="{{ 'Private meeting'|t }}"><i class="fa fa-lock"></i></span></div>
+    {% endif %}
+    {% if link %}
+      <div class="meeting-list-item--link"><a href="{{ link }}" class="button button--alt">{{ 'Listen'|t }}</a></div>
+    {% endif %}
+  </div>
+</div>

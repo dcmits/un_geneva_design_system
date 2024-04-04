@@ -1,5 +1,11 @@
-{% set item_attributes = attributes ? attributes : create_attribute() %}
-<div {{ item_attributes.addClass('un-listings-box') }}>
+{% if directory %}
+  {% set item_attributes = attributes ? attributes : create_attribute() %}
+  {% set item_attributes_text = item_attributes.addClass('un-listings-box') %}
+{% else %}
+  {% set item_attributes = attributes ? attributes : create_attribute() %}
+  {% set item_attributes_text = item_attributes %}
+{% endif %}
+<div {{ item_attributes }}>
   <div class="un-listings-box-aside">{{ aside|raw }}</div>
   <div class="un-listings-box-inner">
     <div class="un-listings-box-main">
