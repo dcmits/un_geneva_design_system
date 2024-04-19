@@ -74,9 +74,11 @@ php web/core/scripts/drupal generate-theme [new_theme] --path themes/custom --st
 ```
 [new_theme] should be lowercase letters and digits and underscores (it shouldn't start with a digit)
 
-6. Install and set as default the new theme from the Appeareance menu. Also do a cache rebuild after installing the new theme.
+6. Install and set as default the new theme from the Appeareance menu.
 
-7. Update the theme settings (Site name, Secondary site name, social media share image, default banner image)
+7. Do a cache rebuild after installing the new theme.
+
+8. Update the theme settings (Site name, Secondary site name, social media share image, default banner image)
 
 ### Updating the local version of the design system
 ```

@@ -32,6 +32,7 @@ function un_geneva_design_system_preprocess(&$variables, $hook) {
   
   if($hook == 'region' && $variables['region'] == 'header') {
     $variables['use_theme_logo'] = theme_get_setting('logo.use_default');
+    $variables['site_logo'] = theme_get_setting('logo.url');
   
     $menu_name = 'quicklinks';
     if(\Drupal::entityTypeManager()->getStorage('menu')->load($menu_name)) {
