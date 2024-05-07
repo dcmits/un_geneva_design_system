@@ -93,3 +93,20 @@ composer update dcmits/un_geneva_design_system --no-cache
 ## Emulsify/Storybook
 
 [see emulsify.README.md](emulsify.README.md)
+
+## Customizations
+### Search form
+The search form block is hardcoded in the template because of constraints from the mobile menu and the header markup.
+In order to replace the default search form add the following code in you custom theme's .theme file, replacing CUSTOM_THEME with your theme name (lowercase) and CUSTOM_THEME_HEADER_SEARCH_BLOCK with the block id of your custom block:
+```
+function CUSTOM_THEME_preprocess(&$variables, $hook) {
+  if($hook == 'region' && $variables['region'] == 'header') {
+    $block_search = \Drupal\block\Entity\Block::load('CUSTOM_THEME_HEADER_SEARCH_BLOCK'); // replace mytheme part with your theme name.
+    if($block_search) {
+      $variables['header__search'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($block_search);
+    }
+  }
+}
+```
