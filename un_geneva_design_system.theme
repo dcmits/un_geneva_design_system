@@ -96,16 +96,20 @@ function un_geneva_design_system_preprocess_taxonomy_term(&$variables) {
 }
 
 function un_geneva_design_system_preprocess_layout(&$variables) {
-  if (($entity = \Drupal::routeMatch()->getParameter('taxonomy_term')) || ($entity = \Drupal::routeMatch()->getParameter('taxonomy_term_preview'))) {
-    if ($entity instanceof TermInterface) {
+  if(isset($variables['content']['#taxonomy_term']) && $variables['content']['#taxonomy_term'] instanceof TermInterface) {
+    if(!isset($variables['content']['#entity_type'])) {
       $variables['content']['#entity_type'] = 'taxonomy_term';
-      $variables['content']['#bundle'] = $entity->bundle();
+    }
+    if(!isset($variables['content']['#bundle'])) {
+      $variables['content']['#bundle'] = $variables['content']['#taxonomy_term']->bundle();
     }
   }
-  else if (($node = \Drupal::routeMatch()->getParameter('node')) || ($node = \Drupal::routeMatch()->getParameter('node_preview'))) {
-    if ($node instanceof NodeInterface) {
+  else if(isset($variables['content']['#node']) && $variables['content']['#node'] instanceof NodeInterface) {
+    if(!isset($variables['content']['#entity_type'])) {
       $variables['content']['#entity_type'] = 'node';
-      $variables['content']['#bundle'] = $node->bundle();
+    }
+    if(!isset($variables['content']['#bundle'])) {
+      $variables['content']['#bundle'] = $variables['content']['#node']->bundle();
     }
   }
 }
@@ -221,8 +225,12 @@ function un_geneva_design_system_preprocess_node(&$variables) {
   $variables['language'] = $language;
   if (($node = \Drupal::routeMatch()->getParameter('node')) || ($node = \Drupal::routeMatch()->getParameter('node_preview'))) {
     if ($node instanceof NodeInterface) {
-      $variables['#entity_type'] = 'node';
-      $variables['#bundle'] = $node->bundle();
+      if(!isset($variables['content']['#entity_type'])) {
+        $variables['#entity_type'] = 'node';
+      }
+      if(!isset($variables['content']['#bundle'])) {
+        $variables['#bundle'] = $node->bundle();
+      }
     }
   }
 }
