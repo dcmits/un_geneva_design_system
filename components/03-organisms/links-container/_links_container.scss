@@ -33,3 +33,10 @@
 .topics-sustainable-development-goals .un-links-images-container a.link-item--display-card.link-item--size-small {
   width: 210px;
 }
+
+@media (min-width:$screen-md-min) and (max-width: $screen-lg-max) {
+  .uneven_with_sidebars_and_padding .field_un_column_one .un-links-icons-container .link-item--display-card {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
