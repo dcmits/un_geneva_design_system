@@ -2,7 +2,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: UN Geneva design system (1.0.0)\n"
+"Project-Id-Version: UN Geneva design system (1.0.1)\n"
 "POT-Creation-Date: 2023-10-11 12:34+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Language-Team: Spanish\n"
@@ -37,3 +37,15 @@ msgstr "Menú"
 
 msgid "Welcome to the United Nations"
 msgstr "Bienvenidos a las Naciones Unidas"
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "Terms of use"
+msgstr "Condiciones de utilización"
+
+msgid "Privacy Notice"
+msgstr "Notificación de Privacidad"
+
+msgid "Multilingualism disclaimer"
+msgstr "Descargo de responsabilidad del multilingüismo"

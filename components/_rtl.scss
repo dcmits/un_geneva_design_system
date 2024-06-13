@@ -31,7 +31,7 @@ html[dir="rtl"] {
     }
 
     .header__branding .site-title-secondary {
-        margin-left: 0;
+        margin-left: 1rem;
         margin-right: 0.5rem;
     }
 
@@ -140,6 +140,11 @@ html[dir="rtl"] {
             padding-left: 0;
             border-right: 2px solid #dadede;
             border-left: none;
+        }
+        .header__branding .site-branding.two-lines .site-title-secondary {
+            border-right: 2px solid #dadede;
+            border-left: none;
+
         }
     }
 
