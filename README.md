@@ -55,11 +55,12 @@ composer require dcmits/un_geneva_design_system
         }
     }
 ```
-if you do not have composer patches installed run:
+The patch for enabling stream wrappers from drupal/core works for drupal <= 10.2. For drupal 10.3 and above use "https://www.drupal.org/files/issues/2024-06-24/1308152.patch".
+If you do not have composer patches installed run:
 ```
 composer require cweagans/composer-patches
 ```
-run composer update to patch the modules
+Run composer update to patch the modules
 ```
 composer update
 ```

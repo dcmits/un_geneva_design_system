@@ -67,8 +67,12 @@
     {% if private %}
       <div class="meeting-list-item--status"><span class="meeting-list-item--visibility" title="{{ 'Private meeting'|t }}"><i class="{{ private_icon }}"></i></span></div>
     {% endif %}
-    {% if link %}
-      <div class="meeting-list-item--link"><a href="{{ link }}" class="button button--alt">{{ 'Listen'|t }}</a></div>
-    {% endif %}
+    <div class="meeting-list-item--link">
+      {% if link %}
+        <a href="{{ link }}" class="button button--alt">{{ 'Listen'|t }}</a>
+      {% else %}
+        <em>No recording available</em>
+      {% endif %}
+    </div>
   </div>
 </div>

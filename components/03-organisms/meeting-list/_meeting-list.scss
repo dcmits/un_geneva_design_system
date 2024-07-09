@@ -1,5 +1,6 @@
 .meeting-list-item {
   @include box-shadow-standout;
+  margin-bottom: 1rem;
 
   &--meta {
     background-color: #777;
@@ -9,7 +10,10 @@
     flex-wrap: wrap;
 
     &--date {
-      min-width: 140px;
+      padding-inline-end: 1rem;
+    }
+    &--time {
+      padding-inline-end: 1rem;
     }
     &--room {
       align-self: flex-end;
@@ -30,26 +34,100 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    padding-right: 2rem;
+    flex-wrap: wrap;
+    position: relative;
   }
 
   &--title {
     font-size:1.4rem;
     font-weight: bold;
+    padding-right: 40px;
   }
 
   &--recordings {
     display: flex;
     font-style: italic;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    flex-direction: column;
   }
 
   &--languages,
   &--transcripts {
-    margin-right: 1rem;
+    display: flex;
+    i {
+      min-width: 18px;
+    }
+  }
+
+  &--main--wrapper {
+    width: 100%;
   }
 
   &--status {
     padding: 1rem;
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
   }
+
+  &--link {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  @include breakpoint($screen-xs-min) {
+    margin-bottom: 2rem;
+
+    &--meta {
+      &--date {
+        padding-inline-end: 2rem;
+      }
+      &--time {
+        padding-inline-end: 2rem;
+      }
+    }
+
+    &--title {
+      padding-right: 0;
+    }
+
+    &--main {
+      flex-wrap: nowrap;
+    }
+
+    &--main--wrapper {
+      width: auto;
+    }
+
+    &--recordings {
+      margin-bottom: 0;
+    }
+
+    &--languages,
+    &--transcripts {
+      margin-right: 1rem;
+    }
+
+    &--status {
+      align-self: inherit;
+      position: relative;
+      top: auto;
+      left: auto;
+    }
+
+    &--link {
+      margin-bottom: 0;
+      width: auto;
+    }
+  }
+
+  @include breakpoint($screen-lg-min) {
+    &--recordings {
+      flex-direction: row;
+    }
+  }
+
 }
