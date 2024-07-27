@@ -42,7 +42,7 @@ composer require dcmits/un_geneva_design_system
 ```
     "patches": {
         "drupal/core": {
-            "Add stream wrappers to access extension files": "https://www.drupal.org/files/issues/2021-12-15/1308152-395.patch"
+            "Add stream wrappers to access extension files": "https://www.drupal.org/files/issues/2024-06-24/1308152.patch"
         },
         "drupal/unified_twig_ext": {
             "ExtensionLoader not loading extensions from parent themes": "https://www.drupal.org/files/issues/2023-08-10/unified_twig_ext-load_parent_extensions-3380423-2.patch"
