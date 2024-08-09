@@ -74,6 +74,12 @@ function un_geneva_design_system_preprocess(&$variables, $hook) {
       ->getViewBuilder('block')
       ->view($block_mainnavigation);
     }
+    $block_user_menu = \Drupal\block\Entity\Block::load('un_geneva_theme_useraccountmenu'); // replace mytheme part with your theme name.
+    if($block_user_menu) {
+      $variables['header__useraccountmenu'] = \Drupal::entityTypeManager()
+      ->getViewBuilder('block')
+      ->view($block_user_menu);
+    }
   }
   $variables['current_language'] = \Drupal::languageManager()->getCurrentLanguage()->getId() == 'zh-hans' ? 'zh' : \Drupal::languageManager()->getCurrentLanguage()->getId();
 }

@@ -10,9 +10,11 @@ import mainMenuData from '../../02-molecules/menus/main-menu/main-menu.yml';
 import brandbarData from './site-brandbar/site-brandbar.yml';
 import footerData from './site-footer/site-footer.yml';
 import quicklinks from './site-header/quicklinks.yml';
+import userAccount from './site-header/useraccountmenu.yml';
 import pageLastUpdateData from './page-last-update/page-last-update.yml';
 
 import '../../02-molecules/menus/main-menu/main-menu';
+import '../../02-molecules/menus/user-menu';
 
 /**
  * Storybook Definition.
@@ -30,6 +32,7 @@ export const header = () =>
   siteHeader({
     ...mainMenuData,
     ...quicklinks,
+    ...userAccount,
   });
 
 export const brandbar = () => siteBrandbar(brandbarData);

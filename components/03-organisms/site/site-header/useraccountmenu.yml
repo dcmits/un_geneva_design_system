@@ -1,0 +1,7 @@
+useraccount:
+  - url: '#'
+    title: 'Admin interface'
+  - url: '#'
+    title: 'My account'
+  - url: '#'
+    title: 'Log out'

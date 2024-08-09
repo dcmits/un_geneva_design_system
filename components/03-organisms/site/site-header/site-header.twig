@@ -40,6 +40,11 @@
           {% include "@organisms/site/site-header/_site-header-search.twig" %}
         {% endblock %}
       </div>
+      <div {{ bem('useraccountmenu', [], header__base_class) }}>
+        {% block header__useraccountmenu %}
+          {% include "@organisms/site/site-header/_site-header-useraccountmenu.twig" %}
+        {% endblock %}
+      </div>
     </div>
   </div>
   <div {{ bem('menu', [], header__base_class) }}>

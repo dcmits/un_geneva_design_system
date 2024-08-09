@@ -1,0 +1,15 @@
+{{ attach_library('un_geneva_design_system/user-account-menu') }}
+
+{% if not directory %}
+  {% set menu_items = useraccount %}
+{% endif %}
+<button id="user-account-menu-toggle" aria-expanded="false" aria-label="User account menu" value="User account menu" aria-haspopup="true" aria-controls="user-account-nav"><i class="fa fa-user"></i></button>
+<nav aria-label="user account menu">
+  <div id="user-account-nav" class="user-account-nav">
+    {% include "@molecules/menus/_menu.twig" with {
+      menu_class: "user-account-menu",
+      items: menu_items,
+      ul_attributes: { role: 'menu' },
+    } %}
+  </div>
+</nav>

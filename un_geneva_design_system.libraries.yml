@@ -9,6 +9,12 @@ main-menu:
   dependencies:
     - core/drupal
 
+user-account-menu:
+  js:
+    dist/js/02-molecules/menus/user-menu.js: {}
+  dependencies:
+    - core/drupal
+
 focus-on:
   js:
     dist/js/03-organisms/focus-on/focus-on.js: {}

@@ -1,8 +1,11 @@
 Drupal.behaviors.mainMenu = {
   toggleButton: null,
   menu: null,
+  nav: null,
   context: null,
-  openMenu() {
+  search_height: 0,
+  user_menu_height: 0,
+openMenu() {
     this.nav.classList.add('main-nav--open');
     this.toggleButton.classList.add('toggle-expand--open');
     this.context.body.classList.add('menu--open');
@@ -86,12 +89,14 @@ Drupal.behaviors.mainMenu = {
     }
   },
   menuKeyboardControl(e) {
-    const search = document.getElementById('edit-search-api-fulltext');
+    const search = document.querySelector('.header__search input[type="text"]');
+    //const user_menu = document.querySelector('.header__useraccountmenu button');
     const key = e.key || e.keyCode;
     const dir = document.dir;
     if (e.defaultPrevented) {
       return;
     }
+
     if (Drupal.behaviors.mainMenu.toggleButton === document.activeElement) {
       if (key === 'Escape' || key === 'Esc' || key === 27) {
         Drupal.behaviors.mainMenu.closeMenu();
@@ -375,8 +380,8 @@ Drupal.behaviors.mainMenu = {
 
       // Mobile Menu Show/Hide.
       this.toggleButton.addEventListener('click', (e) => {
-        this.alignMobileMenu();
         this.toggleMenu();
+        this.alignMobileMenu();
         e.preventDefault();
       });
 
@@ -454,11 +459,22 @@ Drupal.behaviors.mainMenu = {
     if(branding) {
       let branding_height = branding.offsetHeight + this.getTopOffset(branding) + 20;
       let search = document.getElementsByClassName('header__search')[0];
+      let user_menu = document.getElementsByClassName('header__useraccountmenu')[0];
       
       if(search) {
         search.style.top = branding_height + 'px';
+        if(search.offsetHeight > 0) {
+          this.search_height = search.offsetHeight;
+        }
       }
-      this.nav.style.top = branding_height + 'px';
+      if(user_menu) {
+        user_menu.style.top = (branding_height + this.search_height) + 'px';
+        if(user_menu.offsetHeight > 0) {
+          let computedStyle = window.getComputedStyle(user_menu); 
+          this.user_menu_height = user_menu.offsetHeight + parseInt(computedStyle.marginTop, 10) - 18;
+        }
+      }
+      this.nav.style.top = (branding_height + this.user_menu_height) + 'px';
     }
   }
 };
