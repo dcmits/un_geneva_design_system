@@ -1,3 +1,7 @@
+currentUser:
+  isAnonymous: true
+  id: 1
+  displayName: JohnDoe
 useraccount:
   - url: '#'
     title: 'Admin interface'

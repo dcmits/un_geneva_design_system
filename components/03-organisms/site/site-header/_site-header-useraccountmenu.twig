@@ -3,7 +3,12 @@
 {% if not directory %}
   {% set menu_items = useraccount %}
 {% endif %}
-<button id="user-account-menu-toggle" aria-expanded="false" aria-label="User account menu" value="User account menu" aria-haspopup="true" aria-controls="user-account-nav"><i class="fa fa-user"></i></button>
+{% if currentUser.isAnonymous %}
+  <a class="login-link" href="{{ path('user.login') }}" title="{{ 'Log in'|t }}"><i class="fa fa-user"></i>&nbsp;{{ 'Log in'|t }}</a>
+{% else %}
+<button id="user-account-menu-toggle" aria-expanded="false" aria-label="User account menu" value="User account menu" aria-haspopup="true" aria-controls="user-account-nav">
+  <i class="fa fa-user"></i>&nbsp;<div class="user-account-label">{{ 'Hello @username'|t({'@username': currentUser.displayName}) }}</div>
+  </button>
 <nav aria-label="user account menu">
   <div id="user-account-nav" class="user-account-nav">
     {% include "@molecules/menus/_menu.twig" with {
@@ -13,3 +18,4 @@
     } %}
   </div>
 </nav>
+{% endif %}

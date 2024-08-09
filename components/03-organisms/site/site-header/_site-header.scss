@@ -407,6 +407,20 @@
   &__useraccountmenu {
     display: none;
 
+    .login-link {
+      margin: 0.5rem;
+      color: $gray;
+      font-weight: 500;
+      padding: 0 0.5rem;
+      border: 2px solid #4b4b4b;
+      border-radius: 4px;
+      background-color: transparent;
+      height: 32px;
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+    }
+
     .menu--open & {
       display:block;
       position: absolute;
@@ -421,6 +435,7 @@
       align-items: center;
       display: flex;
       justify-content: center;
+      flex-direction: column;
 
       body.toolbar-vertical & {
         top: calc(11rem + 39px);
@@ -434,20 +449,28 @@
 
     #user-account-menu-toggle {
       font-size: 1.4rem;
-      width: 2.4rem;
+      width: auto;
       height: 2.4rem;
       text-align: center;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       border: none;
       background-color: transparent;
       cursor: default;
+      padding: 0;
+      min-width: 200px;
+      margin-top: 0.5rem;
+
+      .user-account-label {
+        font-size: 1rem;
+        font-weight: 500;
+      }
     }
 
     #user-account-nav {
       background-color:#eee;
-      padding: 1rem;
+      padding: 0;
       min-width: 200px;
     }
 
@@ -458,7 +481,7 @@
 
       li {
         margin-top: 0.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
 
         &:last-child {
           margin-bottom: 0.5rem;
@@ -473,6 +496,10 @@
 
       #user-account-menu-toggle {
         cursor: pointer;
+        min-width: 0;
+        white-space: nowrap;
+        margin-top: 0;
+        padding: 0 1rem;
       }
 
       #user-account-menu-toggle.toggle-expand--open {
@@ -492,6 +519,7 @@
         padding: 1rem;
         z-index: 101;
         min-width: 180px;
+        padding-top: 0;
       }
   
       .menu--open & {
