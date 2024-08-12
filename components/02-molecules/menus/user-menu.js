@@ -88,7 +88,6 @@ Drupal.behaviors.userAccountMenu = {
       document.body.addEventListener('click', (e) => {
         if(!e.target.closest('.header__useraccountmenu')) {
           this.closeMenu();
-          e.preventDefault();
         }
       });
 
