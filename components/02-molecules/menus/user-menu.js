@@ -88,8 +88,8 @@ Drupal.behaviors.userAccountMenu = {
       document.body.addEventListener('click', (e) => {
         if(!e.target.closest('.header__useraccountmenu')) {
           this.closeMenu();
+          e.preventDefault();
         }
-        e.preventDefault();
       });
 
       context.addEventListener('keydown', this.menuKeyboardControl);
