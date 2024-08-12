@@ -1,5 +1,6 @@
-currentUser:
-  isAnonymous: true
+logged_in: false
+user:
+  isAnonymous: false
   id: 1
   displayName: JohnDoe
 useraccount:

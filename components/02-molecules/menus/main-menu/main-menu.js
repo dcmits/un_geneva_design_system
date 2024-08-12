@@ -472,6 +472,11 @@ openMenu() {
         if(user_menu.offsetHeight > 0) {
           let computedStyle = window.getComputedStyle(user_menu); 
           this.user_menu_height = user_menu.offsetHeight + parseInt(computedStyle.marginTop, 10) - 18;
+          let user_menu_button = document.getElementById('#user-account-menu-toggle');
+          let user_menu_nav = document.getElementById('#user-account-nav');
+          if(user_menu_button && user_menu_nav) {
+            user_menu_nav.style.width = user_menu_button.offsetWidth + 'px';
+          }
         }
       }
       this.nav.style.top = (branding_height + this.user_menu_height) + 'px';

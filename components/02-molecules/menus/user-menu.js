@@ -6,6 +6,7 @@ Drupal.behaviors.userAccountMenu = {
     this.nav.classList.add('user-account-nav--open');
     this.toggleButton.classList.add('toggle-expand--open');
     this.toggleButton.setAttribute('aria-expanded', 'true');
+    this.alignMenu();
   },
   closeMenu() {
     this.nav.classList.remove('user-account-nav--open');
@@ -26,7 +27,6 @@ Drupal.behaviors.userAccountMenu = {
     if (e.defaultPrevented) {
       return;
     }
-    console.log(key);
     if (Drupal.behaviors.userAccountMenu.toggleButton === document.activeElement) {
       if (key === 'Escape' || key === 'Esc' || key === 27) {
         Drupal.behaviors.userAccountMenu.closeMenu();
@@ -76,6 +76,7 @@ Drupal.behaviors.userAccountMenu = {
     this.context = typeof context.getElementById === 'function' ? context : document;
 
     if (this.toggleButton && this.nav) {
+      this.alignMenu();
 
       // Mobile Menu Show/Hide.
       this.toggleButton.addEventListener('click', (e) => {
@@ -94,6 +95,10 @@ Drupal.behaviors.userAccountMenu = {
       context.addEventListener('keydown', this.menuKeyboardControl);
     }
   },
+  alignMenu() {
+    this.nav.style.width = this.toggleButton.offsetWidth + 'px';
+  },
+
   getTopOffset(el) {
     let rect = el.getBoundingClientRect(),
     scrollTop = window.scrollY || document.documentElement.scrollTop;

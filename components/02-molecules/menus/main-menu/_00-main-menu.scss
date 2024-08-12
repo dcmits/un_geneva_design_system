@@ -29,7 +29,7 @@ $main-menu-medium: $medium;
     bottom: 0;
     padding-top: 50px;
     right: 0;
-    z-index: 10;
+    z-index: 100;
 
     body.toolbar-vertical & {
       top: calc(8rem + 39px);
