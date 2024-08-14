@@ -8,11 +8,13 @@ Drupal.behaviors.userAccountMenu = {
     this.toggleButton.setAttribute('aria-expanded', 'true');
     this.alignMenu();
   },
-  closeMenu() {
+  closeMenu(focus = true) {
     this.nav.classList.remove('user-account-nav--open');
     this.toggleButton.classList.remove('toggle-expand--open');
     this.toggleButton.setAttribute('aria-expanded', 'false');
-    this.toggleButton.focus();
+    if(focus) {
+      this.toggleButton.focus();
+    }
   },
   toggleMenu() {
     if (this.toggleButton.getAttribute('aria-expanded') === 'true') {
@@ -87,7 +89,7 @@ Drupal.behaviors.userAccountMenu = {
 
       document.body.addEventListener('click', (e) => {
         if(!e.target.closest('.header__useraccountmenu')) {
-          this.closeMenu();
+          this.closeMenu(false);
         }
       });
 
