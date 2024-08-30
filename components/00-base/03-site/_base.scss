@@ -136,3 +136,11 @@ button, input, optgroup, select, textarea {
 .text-align-center {
   text-align: center;
 }
+
+/* UNOGWEB-966 */
+.sr-only {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
