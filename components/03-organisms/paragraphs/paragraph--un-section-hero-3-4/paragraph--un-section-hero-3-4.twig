@@ -41,9 +41,9 @@
   'class': [
     'middle-hero-banner',
     'un-section',
-    modifiers ? modifiers.contentOrientation : paragraph.field_hero_content_orientation.value,
-    modifiers ? modifiers.contentStyle : 'content-style-' ~ paragraph.field_hero_content_style.value,
-    modifiers ? modifiers.vignette : paragraph.field_hero_vignette_style.value,
+    modifiers ? modifiers.contentOrientation : (paragraph.field_hero_content_orientation.value ? paragraph.field_hero_content_orientation.value : ''),
+    modifiers ? modifiers.contentStyle : (paragraph.field_hero_content_style.value ? 'content-style-' ~ paragraph.field_hero_content_style.value : ''),
+    modifiers ? modifiers.vignette : (paragraph.field_hero_vignette_style.value ? paragraph.field_hero_vignette_style.value : ''),
   ],
 } %}
 
