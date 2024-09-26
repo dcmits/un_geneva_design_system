@@ -69,9 +69,9 @@
     {% endif %}
     <div class="meeting-list-item--link">
       {% if link %}
-        <a href="{{ link }}" class="button button--alt">{{ 'Listen'|t }}</a>
+        <a href="{{ link }}" class="button button--alt">{{ link_title }}</a>
       {% else %}
-        <em>No recording available</em>
+        <em>{{ no_link_text }}</em>
       {% endif %}
     </div>
   </div>

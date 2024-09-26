@@ -35,6 +35,7 @@
   ]
 %}
 <fieldset{{ attributes.addClass(classes).setAttribute('id', fieldset_id) }}>
+{% if legend.title %}
   {%
     set legend_classes = [
       'h2',
@@ -44,6 +45,7 @@
   %}
   {#  Always wrap fieldset legends in a SPAN for CSS positioning. #}
   <legend{{ legend.attributes.addClass(legend_classes) }}>{{ legend.title }}</legend>
+  {% endif %}
   {% if errors %}
     <div>
       {{ errors }}

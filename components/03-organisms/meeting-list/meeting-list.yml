@@ -6,6 +6,8 @@ body: 'HRC/Expert mechanism on the rights of indigenous peoples'
 title: 'Implement UNDRIP on Religious Freedoms, FPIC, land and water'
 private: true
 link: '#listen'
+link_title: 'Listen'
+no_link_text: 'No recording available'
 attributes: 'class="meeting-list-item"'
 audio: 'English, French, Spanish, Russian, Chinese, Arabic'
 transcripts: 'English, French, Spanish, Russian, Chinese, Arabic'
