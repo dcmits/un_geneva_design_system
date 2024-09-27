@@ -12,7 +12,7 @@
 
   @include xs {
     display: block;
-    margin-right: 2%;
+    margin-inline-end: 2%;
     padding: 0.6em 0;
   }
 }
@@ -58,7 +58,7 @@
   padding: 0;
 
   .form-item {
-    margin-left: 1em;
+    margin-inline-start: 1em;
     max-width: 31em;
   }
 }
