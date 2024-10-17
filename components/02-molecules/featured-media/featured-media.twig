@@ -11,9 +11,18 @@
   {% endif %}
 
   {% if translated_item.hasField('field_featured_image') and translated_item.field_featured_image[0].entity %}
-    {% set image_src = translated_item.field_featured_image[0].entity.hasTranslation(current_language) ? translated_item.field_featured_image[0].entity.getTranslation(current_language)|file_uri|image_style('showcase') : translated_item.field_featured_image[0].entity|file_uri|image_style('showcase') %}
-  {% elseif translated_item.hasField('field_featured_video') and translated_item.field_featured_video[0].entity %}
-    {% set image_src = translated_item.field_featured_video[0].entity.hasTranslation(current_language) ? translated_item.field_featured_video[0].entitygetTranslation(current_language).thumbnail|file_uri|image_style('showcase') : translated_item.field_featured_video[0].entity.thumbnail|file_uri|image_style('showcase') %}
+    {% if translated_item.field_featured_image[0].entity.hasTranslation(current_language) %}
+      {% if translated_item.field_featured_image[0].entity.getTranslation(current_language)|file_uri %}
+        {% set image_src = translated_item.field_featured_image[0].entity.getTranslation(current_language)|file_uri|image_style('showcase') %}
+      {% endif %}
+    {% else %}
+      {% if translated_item.field_featured_image[0].entity|file_uri %}
+        {% set image_src = translated_item.field_featured_image[0].entity|file_uri|image_style('showcase') %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+  {% if not image_src is defined and translated_item.hasField('field_featured_video') and translated_item.field_featured_video[0].entity %}
+    {% set image_src = translated_item.field_featured_video[0].entity.hasTranslation(current_language) ? translated_item.field_featured_video[0].entity.getTranslation(current_language).thumbnail|file_uri|image_style('showcase') : translated_item.field_featured_video[0].entity.thumbnail|file_uri|image_style('showcase') %}
   {% endif %}
 
 {% else %}
