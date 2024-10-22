@@ -37,7 +37,6 @@
     }
   }
 
-  &.current-page .link-title,
   &:focus .link-title,
   &:hover .link-title,
   &.link-item--type-image:focus .link-title,
@@ -230,6 +229,12 @@
       width: 100%;
     }
   }
+
+  &.current-page .link-title {
+    background-color: $blue-text;
+    color: $white;
+  }
+
 }
 
 .un-box .un-buttons-container .link-item--display-button {
