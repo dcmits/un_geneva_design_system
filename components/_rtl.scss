@@ -272,5 +272,14 @@ html[dir="rtl"] {
         direction: ltr;
         content: "<";
     }
+
+    .metadata-info {
+        direction: rtl;
+
+        .event-location small i.fa {
+            left: auto;
+            right: 2px;
+        }
+    }
 }
 
