@@ -9,6 +9,14 @@
   padding: 0;
   overflow: hidden;
 
+  .un-rich-text & {
+    margin-bottom: 1rem;
+
+    @include breakpoint($screen-md-min) {
+      margin-bottom: 2rem;
+    }
+  }
+
   .embed-responsive-item,
   iframe,
   embed,
