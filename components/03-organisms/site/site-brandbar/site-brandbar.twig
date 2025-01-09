@@ -8,33 +8,34 @@
         {% block brandbar_content %}
          {{ page.brandbar }}
           {% if languages %}
-
-          <div id="block-languagedropdownswitcher-2">
-            <label id="language-switcher-label" for="edit-lang-dropdown-select" class="control-label sr-only">{{ 'Select your language'|t }}</label>
-            <div class="select-wrapper form-item__dropdown">
-              <select name="lang_dropdown_select" aria-labelledby="language-switcher-label">
-                {% for link in languages %}
-                  <option value="{{ link.link_url }}">{{ link.link_content }}</option>
-                {% endfor %}
-              </select>
+            <div class="block">
+              <div class="language-switcher-links">
+                <nav role="navigation" aria-labelledby="language-switcher-label">
+                  <ul>
+                    {% for link in languages %}
+                      <li>
+                      {% include "@atoms/links/link/link.twig" with {
+                        "link_base_class": link.link_base_class,
+                        "link_content": link.link_content,
+                        "link_url": link.link_url,
+                      } %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </nav>
+              </div>
+              <div class="language-switcher-dropdown">
+                <div class="js-form-item form-item">
+                  <div class="form-item__dropdown">
+                    <select class="form-select form-item__select">
+                      {% for link in languages %}
+                        <option value="{{ link.link_url }}">{{ link.link_content }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="language-switcher-language-url">
-            <nav role="navigation" aria-labelledby="language-switcher-label">
-              <ul>
-                {% for link in languages %}
-                  <li>
-                  {% include "@atoms/links/link/link.twig" with {
-                    "link_base_class": link.link_base_class,
-                    "link_content": link.link_content,
-                    "link_url": link.link_url,
-                  } %}
-                  </li>
-                {% endfor %}
-              </ul>
-            </nav>
-          </div>
           {% endif %}
         {% endblock %}
       </div>

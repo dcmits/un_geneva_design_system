@@ -16,7 +16,7 @@ Default components provided by the design system:
     "type": "package",
     "package": {
         "name": "dcmits/un_geneva_design_system",
-        "version": "1.0.3",
+        "version": "1.1.0",
         "type": "drupal-theme",
         "source": {
         "type" : "git",
@@ -24,15 +24,15 @@ Default components provided by the design system:
         "reference" : "main"
         },
         "dist": {
-            "url": "https://github.com/dcmits/un_geneva_design_system/archive/refs/tags/1.0.3.zip",
+            "url": "https://github.com/dcmits/un_geneva_design_system/archive/refs/tags/1.1.0.zip",
             "type": "zip"
         }
     }
 }
 ```
-2. Install dependencies (block_class, components:^3.0@beta, emulsify_twig, lang_dropdown, menu_block, twig_tweak, unified_twig_ext)
+2. Install dependencies (block_class, components:^3.0@beta, emulsify_twig, menu_block, twig_tweak, unified_twig_ext)
 ```
-composer require drupal/block_class drupal/components:^3.0@beta drupal/emulsify_twig drupal/lang_dropdown drupal/menu_block drupal/twig_tweak drupal/unified_twig_ext
+composer require drupal/block_class drupal/components:^3.0@beta drupal/emulsify_twig drupal/menu_block drupal/twig_tweak drupal/unified_twig_ext
 ```
 3. Install the theme
 ```
@@ -49,9 +49,6 @@ composer require dcmits/un_geneva_design_system
         },
         "drupal/emulsify_twig": {
             "removeAttribute method not found on array": "https://www.drupal.org/files/issues/2022-11-18/emulsify_twig-removeattribute_not_found_on_array-3260914-5.patch"
-        },
-        "drupal/lang_dropdown": {
-            "Fix action attribute of form that triggers XSS alert.": "./web/themes/contrib/un_geneva_design_system/.patches/lang_dropdown-xss-action.patch"
         }
     }
 ```

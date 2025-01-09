@@ -27,7 +27,6 @@
         "drupal/block_class": "*",
         "drupal/components": "^2.1",
         "drupal/emulsify_twig": "^2.0",
-        "drupal/lang_dropdown": "*",
         "drupal/menu_block": "*",
         "drupal/unified_twig_ext": "*"
     }

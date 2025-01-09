@@ -50,10 +50,7 @@
   }
 
   // Theme the dropdown based language switcher
-  #block-un-geneva-pl-languagedropdownswitcher-2,
-  #block-languagedropdownswitchercontent,
-  #block-languagedropdownswitcher-2,
-  .block.languagedropdownswitcher {
+  .language-switcher-dropdown {
     display: none;  // Hide or show the appropriate language switcher.
 
     .form-item {
@@ -137,19 +134,16 @@
   }
 
   // Hide or show the appropriate language switcher.
-  .language-switcher-language-url {
+  .language-switcher-links {
     display: block;
   }
 
   @media (max-width: 767px) {
-    #block-un-geneva-pl-languagedropdownswitcher-2,
-    #block-languagedropdownswitchercontent,
-    #block-languagedropdownswitcher-2,
-    .block.languagedropdownswitcher {
+    .language-switcher-dropdown {
       display: block;
     }
 
-    .language-switcher-language-url {
+    .language-switcher-links {
       display: none;
     }
   }

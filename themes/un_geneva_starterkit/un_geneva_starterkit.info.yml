@@ -1,13 +1,12 @@
 name: 'UN Geneva starterkit theme'
 type: theme
 base theme: un_geneva_design_system
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
 dependencies:
   - block_class
   - components
   - emulsify_twig
   - image
-  - lang_dropdown
   - language
   - menu_block
   - twig_tweak
@@ -27,4 +26,4 @@ regions:
   block_reference_region: 'Block Reference Region (Hidden)'
 logo: images/logo.svg
 starterkit: true
-version: 1.0.3
+version: 1.1.0

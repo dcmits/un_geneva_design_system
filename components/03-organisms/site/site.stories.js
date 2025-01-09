@@ -16,6 +16,8 @@ import pageLastUpdateData from './page-last-update/page-last-update.yml';
 import '../../02-molecules/menus/main-menu/main-menu';
 import '../../02-molecules/menus/user-menu';
 
+import './site-brandbar/site-brandbar';
+
 /**
  * Storybook Definition.
  */
