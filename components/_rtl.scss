@@ -281,5 +281,8 @@ html[dir="rtl"] {
             right: 2px;
         }
     }
-}
 
+    a > span[dir="ltr"] {
+        white-space: nowrap;
+    }
+}
