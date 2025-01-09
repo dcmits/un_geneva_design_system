@@ -213,9 +213,13 @@ function un_geneva_design_system_preprocess_block(&$variables) {
 
   if(isset($variables['plugin_id']) && $variables['plugin_id'] == 'language_block:language_content') {
     $options = [];
+    $current = '';
     foreach($variables['content']['#links'] as $lang_code => $url) {
       $url['url']->setOption('language', $url['language']);
       $options[$url['url']->toString()] = $url['title'];
+      if($lang_code == $variables['current_language']) {
+        $current = $url['url']->toString();
+      }
     }
     $variables['content'] = [
       'links' => [
@@ -236,7 +240,8 @@ function un_geneva_design_system_preprocess_block(&$variables) {
         ],
         'content' => [
           '#type' => 'select',
-          '#options' => $options
+          '#options' => $options,
+          '#value' => $current
         ]
       ]
     ];
