@@ -241,11 +241,13 @@ function un_geneva_design_system_preprocess_block(&$variables) {
         'content' => [
           '#type' => 'select',
           '#options' => $options,
-          '#value' => $current
+          '#value' => $current,
+          '#attributes' => [
+            'onchange' => "location = this.value;"
+          ],
         ]
       ]
     ];
-    $variables['#attached']['library'][] = 'un_geneva_design_system/language-switcher-dropdown';
   }
 
 }

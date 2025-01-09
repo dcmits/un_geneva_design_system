@@ -3,12 +3,6 @@ global:
     theme:
       dist/style.css: {}
 
-language-switcher-dropdown:
-  js:
-    dist/js/03-organisms/site/site-brandbar/site-brandbar.js: {}
-  dependencies:
-    - core/drupal
-    - core/jquery
 main-menu:
   js:
     dist/js/02-molecules/menus/main-menu/main-menu.js: {}
