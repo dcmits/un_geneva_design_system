@@ -210,6 +210,39 @@ function un_geneva_design_system_preprocess_block(&$variables) {
   $raw_text = preg_replace('/&(amp;)?#?[a-z0-9]+;/i', '',  $lower_text);
   $raw_text = str_replace('&', 'and', $raw_text);
   $variables['block_id'] = str_replace(' ', '-', trim(preg_replace('/\s+/',' ', $raw_text)));
+
+  if(isset($variables['plugin_id']) && $variables['plugin_id'] 'language_block:language_content') {
+    $options = [];
+    foreach($variables['content']['#links'] as $lang_code => $url) {
+      $url['url']->setOption('language', $url['language']);
+      $options[$url['url']->toString()] = $url['title'];
+    }
+    $variables['content'] = [
+      'links' => [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => [
+            'language-switcher-links'
+          ]
+        ],
+        'content' => $variables['content']
+      ],
+      'dropdown' => [
+        '#type' => 'container',
+        '#attributes' => [
+          'class' => [
+            'language-switcher-dropdown'
+          ]
+        ],
+        'content' => [
+          '#type' => 'select',
+          '#options' => $options
+        ]
+      ]
+    ];
+    $variables['#attached']['library'][] = 'un_geneva_design_system/language-switcher-dropdown';
+  }
+
 }
  
 
