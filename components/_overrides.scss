@@ -89,13 +89,20 @@ html[lang=es] .header__branding {
 }
 
 html[lang="zh-hans"] {
-    direction: rtl;
-
     body {
         font-family: 'Noto Sans SC', 'Roboto', 'Open Sans', 'Arial', sans-serif;
     }
 
     h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Sans SC', 'Roboto', 'Open Sans', 'Arial', sans-serif;
+    }
+
+    .header__branding .site-title-secondary,
+    .header__branding .site-title-secondary span,
+    .focus-card__title,
+    .showcase .node_title h3,
+    .showcase .field_subtitle,
+    h2.content-title {
         font-family: 'Noto Sans SC', 'Roboto', 'Open Sans', 'Arial', sans-serif;
     }
 }
