@@ -88,6 +88,18 @@ html[lang=es] .header__branding {
     }
 }
 
+html[lang="zh-hans"] {
+    direction: rtl;
+
+    body {
+        font-family: 'Noto Naskh Arabic', 'Roboto', 'Open Sans', 'Arial', sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Kufi Arabic', 'Roboto', 'Open Sans', 'Arial', sans-serif;
+    }
+}
+
 .fa-twitter::before {
     content: "\1D54F" !important;
 }
