@@ -372,7 +372,7 @@ openMenu() {
     this.toggleButton = typeof context.getElementById === 'function' ? context.getElementById('toggle-expand') : document.getElementById('toggle-expand');
     this.nav = typeof context.getElementById === 'function' ? context.getElementById('main-nav') : document.getElementById('main-nav');
     this.context = typeof context.getElementById === 'function' ? context : document;
-    if (this.toggleButton && this.nav) {
+    if (this.toggleButton && this.nav && this.toggleButton.offsetParent !== null) {
       const expandMenu = this.nav.getElementsByClassName('expand-sub');
       const mobileButton = context.getElementsByClassName('header__mobile-menu-button');
       const menuLinksWithSubs = context.getElementsByClassName('main-menu__link--with-sub');

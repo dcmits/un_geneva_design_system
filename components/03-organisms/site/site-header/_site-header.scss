@@ -548,6 +548,14 @@
   
       .menu--open & {
       }
+
+      .user-account-menu {
+        li {
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
     }
   }
 
