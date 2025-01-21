@@ -66,6 +66,9 @@
 
 
     /* Only top level */
+    &--active {
+      background-color: $gray-300;
+    }
     &:not(.main-menu__item--sub):hover {
       background-color: $gray-300;
       transition: all 0.2s;

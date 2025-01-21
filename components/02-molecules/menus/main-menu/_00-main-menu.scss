@@ -102,7 +102,7 @@ $main-menu-medium: $medium;
 
       .main-menu__link--sub {
 
-        &.active,
+        &.main-menu__link--active,
         &:active,
         &:hover {
           color: clr(background);
@@ -120,6 +120,18 @@ $main-menu-medium: $medium;
     padding-bottom: 2px; // needed to make the outline visible
     visibility: visible;
     display: block;
+
+    @include large {
+      .main-menu__link--sub {
+
+        &.main-menu__link--active,
+        &:active,
+        &:hover {
+          color: clr(background);
+          background-color: $gray-300;
+        }
+      }
+    }
   }
 }
 

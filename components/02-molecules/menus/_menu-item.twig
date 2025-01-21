@@ -9,7 +9,7 @@
 {% endif %}
 {# Pass original item modifiers down to children #}
 {% set original_item_modifiers = item_modifiers %}
-{% if item.in_active_trail == TRUE %}
+{% if item.in_active_trail == TRUE or (item.url.toString() == path('<current>') and item.url.toString() == path('<front>')) %}
   {% set item_modifiers = item_modifiers|merge(['active']) %}
 {% endif %}
 {% if menu_level > 0 %}
