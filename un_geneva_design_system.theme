@@ -211,7 +211,7 @@ function un_geneva_design_system_preprocess_block(&$variables) {
   $raw_text = str_replace('&', 'and', $raw_text);
   $variables['block_id'] = str_replace(' ', '-', trim(preg_replace('/\s+/',' ', $raw_text)));
 
-  if(isset($variables['plugin_id']) && $variables['plugin_id'] == 'language_block:language_content') {
+  if(isset($variables['base_plugin_id']) && $variables['base_plugin_id'] == 'language_block') {
     $options = [];
     $current = '';
     foreach($variables['content']['#links'] as $lang_code => $url) {

@@ -83,6 +83,8 @@ php web/core/scripts/drupal generate-theme [new_theme] --path themes/custom --st
 rm -rf web/themes/contrib/un_geneva_design_system
 composer update dcmits/un_geneva_design_system --no-cache
 ```
+### Upgrading to 1.1.0
+The version 1.1.0 removes dependency on obsolete lang_dropdown contrib module and adds support for Drupal 11. To upgrade, change the version tag of the design system in the composer repository definition to 1.1.0. Also remove lang_dropdown from the custom theme info.yml dependencies.
 
 ## Extending the design system
 
