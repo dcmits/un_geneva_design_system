@@ -33,6 +33,7 @@ Default components provided by the design system:
 2. Install dependencies (block_class, components:^3.0@beta, emulsify_twig, menu_block, twig_tweak, unified_twig_ext)
 ```
 composer require drupal/block_class drupal/components:^3.0@beta drupal/emulsify_twig drupal/menu_block drupal/twig_tweak drupal/unified_twig_ext
+drush en block_class,components,emulsify_twig,menu_block,twig_tweak,unified_twig_ext
 ```
 3. Install the theme
 ```
