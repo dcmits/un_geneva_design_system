@@ -5,6 +5,7 @@
  * - card_modifiers - array of modifiers to add to the base classname of the wrapper
  * - card_blockname - blockname prepended to the base classname of the wrapper(s) and each component
  *
+ * - card_img - img markup (used for news reference banner)
  * - card_img_src - the actual image file location
  * - card_img_alt - (optional) the alt text for screen readers and when the image cannot load
  * - card_img_url - Url the image should link to. Defaults to card_link_url
@@ -50,30 +51,12 @@
   {% block card_img %}
       <div class="focus-card__image">
       {% include '@molecules/featured-media/featured-media.twig' with {
-        item: { '#node': node }
+        item: { '#node': node },
+        'card_img': card_img,
+        'card_img_src': card_img_src,
+        'card_img_alt': card_img_alt
       } %}
       </div>
-      {#
-    {% if card_video %}
-      <div class="focus-card__image">
-        <div class="media-video field_featured_video">
-          {{ drupal_entity('media', card_video.id) }}
-        </div>
-      </div>
-    {% elseif card_img_src %}
-      <div class="focus-card__image">
-      {% include "@atoms/images/image/responsive-image.twig" with {
-        "img_url": '',
-        "img_src": card_img_src,
-        "img_alt": card_img_alt,
-        "image_link_blockname": card_base_class,
-        "image_blockname": card_base_class,
-        "output_image_tag": card_image_output_image_tag,
-        "image_base_class": card_image_base_class|default('image'),
-      } %}
-      </div>
-    {% endif %}
-      #}
   {% endblock %}
   <div {{ bem(card_copy_base_class|default('focus-card__copy'), (card_copy_modifiers), card_copy_blockname) }}>
     {% if card_title %}

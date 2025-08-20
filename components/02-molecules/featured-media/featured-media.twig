@@ -43,7 +43,11 @@
     <a href="{{ video_embed_url }}" class="colorbox-iframe" title="{{ image_alt }}">
   {% endif %}
       <article class="image">
-        {% include '@atoms/images/image/_image.twig' with item %}
+        {% if translated_item.bundle == 'news' %}
+          {{ card_img }}
+        {% else %}
+          {% include '@atoms/images/image/_image.twig' with item %}
+        {% endif %}
       </article>
   {% if has_video %}
     </a>
